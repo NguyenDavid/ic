@@ -8,6 +8,6 @@
 		<property name="hibernate.show_sql">true</property>
 		<property name="hbm2ddl.auto">update</property>
 	<!-- mapping des entites -->
-		
+		<mapping class="com.projetidoine.entity.User" />
 	</session-factory>
 </hibernate-configuration>

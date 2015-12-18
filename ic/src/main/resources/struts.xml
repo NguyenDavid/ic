@@ -97,10 +97,14 @@
 		</global-exception-mappings>
 		
 		<action name="home" class="firstAction" method="home">
-
 			<result name="input">/view/home.jsp</result>
 			<result name="error">/view/home.jsp</result>
 			<result name="success">/view/home.jsp</result>
+		</action>
+		<action name="login" class="firstAction" method="displayLogin">
+			<result name="input">/view/login.jsp</result>
+			<result name="error">/view/login.jsp</result>
+			<result name="success">/view/login.jsp</result>
 		</action>
 
 		<!-- les actions de la connexion et la deconnexion -->
