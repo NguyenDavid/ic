@@ -21,7 +21,7 @@ public class AuthenticationInterceptor implements Interceptor {
 		// Creation des ressources avant l'exécution de l'interceptor
 	}
 
-	// C'est la methode qui s'excute quand on a une action qui necessite
+	// C'est la methode qui s'execute quand on a une action qui necessite
 	// l'authentification
 	// elle permet de recuperer la session courante, verifier est ce que
 	// l'utilisateur est bien authentifie, et apres invoque l'intercepteur

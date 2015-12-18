@@ -16,7 +16,7 @@
 	<div id="content-wrapper">
 		<div id="content-left" class="hidden-xs">
 			<ul id="left-navigation">
-				<li><a href='<c:url value="/home"/>'>HomePage</a></li>
+				<jsp:include page="left_navigation.jsp"></jsp:include>
 			</ul>
 		</div>
 	
@@ -26,26 +26,13 @@
 				<div class="col-md-9"></div>
 					<div class="row">
 	    				<div class="col-md-2 col-md-offset-5">
-	    					<button type = "button" class = "btn btn-default">mon bouton
-	    					</button>
+	    					<s:form method="post" action="deconnexion">
+								<s:url namespace="/" var="linkDeconnexion" action="deconnexion"></s:url>
+								<a class="btn btn-alert btn-danger" href="${linkDeconnexion}"
+								role="button">Se déconnecter</a>
+	    					</s:form>
 	    				</div>
 	    			</div>
-				
-					<div class="panel panel-back noti-box">
-						<s:form cssClass="navbar-form navbar-right" action="login">
-							<div class="form-group">
-								<s:textfield type="text" name="login" placeholder="Login"
-									cssClass="form-control" />
-							</div>
-							<div class="form-group">
-								<s:textfield type="password" name="password"
-									placeholder="Mot de passe" cssClass="form-control" />
-							</div>
-							<s:actionerror />
-							<br/>
-							<s:submit cssClass="btn btn-success" value="S'authentifier"></s:submit>
-						</s:form>
-					</div>
 <!-- 				</div> -->
 				</div>
 			</div>
