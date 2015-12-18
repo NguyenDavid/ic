@@ -7,7 +7,7 @@ import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
 import com.projetidoine.entity.User;
 
-public class AuhtenticationInterceptor implements Interceptor {
+public class AuthenticationInterceptor implements Interceptor {
 
 	private static final long serialVersionUID = -5011962009065225959L;
 
@@ -33,7 +33,6 @@ public class AuhtenticationInterceptor implements Interceptor {
 				.getInvocationContext().getSession();
 
 		User user = (User) sessionAttributes.get("user");
-
 		if (sessionAttributes == null || user == null) {
 			return Action.INPUT;
 		} else {

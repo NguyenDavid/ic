@@ -31,7 +31,7 @@
 			notre application -->
 		<interceptors>
 			<interceptor name="authentication"
-				class="com.projetidoine.interceptors.AuhtenticationInterceptor"></interceptor>
+				class="com.projetidoine.interceptors.AuthenticationInterceptor"></interceptor>
 			<interceptor-stack name="authStack">
 				<interceptor-ref name="authentication"></interceptor-ref>
 				<interceptor-ref name="defaultStack">
@@ -42,7 +42,7 @@
 		</interceptors>
 
 		<!-- -->
-		<default-action-ref name="/home" />
+		<default-action-ref name="/login" />
 		<!-- <global-results> -->
 		<!-- <result name="error">/view/error.jsp</result> -->
 		<!-- </global-results> -->
@@ -108,7 +108,12 @@
 		</action>
 
 		<!-- les actions de la connexion et la deconnexion -->
-		<action name="login" class="loginAction" method="displayLogin">
+		<action name="register" class="userAction" method="displayRegister">
+			<result name="input">/view/register.jsp</result>
+			<result name="error">/view/register.jsp</result>
+			<result name="success">/view/register.jsp</result>
+		</action>
+		<action name="login" class="userAction" method="displayLogin">
 			<result name="input">/view/login.jsp</result>
 			<result name="error">/view/login.jsp</result>
 			<result name="success">/view/login.jsp</result>
@@ -120,7 +125,13 @@
 
 
 		<!-- les actions pour ajouter, modifier ou supprimer un user -->
-
+		<action name="saveUser" class="userAction" method="saveUser">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+<!-- 			<result name="input">/view/home.jsp</result> -->
+			<result name="input" type="redirect">/home</result>
+			<result name="login">/view/home.jsp</result>
+			<result name="success" type="redirect">/home</result>
+		</action>
 		
 	</package>
 

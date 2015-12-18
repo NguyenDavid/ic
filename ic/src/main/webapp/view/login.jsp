@@ -21,19 +21,21 @@
     			</div>
 			
 				<div class="panel panel-back noti-box">
-					<s:form cssClass="navbar-form navbar-right" action="login">
-						<div class="form-group">
-							<s:textfield type="text" name="login" placeholder="Login"
-								cssClass="form-control" />
-						</div>
-						<div class="form-group">
-							<s:textfield type="password" name="password"
-								placeholder="Mot de passe" cssClass="form-control" />
-						</div>
-						<s:actionerror />
-						<br/>
-						<s:submit cssClass="btn btn-success" value="S'authentifier"></s:submit>
-					</s:form>
+					<s:if test="#session.admin ==null">
+						<s:form cssClass="navbar-form navbar-right" action="login">
+							<div class="form-group">
+								<s:textfield type="text" name="login" placeholder="Login"
+									cssClass="form-control" />
+							</div>
+							<div class="form-group">
+								<s:textfield type="password" name="password"
+									placeholder="Mot de passe" cssClass="form-control" />
+							</div>
+							<s:actionerror />
+							<br/>
+							<s:submit cssClass="btn btn-success" value="S'authentifier"></s:submit>
+						</s:form>
+					</s:if>
 				</div>
 			</div>
 		</div>

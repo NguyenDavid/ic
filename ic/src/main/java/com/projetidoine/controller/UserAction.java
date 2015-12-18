@@ -6,6 +6,7 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 import com.projetidoine.entity.User;
+import com.projetidoine.service.CryptWithMD5;
 import com.projetidoine.service.UserService;
 
 public class UserAction extends ActionSupport implements Preparable {
@@ -19,8 +20,18 @@ public class UserAction extends ActionSupport implements Preparable {
 		this.idUser = null;
 	}
 
+	public String displayRegister(){
+		return SUCCESS;
+	}
+	
 	public String displayLogin(){
-		System.out.println("Dans displayLogin");
+		return SUCCESS;
+	}
+	
+	public String saveUser() {
+		System.out.println("dans saveUser");
+		user.setPassword(CryptWithMD5.cryptWithMD5(user.getPassword()));
+		userService.addUser(user);
 		return SUCCESS;
 	}
 	
