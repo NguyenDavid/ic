@@ -5,7 +5,7 @@ import java.util.Map;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
-//import com.projetdar.entity.Admin;
+import com.projetidoine.entity.User;
 
 public class AuhtenticationInterceptor implements Interceptor {
 
@@ -32,24 +32,24 @@ public class AuhtenticationInterceptor implements Interceptor {
 		Map<String, Object> sessionAttributes = actionInvocation
 				.getInvocationContext().getSession();
 
-//		Admin admin = (Admin) sessionAttributes.get("admin");
-//
-//		if (sessionAttributes == null || admin == null) {
-//			return Action.INPUT;
-//		} else {
-//			Action action = (Action) actionInvocation.getAction();
-//			if (!(admin.getLogin() == null && admin.getPassword() == null)) {
-//				if (action instanceof AdminAware) {
-//					((AdminAware) action).setAdmin(admin);
-//				}
-//				return actionInvocation.invoke();
-//			} else {
-//				return Action.INPUT;
-//			}
-//
-//		}
+		User user = (User) sessionAttributes.get("user");
+
+		if (sessionAttributes == null || user == null) {
+			return Action.INPUT;
+		} else {
+			Action action = (Action) actionInvocation.getAction();
+			if (!(user.getLogin() == null && user.getPassword() == null)) {
+				if (action instanceof UserAware) {
+					((UserAware) action).setUser(user);
+				}
+				return actionInvocation.invoke();
+			} else {
+				return Action.INPUT;
+			}
+
+		}
 		
 		//a enlever
-		return actionInvocation.invoke();
+//		return actionInvocation.invoke();
 	}
 }
