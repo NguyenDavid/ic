@@ -21,8 +21,8 @@
     			</div>
 			
 				<div class="panel panel-back noti-box">
-					<s:if test="#session.admin ==null">
-						<s:form cssClass="navbar-form navbar-right" action="login">
+<%-- 					<s:if test="#session.admin ==null"> --%>
+						<s:form cssClass="navbar-form navbar-right" action="connexion">
 							<div class="form-group">
 								<s:textfield type="text" name="login" placeholder="Login"
 									cssClass="form-control" />
@@ -33,9 +33,10 @@
 							</div>
 							<s:actionerror />
 							<br/>
+							<br/>
 							<s:submit cssClass="btn btn-success" value="S'authentifier"></s:submit>
 						</s:form>
-					</s:if>
+<%-- 					</s:if> --%>
 				</div>
 			</div>
 		</div>

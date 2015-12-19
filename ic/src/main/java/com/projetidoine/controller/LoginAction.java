@@ -13,6 +13,8 @@ import com.projetidoine.service.UserService;
 
 public class LoginAction extends ActionSupport implements SessionAware, ModelDriven<User> {
 	private User user = new User();
+//	private String login;
+//	private String password;
 	private Map<String, Object> sessionAttributes = null;
 	private UserService userService;
 
@@ -23,7 +25,7 @@ public class LoginAction extends ActionSupport implements SessionAware, ModelDri
 	
 	@Override
 	public String execute() {
-		System.out.println("A l'intérieur de l'action LoginAction");
+		System.out.println("A l'interieur de l'action LoginAction");
 		User a = userService.getUserByLogin(user.getLogin());
 		if (a != null) {
 			if (a.getPassword().equals(
@@ -48,6 +50,7 @@ public class LoginAction extends ActionSupport implements SessionAware, ModelDri
 		sessionAttributes = ActionContext.getContext().getSession();
 		sessionAttributes.remove("user");
 		sessionAttributes.clear();
+		System.out.println("Login Action fin deleteSession");
 		return SUCCESS;
 	}
 	
@@ -68,4 +71,21 @@ public class LoginAction extends ActionSupport implements SessionAware, ModelDri
 	public UserService getUserService(){
 		return this.userService;
 	}
+	
+//	public void setLogin(String login){
+//		this.login = login;
+//	}
+//	
+//	public String getLogin(){
+//		return this.login;
+//	}
+//	
+//	public void setPassword(String password){
+//		this.password = password;
+//	}
+//	
+//	public String getPassword(){
+//		return this.password;
+//	}
+	
 }

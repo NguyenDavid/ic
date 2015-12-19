@@ -97,7 +97,7 @@
 		</global-exception-mappings>
 		
 		<action name="home" class="loginAction" method="home">
-<!-- 			<interceptor-ref name="authStack" /> -->
+			<interceptor-ref name="authStack" />
 			<result name="input" type="redirect">/login</result>
 			<result name="error">/view/login.jsp</result>
 			<result name="success">/view/home.jsp</result>
@@ -118,6 +118,12 @@
 			<result name="input">/view/login.jsp</result>
 			<result name="error">/view/login.jsp</result>
 			<result name="success">/view/login.jsp</result>
+		</action>
+		<action name="connexion" class="loginAction">
+			<result name="input">/view/login.jsp</result>
+			<result name="error">/view/login.jsp</result>
+<!-- 			<result name="success">/view/home.jsp</result> -->
+			<result name="success" type="redirect">/home</result>
 		</action>
 		<action name="deconnexion" class="loginAction" method="deleteSession">
 			<result name="success" type="redirect">/login</result>

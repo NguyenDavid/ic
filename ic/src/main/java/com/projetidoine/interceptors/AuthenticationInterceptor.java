@@ -18,7 +18,7 @@ public class AuthenticationInterceptor implements Interceptor {
 
 	@Override
 	public void init() {
-		// Creation des ressources avant l'exécution de l'interceptor
+		// Creation des ressources avant l'execution de l'interceptor
 	}
 
 	// C'est la methode qui s'execute quand on a une action qui necessite

@@ -16,6 +16,9 @@
 	<!-- les differents classes d'actions de l'application -->
 	<bean name="loginAction" class="com.projetidoine.controller.LoginAction"
 		scope="prototype">
+		<property name="userService">
+			<ref bean="userService" />
+		</property>
 	</bean>
 	<bean name="userAction" class="com.projetidoine.controller.UserAction"
 		scope="prototype">
