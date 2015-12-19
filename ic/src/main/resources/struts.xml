@@ -96,6 +96,7 @@
 				result="error" />
 		</global-exception-mappings>
 		
+		
 		<action name="home" class="loginAction" method="home">
 			<interceptor-ref name="authStack" />
 			<result name="input" type="redirect">/login</result>
@@ -107,6 +108,7 @@
 			<result name="login">/view/home.jsp</result>
 			<result name="success">/view/home.jsp</result>
 		</action>
+
 
 		<!-- les actions de la connexion et la deconnexion -->
 		<action name="register" class="userAction" method="displayRegister">
@@ -130,11 +132,10 @@
 		</action>
 		
 
-
 		<!-- les actions pour ajouter, modifier ou supprimer un user -->
 		<action name="saveUser" class="userAction" method="saveUser">
 			<interceptor-ref name="defaultStack"></interceptor-ref>
-<!-- 			<result name="input">/view/home.jsp</result> -->
+<!-- 			<result name="input">/view/home.jsp</result> --><!-- c'est pareil pour le moment -->
 			<result name="input" type="redirect">/home</result>
 			<result name="login">/view/home.jsp</result>
 			<result name="success" type="redirect">/home</result>
