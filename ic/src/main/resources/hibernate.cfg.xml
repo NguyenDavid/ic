@@ -9,5 +9,6 @@
 		<property name="hbm2ddl.auto">update</property>
 	<!-- mapping des entites -->
 		<mapping class="com.projetidoine.entity.User" />
+		<mapping class="com.projetidoine.entity.Event" />
 	</session-factory>
 </hibernate-configuration>
