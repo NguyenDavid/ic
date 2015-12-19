@@ -7,7 +7,7 @@ import com.projetidoine.entity.User;
 /**
  * 
  * UserDAO est l'interface qui regroupe les differentes methodes de la couche
- * d'accees au donnees des users
+ * d'acces au donnees des users
  *
  */
 public interface UserDAO {
@@ -47,7 +47,7 @@ public interface UserDAO {
 	/**
 	 * permet de recuperer un utilisateur en se basant sur son id
 	 * 
-	 * @param login
+	 * @param idUser
 	 *            id de l'utilisateur
 	 */
 	public User getUserById(Long idUser);
