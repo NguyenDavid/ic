@@ -12,6 +12,20 @@
 	rel="stylesheet">
 <title>E-sport</title>
 </head>
+
+<script>
+function turnUpDown(){
+		if(document.getElementById('createEvent').style.display == 'none'){
+    		document.getElementById('createEvent').style.display = 'block';
+    		document.getElementById('newEvent').style.display = 'none';
+  		}
+  		else {
+    		document.getElementById('createEvent').style.display = 'none';
+    		document.getElementById('newEvent').style.display = 'block';
+		}
+}
+</script>
+
 <body>
 	<div id="content-wrapper">
 		<div id="content-left" class="hidden-xs">
@@ -26,15 +40,17 @@
 				<div class="col-md-9">
 				</div>
 				<div class="row">
-<!-- 	    		<div class="col-md-2 col-md-offset-5"> -->
-    					<s:form method="post" action="deconnexion">
-							<s:url namespace="/" var="linkDeconnexion" action="deconnexion"></s:url>
-							<a class="btn btn-alert btn-default" href="${linkDeconnexion}"
-							role="button">Se déconnecter</a>
-    					</s:form>
-<!-- 	    		</div> -->
+   					<s:form method="post" action="deconnexion">
+						<s:url namespace="/" var="linkDeconnexion" action="deconnexion"></s:url>
+						<a class="btn btn-alert btn-default" href="${linkDeconnexion}">Se déconnecter</a>
+   					</s:form>
 	    		</div>
-<!-- 				</div> -->
+<!-- 			</div> -->
+				<div id=createEvent>
+					<a class="btn btn-alert btn-default" onclick="javascript:turnUpDown()">Créer un événement</a>
+				</div>
+				<div id=newEvent style="DISPLAY:none">
+				Insérer ici les champs du nouvel event	
 				</div>
 			</div>
 		</div>
