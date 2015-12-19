@@ -34,7 +34,8 @@ public class AuthenticationInterceptor implements Interceptor {
 
 		User user = (User) sessionAttributes.get("user");
 		if (sessionAttributes == null || user == null) {
-			System.out.println("AuthentificationInterceptor input");
+			System.out.println("user : "+user);
+			System.out.println("AuthentificationInterceptor input1");
 			return Action.INPUT;
 		} else {
 			Action action = (Action) actionInvocation.getAction();
@@ -44,7 +45,7 @@ public class AuthenticationInterceptor implements Interceptor {
 				}
 				return actionInvocation.invoke();
 			} else {
-				System.out.println("AuthentificationInterceptor input");
+				System.out.println("AuthentificationInterceptor input2");
 				return Action.INPUT;
 			}
 

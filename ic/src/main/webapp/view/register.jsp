@@ -13,6 +13,9 @@
 <body>
 	<div id="content-wrapper">
 		<div id="page-inner">
+			<br/><br/><br/>
+			<div class="col-md-4">
+			</div>
 			<div class="col-md-4 col-centered margin-top-xl">
 				<div class="row">
     				<div class="col-md-2 col-md-offset-5">
@@ -24,11 +27,6 @@
 					<s:form method="post" action="saveUser" acceptcharset="UTF-8"
 						cssClass="well">
 						<fieldset>
-							<div class="form-group">
-								<label for="nom">Nom de l'utilisateur</label>
-								<s:textfield type="text" cssClass="form-control" key="Nom de l'utilisateur"
-									name="user.nom" />
-							</div>
 							<div class="form-group">
 								<label for="adresse">Adresse mail</label>
 								<s:textfield type="email" cssClass="form-control"
@@ -45,10 +43,11 @@
 									name="user.password" />
 							</div>
 							<s:submit type="button" cssClass="btn btn-default btn-success "
-								key="Ajouter l'utilisateur">Ajouter l'utilisateur</s:submit>
-			
+								key="Ajouter l'utilisateur">Creer un compte</s:submit>
+							<br/><br/>
+							<a href='<c:url value="/login"/>'>Login</a>
 						</fieldset>
-					</s:form>
+					</s:form>				
 				</div>
 			</div>
 		</div>

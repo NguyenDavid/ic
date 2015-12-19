@@ -22,17 +22,18 @@
 	
 		<div id="content-right">
 			<div id="page-inner">
-<!-- 				<div class="col-md-4 col-centered margin-top-xl"> -->
-				<div class="col-md-9"></div>
-					<div class="row">
-	    				<div class="col-md-2 col-md-offset-5">
-	    					<s:form method="post" action="deconnexion">
-								<s:url namespace="/" var="linkDeconnexion" action="deconnexion"></s:url>
-								<a class="btn btn-alert btn-danger" href="${linkDeconnexion}"
-								role="button">Se déconnecter</a>
-	    					</s:form>
-	    				</div>
-	    			</div>
+<!-- 			<div class="col-md-4 col-centered margin-top-xl"> -->
+				<div class="col-md-9">
+				</div>
+				<div class="row">
+<!-- 	    		<div class="col-md-2 col-md-offset-5"> -->
+    					<s:form method="post" action="deconnexion">
+							<s:url namespace="/" var="linkDeconnexion" action="deconnexion"></s:url>
+							<a class="btn btn-alert btn-default" href="${linkDeconnexion}"
+							role="button">Se déconnecter</a>
+    					</s:form>
+<!-- 	    		</div> -->
+	    		</div>
 <!-- 				</div> -->
 				</div>
 			</div>
