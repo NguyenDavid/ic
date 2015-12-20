@@ -16,21 +16,6 @@ public class UserAction extends ActionSupport implements Preparable {
 		this.user = null;
 		this.idUser = null;
 	}
-
-	public String displayRegister(){
-		return SUCCESS;
-	}
-	
-	public String displayLogin(){
-		return SUCCESS;
-	}
-	
-	public String saveUser() {
-		System.out.println("dans saveUser");
-		user.setPassword(CryptWithMD5.cryptWithMD5(user.getPassword()));
-		userService.addUser(user);
-		return SUCCESS;
-	}
 	
 	public User getUser() {
 		return user;
@@ -50,5 +35,20 @@ public class UserAction extends ActionSupport implements Preparable {
 	
 	public void setUserService(UserService userService) {
 		this.userService = userService;
+	}
+	
+	public String displayRegister(){
+		return SUCCESS;
+	}
+	
+	public String displayLogin(){
+		return SUCCESS;
+	}
+	
+	public String saveUser() {
+		System.out.println("dans saveUser");
+		user.setPassword(CryptWithMD5.cryptWithMD5(user.getPassword()));
+		userService.addUser(user);
+		return SUCCESS;
 	}
 }

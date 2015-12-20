@@ -19,6 +19,8 @@ public class Game {
 	private Long idGame;
 	@Column(name = "NAME", unique = true, nullable = false)
 	private String name;
+	@Column(name = "NBPLAYERSPERMATCH", nullable = false)
+	private int nbPlayersPerMatch;
 	@OneToMany(mappedBy="game")
 	@Column(nullable = true)
 	private List<Event> events;
@@ -26,9 +28,10 @@ public class Game {
 	public Game(){
 	}
 	
-	public Game(String name){
+	public Game(String name, int nbPlayersPerMatch){
 		super();
 		this.name = name;
+		this.nbPlayersPerMatch = nbPlayersPerMatch;
 	}
 	
 	public String getName(){
@@ -37,6 +40,14 @@ public class Game {
 	
 	public void setName(String name){
 		this.name = name;
+	}
+	
+	public int getNbPlayersPerMatch(){
+		return this.nbPlayersPerMatch;
+	}
+	
+	public void setNbPlayersPerMatch(int nbPlayersPerMatch){
+		this.nbPlayersPerMatch = nbPlayersPerMatch;
 	}
 	
 	public List<Event> getEvents(){

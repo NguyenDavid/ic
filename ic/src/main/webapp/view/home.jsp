@@ -8,9 +8,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href='<s:url value="/ressources/css/bootstrap.min.css"/>'
 	rel="stylesheet">
+<link href='<s:url value="/ressources/css/bootstrap.css"/>'
+	rel="stylesheet">
 <link href='<s:url value="/ressources/css/background.css"/>'
 	rel="stylesheet">
+<link href='<s:url value="/ressources/css/bootstrap-datepicker.min.css"/>'
+	rel="stylesheet">
 <script src='<s:url value="/ressources/js/turnUpDown.js"/>'></script>
+<script src='<s:url value="/ressources/js/bootstrap-datepicker.js"/>'></script>
+<script src='<s:url value="/ressources/js/bootstrap-datepicker.min.js"/>'></script>
+<script src='<s:url value="/ressources/js/jquery-1.7.1.min.js"/>'></script>
+<script src='<s:url value="/ressources/js/bootstrap.js"/>'></script>
 <title>E-sport</title>
 </head>
 
@@ -44,31 +52,29 @@
 				</div>
 				<div id=newEvent style="DISPLAY:none">
 					Insérer ici les champs du nouvel event	
-					Créer la liste de Game, de Location, la date et le nombre de joueurs possibles
+					Créer la liste de Game, de Location, la date, le nombre de joueurs possibles et une description éventuelle
 					<s:form method="post" action="saveEvent" acceptcharset="UTF-8">
 						<br/>
-						<label><u>Jeu :</u></label>
-						<br/>
+						<label><u>Jeu :</u></label><br/>
 						<c:forEach items="${listGames}" var="game">
-							<label><input type="radio" name="optradio">${game.name}</label>
+							<label><input type="radio" name="event.game">${game.name}</label>
 							<br/>
 						</c:forEach>
 						<hr>
-						<label><u>Lieu :</u></label>
-						<br/>
+						<label><u>Lieu :</u></label><br/>
 						<c:forEach items="${listLocations}" var="location">
-							<label><input type="radio" name="optradio">${location.name} ${location.address}</label>
+							<label><input type="radio" name="event.location">${location.name} ${location.address}</label>
 							<br/>
 						</c:forEach>
-						<br/>
 						<hr>
 						/////
+						<label><u>Date :</u></label><br/>
 						<div class="container">
 						    <div class="row">
 						        <div class='col-sm-6'>
 						            <div class="form-group">
 						                <div class='input-group date' id='datetimepicker2'>
-						                    <input type='text' class="form-control" />
+						                    <input type='text' class="form-control"/>
 						                    <span class="input-group-addon">
 						                        <span class="glyphicon glyphicon-calendar"></span>
 						                    </span>
@@ -78,13 +84,38 @@
 						        <script type="text/javascript">
 						            $(function () {
 						                $('#datetimepicker2').datetimepicker({
-						                    locale: 'ru'
+						                    locale: 'ru',
+						                    dateFormat: "yy-mm-dd"
 						                });
 						            });
-						        </script>
-						    </div>
-						</div>
+ 						        </script>
+ 						    </div>
+ 						</div>
+
+
+						
 						/////
+						<hr>
+						<label><u>Nombre maximum de joueurs :</u></label><br/>
+						
+						<!-- game.nbPlayersPerMatch == 2 -->
+						<label><input type="radio" name="event.nbPlayers"> 2</label><br/>
+						<label><input type="radio" name="event.nbPlayers"> 4</label><br/>
+						<label><input type="radio" name="event.nbPlayers"> 8</label><br/>
+						<label><input type="radio" name="event.nbPlayers"> 16</label><br/>
+						<label><input type="radio" name="event.nbPlayers"> 32</label><br/>
+						<label><input type="radio" name="event.nbPlayers"> 64</label><br/>
+						
+						<!-- game.nbPlayersPerMatch == 6 -->
+						<label><input type="radio" name="event.nbPlayers"> 6</label><br/>
+						<label><input type="radio" name="event.nbPlayers"> 36</label><br/>
+						
+						<!-- game.nbPlayersPerMatch == 10 -->
+						<label><input type="radio" name="event.nbPlayers"> 10</label><br/>
+						<label><input type="radio" name="event.nbPlayers"> 100</label><br/>
+						<hr>
+						<label><u>Description (facultative) :</u></label><br/>
+						<textarea class="form-control" rows="5"></textarea>
 						<hr>
  						<s:submit type="button" cssClass="btn btn-default btn-primary "
  							key="Créer l'événement">Créer un événement</s:submit>

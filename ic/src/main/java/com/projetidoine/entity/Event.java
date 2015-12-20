@@ -24,6 +24,10 @@ public class Event {
 	private String description;
 	@Column(name = "DATE", nullable = false)
 	private Date date;
+	@Column(name = "NBPLAYERS", nullable = false)
+	private int nbPlayers;
+	@Column(name = "NBMAXPLAYERS", nullable = false)
+	private int nbMaxPlayers;
 	@ManyToMany(cascade=CascadeType.ALL, mappedBy="events")
 	private List<User> users;
 	@ManyToOne
@@ -34,10 +38,14 @@ public class Event {
 	public Event(){
 	}
 	
-	public Event(String description, Game game){
+	public Event(String description, Date date, int nbPlayers, int nbMaxPlayers, Game game, Location location){
 		super();
 		this.description = description;
+		this.date = date;
+		this.nbPlayers = nbPlayers;
+		this.nbMaxPlayers = nbMaxPlayers;
 		this.game = game;
+		this.location = location;
 	}
 	
 	public String getDescription(){
@@ -54,6 +62,22 @@ public class Event {
 	
 	public void setDate(Date date){
 		this.date = date;
+	}
+	
+	public int getNbPlayers(){
+		return this.nbPlayers;
+	}
+	
+	public void setNbPlayers(int nbPlayers){
+		this.nbPlayers = nbPlayers;
+	}
+	
+	public int getNbMaxPlayers(){
+		return this.nbMaxPlayers;
+	}
+	
+	public void setNbMaxPlayers(int nbMaxPlayers){
+		this.nbMaxPlayers = nbMaxPlayers;
 	}
 	
 	public List<User> getUsers(){

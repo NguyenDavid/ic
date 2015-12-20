@@ -131,7 +131,7 @@
 		</action>
 		
 
-		<!-- les actions pour ajouter, modifier ou supprimer un user -->
+		<!-- les actions pour ajouter, modifier ou supprimer un utilisateur -->
 		<action name="saveUser" class="userAction" method="saveUser">
 			<interceptor-ref name="defaultStack"></interceptor-ref>
 			<result name="input">/view/login.jsp</result>
@@ -142,7 +142,7 @@
 		</action>
 		
 		
-		<!-- les actions pour ajouter, modifier ou supprimer une location -->
+		<!-- les actions pour ajouter, modifier ou supprimer une lieu -->
 		<action name="firstLocations" class="locationAction" method="firstLocations">
 			<result name="error" type="redirect">/login</result>
 			<result name="success" type="redirect">/login</result>
@@ -153,7 +153,7 @@
 		</action>
 		
 		
-		<!-- les actions pour ajouter, modifier ou supprimer un game -->
+		<!-- les actions pour ajouter, modifier ou supprimer un jeu -->
 		<action name="firstGames" class="gameAction" method="firstGames">
 			<result name="error" type="redirect">/login</result>
 			<result name="success" type="redirect">/login</result>
@@ -161,6 +161,13 @@
 		<action name="listGames" class="gameAction" method="listGames">
 			<result name="error" type="redirect">/login</result>
 			<result name="success">/view/home.jsp</result>
+		</action>
+		
+		
+		<!-- les actions pour ajouter, modifier ou supprimer un evenement -->
+		<action name="saveEvent" class="eventAction" method="saveEvent">
+			<result name="error" type="redirect">/login</result>
+			<result name="success" type="redirect">/home</result>
 		</action>
 	</package>
 

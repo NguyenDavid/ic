@@ -38,6 +38,12 @@
 			<ref bean="gameService" />
 		</property>
 	</bean>
+	<bean name="eventAction" class="com.projetidoine.controller.EventAction"
+		scope="prototype">
+		<property name="eventService">
+			<ref bean="eventService" />
+		</property>
+	</bean>
 
 	<!-- L'injection des dépendances entre les différentes couches de l'application 
 		par Spring Context -->
