@@ -1,5 +1,8 @@
 package com.projetidoine.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 import com.projetidoine.entity.Location;
@@ -10,6 +13,7 @@ public class LocationAction extends ActionSupport implements Preparable {
 	private Location location;
 	private Long idLocation;
 	private LocationService locationService;
+	private List<Location> listLocations = new ArrayList<Location>();
 	
 	public void prepare() throws Exception {
 		this.location = null;
@@ -39,6 +43,19 @@ public class LocationAction extends ActionSupport implements Preparable {
 	
 	public void setLocationService(LocationService locationService){
 		this.locationService = locationService;
+	}
+	
+	public List<Location> getListLocations(){
+		return this.listLocations;
+	}
+	
+	public void setListLocations(List<Location> listLocations){
+		this.listLocations = listLocations;
+	}
+	
+	public String listLocations(){
+		listLocations = locationService.getAllLocations();
+		return SUCCESS;
 	}
 	
 	//initialise la BD en lieux

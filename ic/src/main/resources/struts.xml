@@ -147,12 +147,20 @@
 			<result name="error" type="redirect">/login</result>
 			<result name="success" type="redirect">/login</result>
 		</action>
+		<action name="listLocations" class="locationAction" method="listLocations">
+			<result name="error" type="redirect">/login</result>
+			<result name="success">/view/home.jsp</result>
+		</action>
 		
 		
 		<!-- les actions pour ajouter, modifier ou supprimer un game -->
 		<action name="firstGames" class="gameAction" method="firstGames">
 			<result name="error" type="redirect">/login</result>
 			<result name="success" type="redirect">/login</result>
+		</action>
+		<action name="listGames" class="gameAction" method="listGames">
+			<result name="error" type="redirect">/login</result>
+			<result name="success">/view/home.jsp</result>
 		</action>
 	</package>
 

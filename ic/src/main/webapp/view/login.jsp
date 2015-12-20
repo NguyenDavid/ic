@@ -13,25 +13,28 @@
 <body>
 	<div id="content-wrapper">
 		<div id="page-inner">
-			<br/><br/><br/>
+			<br/><br/>
 			<div class="col-md-4">
 			</div>
 			<div class="col-md-4 col-centered margin-top-xl">
 				<div class="row">
-    				<div class="col-md-2 col-md-offset-5">
+					<h2>Login</h2>
+<!--     				<div class="col-md-2 col-md-offset-5"> -->
 <!--     					<button type = "button" class = "btn btn-default">mon bouton</button> -->
-    				</div>
+<!--     				</div> -->
     			</div>
 			
 				<div class="panel panel-back noti-box">
-					<s:form cssClass="navbar-form navbar-right" action="connexion">
+					<s:form method="post" action="connexion" acceptcharset="UTF-8" cssClass="well">
 						<div class="form-group">
-							<s:textfield type="text" name="login" placeholder="Login"
+							<label for="login">Login</label>
+							<s:textfield type="text" name="login"
 								cssClass="form-control" />
 						</div>
 						<div class="form-group">
+							<label for="url">Mot de passe</label>
 							<s:textfield type="password" name="password"
-								placeholder="Mot de passe" cssClass="form-control" />
+								cssClass="form-control" />
 						</div>
 						<s:actionerror />
 						<br/>

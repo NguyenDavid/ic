@@ -1,5 +1,8 @@
 package com.projetidoine.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 import com.projetidoine.entity.Game;
@@ -10,6 +13,7 @@ public class GameAction extends ActionSupport implements Preparable {
 	private Game game;
 	private Long idGame;
 	private GameService gameService;
+	private List<Game> listGames = new ArrayList<Game>();
 	
 	public void prepare() throws Exception {
 		this.game = null;
@@ -39,6 +43,19 @@ public class GameAction extends ActionSupport implements Preparable {
 	
 	public void setGameService(GameService gameService){
 		this.gameService = gameService;
+	}
+	
+	public List<Game> getListGames(){
+		return this.listGames;
+	}
+	
+	public void setListGames(List<Game> listGames){
+		this.listGames = listGames;
+	}
+	
+	public String listGames(){
+		listGames = gameService.getAllGames();
+		return SUCCESS;
 	}
 	
 	//initialise la BD en jeux

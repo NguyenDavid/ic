@@ -10,21 +10,11 @@
 	rel="stylesheet">
 <link href='<s:url value="/ressources/css/background.css"/>'
 	rel="stylesheet">
+<script src='<s:url value="/ressources/js/turnUpDown.js"/>'></script>
 <title>E-sport</title>
 </head>
 
-<script>
-function turnUpDown(){
-		if(document.getElementById('createEvent').style.display == 'none'){
-    		document.getElementById('createEvent').style.display = 'block';
-    		document.getElementById('newEvent').style.display = 'none';
-  		}
-  		else {
-    		document.getElementById('createEvent').style.display = 'none';
-    		document.getElementById('newEvent').style.display = 'block';
-		}
-}
-</script>
+
 
 <body>
 	<div id="content-wrapper">
@@ -38,6 +28,9 @@ function turnUpDown(){
 			<div id="page-inner">
 <!-- 			<div class="col-md-4 col-centered margin-top-xl"> -->
 				<div class="col-md-9">
+					<h2>Accueil</h2>
+					<br/>
+					<br/>
 				</div>
 				<div class="row">
    					<s:form method="post" action="deconnexion">
@@ -50,7 +43,52 @@ function turnUpDown(){
 					<a class="btn btn-alert btn-default" onclick="javascript:turnUpDown()">Créer un événement</a>
 				</div>
 				<div id=newEvent style="DISPLAY:none">
-				Insérer ici les champs du nouvel event	
+					Insérer ici les champs du nouvel event	
+					Créer la liste de Game, de Location, la date et le nombre de joueurs possibles
+					<s:form method="post" action="saveEvent" acceptcharset="UTF-8">
+						<br/>
+						<label><u>Jeu :</u></label>
+						<br/>
+						<c:forEach items="${listGames}" var="game">
+							<label><input type="radio" name="optradio">${game.name}</label>
+							<br/>
+						</c:forEach>
+						<hr>
+						<label><u>Lieu :</u></label>
+						<br/>
+						<c:forEach items="${listLocations}" var="location">
+							<label><input type="radio" name="optradio">${location.name} ${location.address}</label>
+							<br/>
+						</c:forEach>
+						<br/>
+						<hr>
+						/////
+						<div class="container">
+						    <div class="row">
+						        <div class='col-sm-6'>
+						            <div class="form-group">
+						                <div class='input-group date' id='datetimepicker2'>
+						                    <input type='text' class="form-control" />
+						                    <span class="input-group-addon">
+						                        <span class="glyphicon glyphicon-calendar"></span>
+						                    </span>
+						                </div>
+						            </div>
+						        </div>
+						        <script type="text/javascript">
+						            $(function () {
+						                $('#datetimepicker2').datetimepicker({
+						                    locale: 'ru'
+						                });
+						            });
+						        </script>
+						    </div>
+						</div>
+						/////
+						<hr>
+ 						<s:submit type="button" cssClass="btn btn-default btn-primary "
+ 							key="Créer l'événement">Créer un événement</s:submit>
+					</s:form>
 				</div>
 			</div>
 		</div>
