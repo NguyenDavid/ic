@@ -19,6 +19,12 @@
 		<property name="userService">
 			<ref bean="userService" />
 		</property>
+		<property name="gameService">
+			<ref bean="gameService" />
+		</property>
+		<property name="locationService">
+			<ref bean="locationService" />
+		</property>
 	</bean>
 	<bean name="userAction" class="com.projetidoine.controller.UserAction"
 		scope="prototype">

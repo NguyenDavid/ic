@@ -1,5 +1,7 @@
 package com.projetidoine.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -7,8 +9,12 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import com.projetidoine.entity.Game;
+import com.projetidoine.entity.Location;
 import com.projetidoine.entity.User;
 import com.projetidoine.service.CryptWithMD5;
+import com.projetidoine.service.GameService;
+import com.projetidoine.service.LocationService;
 import com.projetidoine.service.UserService;
 
 public class LoginAction extends ActionSupport implements SessionAware, ModelDriven<User> {
@@ -16,9 +22,15 @@ public class LoginAction extends ActionSupport implements SessionAware, ModelDri
 	private User user = new User();
 	private Map<String, Object> sessionAttributes = null;
 	private UserService userService;
+	private GameService gameService;
+	private LocationService locationService;
+	private List<Game> listGames = new ArrayList<Game>();
+	private List<Location> listLocations = new ArrayList<Location>();
 
 	public String home(){
 		System.out.println("Dans home");
+		listGames = gameService.getAllGames();
+		listLocations = locationService.getAllLocations();
 		return SUCCESS;
 	}
 	
@@ -69,5 +81,34 @@ public class LoginAction extends ActionSupport implements SessionAware, ModelDri
 	
 	public UserService getUserService(){
 		return this.userService;
-	}	
+	}
+	
+	public void setGameService(GameService gameService){
+		this.gameService = gameService;
+	}
+	
+	public List<Game> getListGames(){
+		return this.listGames;
+	}
+	
+	public void setListGames(List<Game> listGames){
+		this.listGames = listGames;
+	}
+	
+	public String listGames(){
+		listGames = gameService.getAllGames();
+		return SUCCESS;
+	}
+	
+	public void setLocationService(LocationService locationService){
+		this.locationService = locationService;
+	}
+	
+	public List<Location> getListLocations(){
+		return this.listLocations;
+	}
+	
+	public void setListLocations(List<Location> listLocations){
+		this.listLocations = listLocations;
+	}
 }

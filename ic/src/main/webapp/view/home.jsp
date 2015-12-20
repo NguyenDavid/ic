@@ -55,17 +55,30 @@
 					Créer la liste de Game, de Location, la date, le nombre de joueurs possibles et une description éventuelle
 					<s:form method="post" action="saveEvent" acceptcharset="UTF-8">
 						<br/>
+						<div class="col-md-4">
 						<label><u>Jeu :</u></label><br/>
+						<select class="form-control">
 						<c:forEach items="${listGames}" var="game">
-							<label><input type="radio" name="event.game">${game.name}</label>
+<%-- 							<label><input type="radio" name="event.game"> ${game.name}</label> --%>
+							<option value="event.game"> ${game.name}</option>
 							<br/>
 						</c:forEach>
+						</select>
+						</div>
+						<br/><br/><br/>
 						<hr>
+						<div class="col-md-4">
 						<label><u>Lieu :</u></label><br/>
+						<select class="form-control">
 						<c:forEach items="${listLocations}" var="location">
-							<label><input type="radio" name="event.location">${location.name} ${location.address}</label>
+<%-- 							<label><input type="radio" name="event.location"> ${location.name} ${location.address}</label> --%>
+							<option value="event.location"> ${location.name}</option>
+							<label>${location.address}</label>
 							<br/>
 						</c:forEach>
+						</select>
+						</div>
+						<br/><br/><br/>
 						<hr>
 						/////
 						<label><u>Date :</u></label><br/>
@@ -115,7 +128,7 @@
 						<label><input type="radio" name="event.nbPlayers"> 100</label><br/>
 						<hr>
 						<label><u>Description (facultative) :</u></label><br/>
-						<textarea class="form-control" rows="5"></textarea>
+						<textarea class="form-control" rows="5" name="event.description"></textarea>
 						<hr>
  						<s:submit type="button" cssClass="btn btn-default btn-primary "
  							key="Créer l'événement">Créer un événement</s:submit>
