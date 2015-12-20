@@ -7,31 +7,31 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "game")
-public class Game {
+@Table(name = "location")
+public class Location {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID_GAME")
-	private Long idGame;
+	@Column(name = "ID_LOCATION")
+	private Long idLocation;
 	@Column(name = "NAME", nullable = false)
 	private String name;
-	@OneToMany(mappedBy="game")
+	@Column(name = "ADDRESS", nullable = false)
+	private String address;
+	@OneToMany(mappedBy="location")
 	@Column(nullable = true)
-	private List<Event> events;
-	@ManyToOne
-	private Location location;
+	private List<Game> games;
 	
-	public Game(){
+	public Location(){
 	}
 	
-	public Game(String name){
+	public Location(String name, String address){
 		super();
 		this.name = name;
+		this.address = address;
 	}
 	
 	public String getName(){
@@ -42,19 +42,19 @@ public class Game {
 		this.name = name;
 	}
 	
-	public List<Event> getEvents(){
-		return this.events;
+	public String getAddress(){
+		return this.address;
 	}
 	
-	public void setEvents(List<Event> events){
-		this.events = events;
+	public void setAddress(String address){
+		this.address = address;
 	}
 	
-	public Location getLocation(){
-		return this.location;
+	public List<Game> getGames(){
+		return this.games;
 	}
 	
-	public void setLocation(Location location){
-		this.location = location;
+	public void setGames(List<Game> games){
+		this.games = games;
 	}
 }

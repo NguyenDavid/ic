@@ -11,5 +11,6 @@
 		<mapping class="com.projetidoine.entity.User" />
 		<mapping class="com.projetidoine.entity.Event" />
 		<mapping class="com.projetidoine.entity.Game" />
+		<mapping class="com.projetidoine.entity.Location" />
 	</session-factory>
 </hibernate-configuration>

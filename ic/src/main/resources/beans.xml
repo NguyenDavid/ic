@@ -47,6 +47,12 @@
 		<bean id="gameService" class="com.projetidoine.service.GameServiceImpl">
 			<property name="gameDAO" ref="gameDAO" />
 		</bean>
+		<bean id="locationDAO" class="com.projetidoine.dao.LocationDAOImpl">
+			<property name="sessionFactory" ref="sessionFactory" />
+		</bean>
+		<bean id="locationService" class="com.projetidoine.service.LocationServiceImpl">
+			<property name="locationDAO" ref="locationDAO" />
+		</bean>
 
 	<!-- jdbc.properties -->
 	<bean id="propertyConfigurer"
