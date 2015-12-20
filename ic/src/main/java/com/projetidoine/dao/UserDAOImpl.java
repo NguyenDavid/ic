@@ -10,7 +10,7 @@ import com.projetidoine.entity.User;
 @Repository
 public class UserDAOImpl implements UserDAO {
 	/**
-	 * La variable sessionFactory est injecte par Spring
+	 * La variable sessionFactory est injectee par Spring
 	 */
 	private SessionFactory sessionFactory;
 

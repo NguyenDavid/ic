@@ -10,7 +10,7 @@ import com.projetidoine.entity.Event;
 @Repository
 public class EventDAOImpl implements EventDAO {
 	/**
-	 * La variable sessionFactory est injecte par Spring
+	 * La variable sessionFactory est injectee par Spring
 	 */
 	private SessionFactory sessionFactory;
 	

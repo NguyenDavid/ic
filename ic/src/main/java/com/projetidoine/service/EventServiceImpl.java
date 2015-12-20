@@ -34,4 +34,8 @@ public class EventServiceImpl implements EventService {
 	public void deleteEvent(Long idEvent){
 		eventDAO.deleteEvent(idEvent);
 	}
+	
+	public void setEventDAO(EventDAO eventDAO){
+		this.eventDAO = eventDAO;
+	}
 }

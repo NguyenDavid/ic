@@ -35,6 +35,18 @@
 		<bean id="userService" class="com.projetidoine.service.UserServiceImpl">
 			<property name="userDAO" ref="userDAO" />
 		</bean>
+		<bean id="eventDAO" class="com.projetidoine.dao.EventDAOImpl">
+			<property name="sessionFactory" ref="sessionFactory" />
+		</bean>
+		<bean id="eventService" class="com.projetidoine.service.EventServiceImpl">
+			<property name="eventDAO" ref="eventDAO" />
+		</bean>
+		<bean id="gameDAO" class="com.projetidoine.dao.GameDAOImpl">
+			<property name="sessionFactory" ref="sessionFactory" />
+		</bean>
+		<bean id="gameService" class="com.projetidoine.service.GameServiceImpl">
+			<property name="gameDAO" ref="gameDAO" />
+		</bean>
 
 	<!-- jdbc.properties -->
 	<bean id="propertyConfigurer"
