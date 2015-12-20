@@ -141,6 +141,11 @@
 			<result name="success">/view/login.jsp</result>
 		</action>
 		
+		<!-- les actions pour ajouter, modifier ou supprimer une location -->
+		<action name="firstLocations" class="locationAction" method="firstLocations">
+			<result name="error" type="redirect">/login</result>
+			<result name="success" type="redirect">/login</result>
+		</action>
 	</package>
 
 </struts>

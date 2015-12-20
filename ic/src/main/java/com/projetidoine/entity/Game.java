@@ -18,7 +18,7 @@ public class Game {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID_GAME")
 	private Long idGame;
-	@Column(name = "NAME", nullable = false)
+	@Column(name = "NAME", unique = true, nullable = false)
 	private String name;
 	@OneToMany(mappedBy="game")
 	@Column(nullable = true)

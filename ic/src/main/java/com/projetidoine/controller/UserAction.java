@@ -1,8 +1,5 @@
 package com.projetidoine.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 import com.projetidoine.entity.User;
@@ -10,7 +7,7 @@ import com.projetidoine.service.CryptWithMD5;
 import com.projetidoine.service.UserService;
 
 public class UserAction extends ActionSupport implements Preparable {
-//	private List<User> listUsers=new ArrayList<User>();
+	private static final long serialVersionUID = 1L;
 	private User user;
 	private Long idUser;
 	private UserService userService;

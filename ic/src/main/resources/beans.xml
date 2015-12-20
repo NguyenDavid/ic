@@ -26,6 +26,12 @@
 			<ref bean="userService" />
 		</property>
 	</bean>
+	<bean name="locationAction" class="com.projetidoine.controller.LocationAction"
+		scope="prototype">
+		<property name="locationService">
+			<ref bean="locationService" />
+		</property>
+	</bean>
 
 	<!-- L'injection des dépendances entre les différentes couches de l'application 
 		par Spring Context -->

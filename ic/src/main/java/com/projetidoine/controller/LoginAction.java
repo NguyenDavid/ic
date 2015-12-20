@@ -12,9 +12,8 @@ import com.projetidoine.service.CryptWithMD5;
 import com.projetidoine.service.UserService;
 
 public class LoginAction extends ActionSupport implements SessionAware, ModelDriven<User> {
+	private static final long serialVersionUID = 1L;
 	private User user = new User();
-//	private String login;
-//	private String password;
 	private Map<String, Object> sessionAttributes = null;
 	private UserService userService;
 
@@ -70,22 +69,5 @@ public class LoginAction extends ActionSupport implements SessionAware, ModelDri
 	
 	public UserService getUserService(){
 		return this.userService;
-	}
-	
-//	public void setLogin(String login){
-//		this.login = login;
-//	}
-//	
-//	public String getLogin(){
-//		return this.login;
-//	}
-//	
-//	public void setPassword(String password){
-//		this.password = password;
-//	}
-//	
-//	public String getPassword(){
-//		return this.password;
-//	}
-	
+	}	
 }
