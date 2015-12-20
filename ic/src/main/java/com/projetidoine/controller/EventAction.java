@@ -37,7 +37,8 @@ public class EventAction extends ActionSupport implements Preparable {
 	}
 	
 	public String saveEvent(){
-		eventService.addEvent(event);
+//		eventService.addEvent(event);
+		System.out.println("EventAction : saveEvent");
 		return SUCCESS;
 	}
 }

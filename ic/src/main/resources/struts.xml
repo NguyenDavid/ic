@@ -108,7 +108,7 @@
 			<result name="login">/view/home.jsp</result>
 			<result name="success">/view/home.jsp</result>
 		</action>
-
+		
 
 		<!-- les actions de la connexion et la deconnexion -->
 		<action name="register" class="userAction" method="displayRegister">
@@ -149,7 +149,7 @@
 		</action>
 		<action name="listLocations" class="locationAction" method="listLocations">
 			<result name="error" type="redirect">/login</result>
-			<result name="success">/view/home.jsp</result>
+			<result name="success">/view/home.jsp</result><!-- a enleverrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr !!!! -->
 		</action>
 		
 		
@@ -160,7 +160,7 @@
 		</action>
 		<action name="listGames" class="gameAction" method="listGames">
 			<result name="error" type="redirect">/login</result>
-			<result name="success">/view/home.jsp</result>
+			<result name="success">/view/games.jsp</result>
 		</action>
 		
 		

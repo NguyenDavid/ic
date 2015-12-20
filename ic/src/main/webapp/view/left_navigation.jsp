@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-	<a href='<c:url value="/home"/>'>HomePage</a>
+	<a href='<c:url value="/home"/>'>HomePage</a><br/>
+	<a href='<c:url value="/listGames"/>'>Games</a><br/>
 </body>
 </html>

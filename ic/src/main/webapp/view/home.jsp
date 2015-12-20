@@ -22,8 +22,6 @@
 <title>E-sport</title>
 </head>
 
-
-
 <body>
 	<div id="content-wrapper">
 		<div id="content-left" class="hidden-xs">
@@ -48,7 +46,11 @@
 	    		</div>
 <!-- 			</div> -->
 				<div id=createEvent>
-					<a class="btn btn-alert btn-default" onclick="javascript:turnUpDown()">Créer un événement</a>
+					<a class="btn btn-alert btn-default" onclick="javascript:turnUpDown()">Créer un événement</a><br/><br/>
+					<div class="col-md-5">
+						<label><u>Liste des événements auquel vous comptez participer :</u></label><br/><br/>
+						A remplir...
+					</div>
 				</div>
 				<div id=newEvent style="DISPLAY:none">
 					Insérer ici les champs du nouvel event	
@@ -131,7 +133,7 @@
 						<textarea class="form-control" rows="5" name="event.description"></textarea>
 						<hr>
  						<s:submit type="button" cssClass="btn btn-default btn-primary "
- 							key="Créer l'événement">Créer un événement</s:submit>
+ 							key="Créer l'événement" onclick="turnUpDown()">Créer un événement</s:submit>
 					</s:form>
 				</div>
 			</div>
