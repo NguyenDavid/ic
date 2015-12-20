@@ -1,5 +1,6 @@
 package com.projetidoine.entity;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -19,12 +20,16 @@ public class Event {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID_EVENT")
 	private Long idEvent;
-	@Column(name = "DESCRIPTION", nullable = false)
+	@Column(name = "DESCRIPTION", nullable = true)
 	private String description;
+	@Column(name = "DATE", nullable = false)
+	private Date date;
 	@ManyToMany(cascade=CascadeType.ALL, mappedBy="events")
 	private List<User> users;
 	@ManyToOne
 	private Game game;
+	@ManyToOne
+	private Location location;
 
 	public Event(){
 	}
@@ -43,6 +48,14 @@ public class Event {
 		this.description = description;
 	}
 	
+	public Date getDate(){
+		return this.date;
+	}
+	
+	public void setDate(Date date){
+		this.date = date;
+	}
+	
 	public List<User> getUsers(){
 		return this.users;
 	}
@@ -57,5 +70,13 @@ public class Event {
 	
 	public void setGame(Game game){
 		this.game = game;
+	}
+	
+	public Location getLocation(){
+		return this.location;
+	}
+	
+	public void setLocation(Location location){
+		this.location = location;
 	}
 }

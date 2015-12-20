@@ -23,7 +23,7 @@ public class Location {
 	private String address;
 	@OneToMany(mappedBy="location")
 	@Column(nullable = true)
-	private List<Game> games;
+	private List<Event> events;
 	
 	public Location(){
 	}
@@ -50,11 +50,11 @@ public class Location {
 		this.address = address;
 	}
 	
-	public List<Game> getGames(){
-		return this.games;
+	public List<Event> getEvents(){
+		return this.events;
 	}
 	
-	public void setGames(List<Game> games){
-		this.games = games;
+	public void setEvents(List<Event> events){
+		this.events = events;
 	}
 }

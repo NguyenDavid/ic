@@ -32,6 +32,12 @@
 			<ref bean="locationService" />
 		</property>
 	</bean>
+	<bean name="gameAction" class="com.projetidoine.controller.GameAction"
+		scope="prototype">
+		<property name="gameService">
+			<ref bean="gameService" />
+		</property>
+	</bean>
 
 	<!-- L'injection des dépendances entre les différentes couches de l'application 
 		par Spring Context -->

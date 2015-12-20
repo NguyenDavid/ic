@@ -141,8 +141,16 @@
 			<result name="success">/view/login.jsp</result>
 		</action>
 		
+		
 		<!-- les actions pour ajouter, modifier ou supprimer une location -->
 		<action name="firstLocations" class="locationAction" method="firstLocations">
+			<result name="error" type="redirect">/login</result>
+			<result name="success" type="redirect">/login</result>
+		</action>
+		
+		
+		<!-- les actions pour ajouter, modifier ou supprimer un game -->
+		<action name="firstGames" class="gameAction" method="firstGames">
 			<result name="error" type="redirect">/login</result>
 			<result name="success" type="redirect">/login</result>
 		</action>

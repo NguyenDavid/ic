@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -23,8 +22,6 @@ public class Game {
 	@OneToMany(mappedBy="game")
 	@Column(nullable = true)
 	private List<Event> events;
-	@ManyToOne
-	private Location location;
 	
 	public Game(){
 	}
@@ -48,13 +45,5 @@ public class Game {
 	
 	public void setEvents(List<Event> events){
 		this.events = events;
-	}
-	
-	public Location getLocation(){
-		return this.location;
-	}
-	
-	public void setLocation(Location location){
-		this.location = location;
 	}
 }
