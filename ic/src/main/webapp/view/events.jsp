@@ -24,7 +24,7 @@
 			<div id="page-inner">
 <!-- 			<div class="col-md-4 col-centered margin-top-xl"> -->
 				<div class="col-md-9">
-					<h2>Liste des jeux</h2>
+					<h2>Liste des événements</h2>
 					<br/>
 					<br/>
 				</div>
@@ -37,11 +37,13 @@
 <!-- 			</div> -->
 				
 				<div class="col-md-12">
-					<label><u>Jeu :</u></label><br/><br/>
-					<c:forEach items="${listGames}" var="game">
-						<label>${game.name}</label><br/>
-						<img src='<c:url value="/ressources/assets/test3.jpg"/>' class="img-responsive"/>
-						<br/><br/><br/>
+					<label><u>Evénements :</u></label><br/><br/>
+					A remplir...
+					<c:forEach items="${listEvents}" var="event">
+						<label>Game : ${event.game}</label><br/>
+						<label>Date : ${event.date}</label><br/>
+						<label>Number of players : ${event.nbPlayers}/${event.nbMaxPlayers}</label><br/>
+						<label>Location : ${event.location}</label><br/>
 					</c:forEach>
 				</div>
 				<br/><br/><br/>

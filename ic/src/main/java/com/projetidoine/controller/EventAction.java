@@ -1,5 +1,8 @@
 package com.projetidoine.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 import com.projetidoine.entity.Event;
@@ -10,6 +13,7 @@ public class EventAction extends ActionSupport implements Preparable {
 	private Event event;
 	private Long idEvent;
 	private EventService eventService;
+	private List<Event> listEvents = new ArrayList<Event>();
 	
 	public void prepare() throws Exception {
 		this.event = null;
@@ -39,6 +43,11 @@ public class EventAction extends ActionSupport implements Preparable {
 	public String saveEvent(){
 //		eventService.addEvent(event);
 		System.out.println("EventAction : saveEvent");
+		return SUCCESS;
+	}
+	
+	public String listEvents(){
+		listEvents = eventService.getAllEvents();
 		return SUCCESS;
 	}
 }

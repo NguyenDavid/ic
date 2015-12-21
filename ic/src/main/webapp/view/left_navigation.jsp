@@ -9,5 +9,6 @@
 <body>
 	<a href='<c:url value="/home"/>'>HomePage</a><br/>
 	<a href='<c:url value="/listGames"/>'>Games</a><br/>
+	<a href='<c:url value="/listEvents"/>'>Events</a><br/>
 </body>
 </html>
