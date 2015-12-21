@@ -20,6 +20,10 @@ public class GameAction extends ActionSupport implements Preparable {
 		this.idGame = null;
 	}
 	
+	public String languageGame(){
+		return SUCCESS;
+	}
+	
 	public String saveGame(){
 		gameService.addGame(game);
 		return SUCCESS;

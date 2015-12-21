@@ -19,6 +19,10 @@ public class EventAction extends ActionSupport implements Preparable {
 		this.event = null;
 		this.idEvent = null;
 	}
+	
+	public String languageEvent(){
+		return SUCCESS;
+	}
 
 	public Event getEvent() {
 		return this.event;
@@ -44,6 +48,14 @@ public class EventAction extends ActionSupport implements Preparable {
 //		eventService.addEvent(event);
 		System.out.println("EventAction : saveEvent");
 		return SUCCESS;
+	}
+	
+	public List<Event> getListEvents(){
+		return this.listEvents;
+	}
+	
+	public void setListEvents(List<Event> listEvents){
+		this.listEvents = listEvents;
 	}
 	
 	public String listEvents(){

@@ -34,21 +34,24 @@
 			<div id="page-inner">
 <!-- 			<div class="col-md-4 col-centered margin-top-xl"> -->
 				<div class="col-md-9">
-					<h2>Accueil</h2>
+					<h2><s:text name="title.home"></s:text></h2>
 					<br/>
 					<br/>
 				</div>
 				<div class="row">
    					<s:form method="post" action="deconnexion">
 						<s:url namespace="/" var="linkDeconnexion" action="deconnexion"></s:url>
-						<a class="btn btn-alert btn-default" href="${linkDeconnexion}">Se déconnecter</a>
+						<a class="btn btn-alert btn-default" href="${linkDeconnexion}"><s:text name="button.logout"></s:text></a>
    					</s:form>
+   					<br/>
+   					<a href="language.action?request_locale=en">En</a> |  
+     				<a href="language.action?request_locale=fr">Fr</a>
 	    		</div>
 <!-- 			</div> -->
 				<div id=createEvent>
-					<a class="btn btn-alert btn-default" onclick="javascript:turnUpDown()">Créer un événement</a><br/><br/>
+					<a class="btn btn-alert btn-default" onclick="javascript:turnUpDown()"><s:text name="button.createEvent"></s:text></a><br/><br/>
 					<div class="col-md-5">
-						<label><u>Liste des événements auquel vous comptez participer :</u></label><br/><br/>
+						<label><u><s:text name="label.myEvents"></s:text> :</u></label><br/><br/>
 						A remplir...
 					</div>
 				</div>
@@ -58,7 +61,7 @@
 					<s:form method="post" action="saveEvent" acceptcharset="UTF-8">
 						<br/>
 						<div class="col-md-4">
-						<label><u>Jeu :</u></label><br/>
+						<label><u><s:text name="label.game"></s:text> :</u></label><br/>
 						<select class="form-control">
 						<c:forEach items="${listGames}" var="game">
 <%-- 							<label><input type="radio" name="event.game"> ${game.name}</label> --%>
@@ -70,7 +73,7 @@
 						<br/><br/><br/>
 						<hr>
 						<div class="col-md-4">
-						<label><u>Lieu :</u></label><br/>
+						<label><u><s:text name="label.location"></s:text> :</u></label><br/>
 						<select class="form-control">
 						<c:forEach items="${listLocations}" var="location">
 <%-- 							<label><input type="radio" name="event.location"> ${location.name} ${location.address}</label> --%>
@@ -83,7 +86,7 @@
 						<br/><br/><br/>
 						<hr>
 						/////
-						<label><u>Date :</u></label><br/>
+						<label><u><s:text name="label.date"></s:text> :</u></label><br/>
 						<div class="container">
 						    <div class="row">
 						        <div class='col-sm-6'>
@@ -111,7 +114,7 @@
 						
 						/////
 						<hr>
-						<label><u>Nombre maximum de joueurs :</u></label><br/>
+						<label><u><s:text name="label.nbMaxPlayers"></s:text> :</u></label><br/>
 						
 						<!-- game.nbPlayersPerMatch == 2 -->
 						<label><input type="radio" name="event.nbPlayers"> 2</label><br/>
@@ -129,11 +132,11 @@
 						<label><input type="radio" name="event.nbPlayers"> 10</label><br/>
 						<label><input type="radio" name="event.nbPlayers"> 100</label><br/>
 						<hr>
-						<label><u>Description (facultative) :</u></label><br/>
+						<label><u><s:text name="label.description"></s:text> (<s:text name="label.optional"></s:text>) :</u></label><br/>
 						<textarea class="form-control" rows="5" name="event.description"></textarea>
 						<hr>
  						<s:submit type="button" cssClass="btn btn-default btn-primary "
- 							key="Créer l'événement" onclick="turnUpDown()">Créer un événement</s:submit>
+ 							key="Créer l'événement" onclick="turnUpDown()"><s:text name="button.createEvent"></s:text></s:submit>
 					</s:form>
 				</div>
 			</div>

@@ -24,26 +24,29 @@
 			<div id="page-inner">
 <!-- 			<div class="col-md-4 col-centered margin-top-xl"> -->
 				<div class="col-md-9">
-					<h2>Liste des événements</h2>
+					<h2><s:text name="title.events"></s:text></h2>
 					<br/>
 					<br/>
 				</div>
 				<div class="row">
    					<s:form method="post" action="deconnexion">
 						<s:url namespace="/" var="linkDeconnexion" action="deconnexion"></s:url>
-						<a class="btn btn-alert btn-default" href="${linkDeconnexion}">Se déconnecter</a>
+						<a class="btn btn-alert btn-default" href="${linkDeconnexion}"><s:text name="button.logout"></s:text></a>
    					</s:form>
+   					<br/>
+   					<a href="languageEvent.action?request_locale=en">En</a> |  
+     				<a href="languageEvent.action?request_locale=fr">Fr</a>
 	    		</div>
 <!-- 			</div> -->
 				
 				<div class="col-md-12">
-					<label><u>Evénements :</u></label><br/><br/>
+					<label><u><s:text name="label.events"></s:text> :</u></label><br/><br/>
 					A remplir...
 					<c:forEach items="${listEvents}" var="event">
-						<label>Game : ${event.game}</label><br/>
-						<label>Date : ${event.date}</label><br/>
-						<label>Number of players : ${event.nbPlayers}/${event.nbMaxPlayers}</label><br/>
-						<label>Location : ${event.location}</label><br/>
+						<label><s:text name="label.game"></s:text> : ${event.game}</label><br/>
+						<label><s:text name="label.date"></s:text> : ${event.date}</label><br/>
+						<label><s:text name="label.nbPlayers"></s:text> : ${event.nbPlayers}/${event.nbMaxPlayers}</label><br/>
+						<label><s:text name="label.location"></s:text> : ${event.location}</label><br/>
 					</c:forEach>
 				</div>
 				<br/><br/><br/>

@@ -130,6 +130,11 @@
 			<result name="success" type="redirect">/login</result>
 		</action>
 		
+		
+		<!-- l'action liee au changement de langues -->
+		<action name="language" class="userAction">
+			<result name="success" type="redirect">/home</result>
+		</action>
 
 		<!-- les actions pour ajouter, modifier ou supprimer un utilisateur -->
 		<action name="saveUser" class="userAction" method="saveUser">
@@ -154,6 +159,9 @@
 		
 		
 		<!-- les actions pour ajouter, modifier ou supprimer un jeu -->
+		<action name="languageGame" class="gameAction" method="languageGame">
+			<result name="success" type="redirect">/listGames</result>
+		</action>
 		<action name="firstGames" class="gameAction" method="firstGames">
 			<result name="error" type="redirect">/login</result>
 			<result name="success" type="redirect">/login</result>
@@ -165,6 +173,9 @@
 		
 		
 		<!-- les actions pour ajouter, modifier ou supprimer un evenement -->
+		<action name="languageEvent" class="eventAction" method="languageEvent">
+			<result name="success" type="redirect">/listEvents</result>
+		</action>
 		<action name="saveEvent" class="eventAction" method="saveEvent">
 			<result name="error" type="redirect">/login</result>
 			<result name="success" type="redirect">/home</result>

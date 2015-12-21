@@ -17,6 +17,10 @@ public class UserAction extends ActionSupport implements Preparable {
 		this.idUser = null;
 	}
 	
+	public String execute() throws Exception {
+		return SUCCESS;
+	}
+	
 	public User getUser() {
 		return user;
 	}

@@ -24,20 +24,23 @@
 			<div id="page-inner">
 <!-- 			<div class="col-md-4 col-centered margin-top-xl"> -->
 				<div class="col-md-9">
-					<h2>Liste des jeux</h2>
+					<h2><s:text name="title.games"></s:text></h2>
 					<br/>
 					<br/>
 				</div>
 				<div class="row">
    					<s:form method="post" action="deconnexion">
 						<s:url namespace="/" var="linkDeconnexion" action="deconnexion"></s:url>
-						<a class="btn btn-alert btn-default" href="${linkDeconnexion}">Se déconnecter</a>
+						<a class="btn btn-alert btn-default" href="${linkDeconnexion}"><s:text name="button.logout"></s:text></a>
    					</s:form>
+   					<br/>
+   					<a href="languageGame.action?request_locale=en">En</a> |  
+     				<a href="languageGame.action?request_locale=fr">Fr</a>
 	    		</div>
 <!-- 			</div> -->
 				
 				<div class="col-md-12">
-					<label><u>Jeu :</u></label><br/><br/>
+					<label><u><s:text name="label.games"></s:text> :</u></label><br/><br/>
 					<c:forEach items="${listGames}" var="game">
 						<label>${game.name}</label><br/>
 						<img src='<c:url value="/ressources/assets/test3.jpg"/>' class="img-responsive"/>
