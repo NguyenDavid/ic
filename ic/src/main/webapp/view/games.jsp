@@ -43,7 +43,7 @@
 					<label><u><s:text name="label.games"></s:text> :</u></label><br/><br/>
 					<c:forEach items="${listGames}" var="game">
 						<label>${game.name}</label><br/>
-						<img src='<c:url value="/ressources/assets/test3.jpg"/>' class="img-responsive"/>
+						<img src='<c:url value="/ressources/assets/Ban_${game.name}.jpg"/>' class="img-responsive"/>
 						<br/><br/><br/>
 					</c:forEach>
 				</div>

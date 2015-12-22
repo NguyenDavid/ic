@@ -76,7 +76,7 @@ public class GameAction extends ActionSupport implements Preparable {
 		gameService.updateGame(g);
 		g = new Game("Fifa 15", 2);
 		gameService.updateGame(g);
-		g = new Game("DOTA 2", 2);
+		g = new Game("Dota 2", 2);
 		gameService.updateGame(g);
 		return SUCCESS;
 	}
