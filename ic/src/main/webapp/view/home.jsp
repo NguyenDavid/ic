@@ -19,6 +19,12 @@
 <script src='<s:url value="/ressources/js/bootstrap-datepicker.min.js"/>'></script>
 <script src='<s:url value="/ressources/js/jquery-1.7.1.min.js"/>'></script>
 <script src='<s:url value="/ressources/js/bootstrap.js"/>'></script>
+
+<!-- datepicker -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/jquery-ui.css" />
+
 <title>E-sport</title>
 </head>
 
@@ -32,7 +38,6 @@
 	
 		<div id="content-right">
 			<div id="page-inner">
-<!-- 			<div class="col-md-4 col-centered margin-top-xl"> -->
 				<div class="col-md-9">
 					<h1><s:text name="title.home"></s:text></h1>
 					<br/>
@@ -54,7 +59,6 @@
    					</s:form>
      				<br/>
 	    		</div>
-<!-- 			</div> -->
 				<div id=createEvent>
 					<a class="btn btn-alert btn-default" onclick="javascript:turnUpDown()"><s:text name="button.createEvent"></s:text></a><br/><br/>
 					<div class="col-md-12">
@@ -92,14 +96,14 @@
 						</div>
 						<br/><br/><br/>
 						<hr>
-						/////
+//////////////////////////////
 						<label><u><s:text name="label.date"></s:text> :</u></label><br/>
 						<div class="container">
 						    <div class="row">
 						        <div class='col-sm-6'>
 						            <div class="form-group">
 						                <div class='input-group date' id='datetimepicker2'>
-						                    <input type='text' class="form-control"/>
+						                    <input type='text' class="form-control" />
 						                    <span class="input-group-addon">
 						                        <span class="glyphicon glyphicon-calendar"></span>
 						                    </span>
@@ -109,17 +113,16 @@
 						        <script type="text/javascript">
 						            $(function () {
 						                $('#datetimepicker2').datetimepicker({
-						                    locale: 'ru',
-						                    dateFormat: "yy-mm-dd"
+						                    locale: 'ru'
 						                });
 						            });
- 						        </script>
- 						    </div>
- 						</div>
-
+						        </script>
+						    </div>
+						</div>
+						
 
 						
-						/////
+//////////////////////////////
 						<hr>
 						<label><u><s:text name="label.nbMaxPlayers"></s:text> :</u></label><br/>
 						

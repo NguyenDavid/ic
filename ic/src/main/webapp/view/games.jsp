@@ -12,8 +12,8 @@
 	rel="stylesheet">
 <script src='<s:url value="/ressources/js/turnUpDown.js"/>'></script>
 <title>E-sport</title>
-
 </head>
+<% int cpt=0; %>
 <body>
 	<div id="content-wrapper">
 		<div id="content-left" class="hidden-xs">
@@ -51,11 +51,12 @@
 				<div class="col-md-12">
 					<h4><label><u><s:text name="label.games"></s:text> :</u></label></h4><br/><br/>
 					<c:forEach items="${listGames}" var="game">
+						<% cpt = cpt + 1; %>
 						<label>${game.name}</label><br/>
-						<a onclick="javascript:turnUpDownInformations()">
+						<a onclick="javascript:turnUpDownInformations(<%=cpt%>)">
 							<img src='<c:url value="/ressources/assets/Ban_${game.name}.jpg"/>' alt="" class="img-responsive"/>
 						</a>
-						<div id="informationsEvent" style="DISPLAY:none">
+						<div class="informationsEvent" style="DISPLAY:none" id='<%=cpt%>'>
 							<c:forEach items="${game.events}" var="event">
 								<label><s:text name="label.description"></s:text> : ${event.description}</label><br/>
 								<label><s:text name="label.date"></s:text> : ${event.date}</label><br/>
@@ -63,6 +64,7 @@
 							</c:forEach>
 						</div>
 						<br/><br/><br/>
+						
 					</c:forEach>
 				</div>
 				<br/><br/><br/>

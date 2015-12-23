@@ -9,12 +9,16 @@ function turnUpDown(){
 		}
 }
 
-function turnUpDownInformations(){
-	if(document.getElementById('informationsEvent').style.display == 'none'){
-		document.getElementById('informationsEvent').style.display = 'block';
-	}
-	else {
-		document.getElementById('informationsEvent').style.display = 'none';
-	}
-	
+function turnUpDownInformations(cpt){
+	var elements = document.getElementsByTagName('div');
+	for (i = 0; i < elements.length; i++) {
+		if(elements[i].className == 'informationsEvent' && elements[i].id == cpt){
+			if(elements[i].style.display == 'none'){
+				elements[i].style.display = 'block';
+			}
+			else {
+				elements[i].style.display = 'none';
+			}
+		}
+	}	
 }

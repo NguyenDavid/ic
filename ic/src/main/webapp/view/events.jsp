@@ -48,12 +48,21 @@
 				
 				<div class="col-md-12">
 					<h4><label><u><s:text name="label.events"></s:text> :</u></label></h4><br/><br/>
-					A remplir...
+					A remplir...<br/>
 					<c:forEach items="${listEvents}" var="event">
-						<label><s:text name="label.game"></s:text> : ${event.game}</label><br/>
-						<label><s:text name="label.date"></s:text> : ${event.date}</label><br/>
-						<label><s:text name="label.nbPlayers"></s:text> : ${event.nbPlayers}/${event.nbMaxPlayers}</label><br/>
-						<label><s:text name="label.location"></s:text> : ${event.location}</label><br/>
+						<div class="panel panel-back noti-box">
+						<br/>
+						<div class="row">
+							<div class="col-md-1">
+							</div>
+							<div class="col-md-11">
+								<label><s:text name="label.game"></s:text> : ${event.game.name}</label><br/>
+								<label><s:text name="label.date"></s:text> : ${event.date}</label><br/>
+								<label><s:text name="label.nbPlayers"></s:text> : ${event.nbPlayers}/${event.nbMaxPlayers}</label><br/>
+								<label><s:text name="label.location"></s:text> : ${event.location.name} (${event.location.address})</label><br/><br/>
+							</div>
+						</div>
+						</div>
 					</c:forEach>
 				</div>
 				<br/><br/><br/>
