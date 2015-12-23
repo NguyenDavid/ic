@@ -1,5 +1,8 @@
 package com.projetidoine.controller;
 
+import java.util.Map;
+
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 import com.projetidoine.entity.User;
@@ -11,6 +14,7 @@ public class UserAction extends ActionSupport implements Preparable {
 	private User user;
 	private Long idUser;
 	private UserService userService;
+	private Map<String, Object> sessionAttributes = null;
 	
 	public void prepare() throws Exception {
 		this.user = null;
@@ -45,6 +49,10 @@ public class UserAction extends ActionSupport implements Preparable {
 		this.userService = userService;
 	}
 	
+	public void setSession(Map<String, Object> sessionAttributes) {
+		this.sessionAttributes = sessionAttributes;
+	}
+	
 	public String displayRegister(){
 		return SUCCESS;
 	}
@@ -57,6 +65,10 @@ public class UserAction extends ActionSupport implements Preparable {
 		System.out.println("dans saveUser");
 		user.setPassword(CryptWithMD5.cryptWithMD5(user.getPassword()));
 		userService.addUser(user);
+		sessionAttributes = ActionContext.getContext().getSession();
+		System.out.println(sessionAttributes == null);
+		sessionAttributes.put("user", user);
+		System.out.println("fin saveUser");
 		return SUCCESS;
 	}
 }

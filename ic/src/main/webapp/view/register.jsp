@@ -50,8 +50,7 @@
 							<s:textfield type="password" cssClass="form-control" key="Mot de passe"
 								name="user.password" />
 						</div>
-						<s:submit type="button" cssClass="btn btn-default btn-success "
-							key="Ajouter l'utilisateur" value="%{getText('button.register')}"></s:submit>
+						<s:submit type="button" cssClass="btn btn-default btn-success" value="%{getText('button.register')}"></s:submit>
 						<br/><br/>
 						<a href='<c:url value="/login"/>'><s:text name="a.login"></s:text></a>
 					</s:form>			

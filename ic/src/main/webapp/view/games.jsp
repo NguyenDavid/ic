@@ -11,6 +11,7 @@
 <link href='<s:url value="/ressources/css/background.css"/>'
 	rel="stylesheet">
 <title>E-sport</title>
+
 </head>
 <body>
 	<div id="content-wrapper">

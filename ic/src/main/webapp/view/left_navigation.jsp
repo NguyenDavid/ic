@@ -14,7 +14,7 @@
 	<br/><br/>
 	<div class="col-md-10">
 		<hr>
-		<label><u>Users :</u></label><br/>
+		<label><u><s:text name="label.members"></s:text> :</u></label><br/>
 		<c:forEach items="${listUsers}" var="user">
 			<label>${user.login}</label><br/>
 		</c:forEach>

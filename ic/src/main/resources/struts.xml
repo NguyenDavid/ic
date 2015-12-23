@@ -123,13 +123,13 @@
 			<result name="success">/view/register.jsp</result>
 		</action>
 		<action name="login" class="userAction" method="displayLogin">
-			<result name="input">/view/login.jsp</result>
-			<result name="error">/view/login.jsp</result>
+			<result name="input" type="redirect">/login</result>
+			<result name="error" type="redirect">/login</result>
 			<result name="success">/view/login.jsp</result>
 		</action>
 		<action name="connexion" class="loginAction">
-			<result name="input">/view/login.jsp</result>
-			<result name="error">/view/login.jsp</result>
+			<result name="input" type="redirect">/login</result>
+			<result name="error" type="redirect">/login</result>
 			<result name="success" type="redirect">/home</result>
 		</action>
 		<action name="deconnexion" class="loginAction" method="deleteSession">
@@ -147,9 +147,7 @@
 			<interceptor-ref name="defaultStack"></interceptor-ref>
 			<result name="input">/view/login.jsp</result>
 			<result name="login">/view/login.jsp</result>
-<!-- 			<result name="success" type="redirect">/home</result> --><!-- c'est peut-etre celui-la que je dois appeler -->
-<!-- 			<result name="success" type="redirect">/connexion</result> --><!-- c'est celui-la que je dois appeler !!!!!-->
-			<result name="success">/view/login.jsp</result>
+			<result name="success" type="redirect">/home</result>
 		</action>
 		
 		
@@ -160,7 +158,7 @@
 		</action>
 		<action name="listLocations" class="locationAction" method="listLocations">
 			<result name="error" type="redirect">/login</result>
-			<result name="success">/view/home.jsp</result><!-- a enleverrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr !!!! -->
+			<result name="success">/view/home.jsp</result><!-- a enleverrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr car pas utilise !!!! -->
 		</action>
 		
 		
