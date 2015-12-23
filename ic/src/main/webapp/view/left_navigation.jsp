@@ -12,5 +12,12 @@
 	<a href='<c:url value="/listGames"/>'><s:text name="left.listGames"></s:text></a><br/>
 	<a href='<c:url value="/listEvents"/>'><s:text name="left.listEvents"></s:text></a><br/>
 	<br/><br/>
+	<div class="col-md-10">
+		<hr>
+		<label><u>Users :</u></label><br/>
+		<c:forEach items="${listUsers}" var="user">
+			<label>${user.login}</label><br/>
+		</c:forEach>
+	</div>
 </body>
 </html>

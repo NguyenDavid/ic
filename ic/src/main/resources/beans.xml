@@ -40,12 +40,18 @@
 	</bean>
 	<bean name="gameAction" class="com.projetidoine.controller.GameAction"
 		scope="prototype">
+		<property name="userService">
+			<ref bean="userService" />
+		</property>
 		<property name="gameService">
 			<ref bean="gameService" />
 		</property>
 	</bean>
 	<bean name="eventAction" class="com.projetidoine.controller.EventAction"
 		scope="prototype">
+		<property name="userService">
+			<ref bean="userService" />
+		</property>
 		<property name="eventService">
 			<ref bean="eventService" />
 		</property>

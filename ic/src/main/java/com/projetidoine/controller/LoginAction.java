@@ -32,6 +32,7 @@ public class LoginAction extends ActionSupport implements SessionAware, ModelDri
 		System.out.println("Dans home");
 		listGames = gameService.getAllGames();
 		listLocations = locationService.getAllLocations();
+		listUsers = userService.getAllUsers();
 		return SUCCESS;
 	}
 	

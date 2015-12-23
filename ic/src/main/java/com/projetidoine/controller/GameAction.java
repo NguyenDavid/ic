@@ -6,14 +6,18 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 import com.projetidoine.entity.Game;
+import com.projetidoine.entity.User;
 import com.projetidoine.service.GameService;
+import com.projetidoine.service.UserService;
 
 public class GameAction extends ActionSupport implements Preparable {
 	private static final long serialVersionUID = 1L;
 	private Game game;
 	private Long idGame;
+	private UserService userService;
 	private GameService gameService;
 	private List<Game> listGames = new ArrayList<Game>();
+	private List<User> listUsers = new ArrayList<User>();
 	
 	public void prepare() throws Exception {
 		this.game = null;
@@ -57,7 +61,20 @@ public class GameAction extends ActionSupport implements Preparable {
 		this.listGames = listGames;
 	}
 	
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+	
+	public List<User> getListUsers(){
+		return this.listUsers;
+	}
+	
+	public void setListUsers(List<User> listUsers){
+		this.listUsers = listUsers;
+	}
+	
 	public String listGames(){
+		listUsers = userService.getAllUsers();
 		listGames = gameService.getAllGames();
 		return SUCCESS;
 	}

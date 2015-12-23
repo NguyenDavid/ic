@@ -6,14 +6,18 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 import com.projetidoine.entity.Event;
+import com.projetidoine.entity.User;
 import com.projetidoine.service.EventService;
+import com.projetidoine.service.UserService;
 
 public class EventAction extends ActionSupport implements Preparable {
 	private static final long serialVersionUID = 1L;
 	private Event event;
 	private Long idEvent;
 	private EventService eventService;
+	private UserService userService;
 	private List<Event> listEvents = new ArrayList<Event>();
+	private List<User> listUsers = new ArrayList<User>();
 	
 	public void prepare() throws Exception {
 		this.event = null;
@@ -60,6 +64,19 @@ public class EventAction extends ActionSupport implements Preparable {
 	
 	public String listEvents(){
 		listEvents = eventService.getAllEvents();
+		listUsers = userService.getAllUsers();
 		return SUCCESS;
+	}
+	
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+	
+	public List<User> getListUsers(){
+		return this.listUsers;
+	}
+	
+	public void setListUsers(List<User> listUsers){
+		this.listUsers = listUsers;
 	}
 }
