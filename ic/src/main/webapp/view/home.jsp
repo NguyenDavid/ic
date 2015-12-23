@@ -142,8 +142,7 @@
 						<label><u><s:text name="label.description"></s:text> (<s:text name="label.optional"></s:text>) :</u></label><br/>
 						<textarea class="form-control" rows="5" name="event.description"></textarea>
 						<hr>
- 						<s:submit type="button" cssClass="btn btn-default btn-primary "
- 							key="Créer l'événement" onclick="turnUpDown()"><s:text name="button.createEvent"></s:text></s:submit>
+ 						<s:submit type="button" cssClass="btn btn-default btn-primary " onclick="turnUpDown()"><s:text name="button.createEvent"></s:text></s:submit>
 					</s:form>
 				</div>
 			</div>
