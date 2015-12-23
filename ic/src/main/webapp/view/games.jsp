@@ -49,7 +49,7 @@
 <!-- 			</div> -->
 				
 				<div class="col-md-12">
-					<label><u><s:text name="label.games"></s:text> :</u></label><br/><br/>
+					<h4><label><u><s:text name="label.games"></s:text> :</u></label></h4><br/><br/>
 					<c:forEach items="${listGames}" var="game">
 						<label>${game.name}</label><br/>
 						<a onclick="javascript:turnUpDownInformations()">

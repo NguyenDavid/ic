@@ -57,8 +57,8 @@
 <!-- 			</div> -->
 				<div id=createEvent>
 					<a class="btn btn-alert btn-default" onclick="javascript:turnUpDown()"><s:text name="button.createEvent"></s:text></a><br/><br/>
-					<div class="col-md-5">
-						<label><u><s:text name="label.myEvents"></s:text> :</u></label><br/><br/>
+					<div class="col-md-12">
+						<h4><label><u><s:text name="label.myEvents"></s:text> :</u></label></h4><br/><br/>
 						A remplir...
 					</div>
 				</div>

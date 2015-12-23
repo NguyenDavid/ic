@@ -47,7 +47,7 @@
 <!-- 			</div> -->
 				
 				<div class="col-md-12">
-					<label><u><s:text name="label.events"></s:text> :</u></label><br/><br/>
+					<h4><label><u><s:text name="label.events"></s:text> :</u></label></h4><br/><br/>
 					A remplir...
 					<c:forEach items="${listEvents}" var="event">
 						<label><s:text name="label.game"></s:text> : ${event.game}</label><br/>
