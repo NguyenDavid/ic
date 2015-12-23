@@ -26,6 +26,7 @@ public class LoginAction extends ActionSupport implements SessionAware, ModelDri
 	private LocationService locationService;
 	private List<Game> listGames = new ArrayList<Game>();
 	private List<Location> listLocations = new ArrayList<Location>();
+	private List<User> listUsers = new ArrayList<User>();
 
 	public String home(){
 		System.out.println("Dans home");
@@ -118,5 +119,13 @@ public class LoginAction extends ActionSupport implements SessionAware, ModelDri
 	
 	public void setListLocations(List<Location> listLocations){
 		this.listLocations = listLocations;
+	}
+	
+	public List<User> getListUsers(){
+		return this.listUsers;
+	}
+	
+	public void setListUsers(List<User> listUsers){
+		this.listUsers = listUsers;
 	}
 }

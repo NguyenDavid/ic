@@ -187,7 +187,8 @@
 			<result name="success" type="redirect">/home</result>
 		</action>
 		<action name="listEvents" class="eventAction" method="listEvents">
-			<result name="error" type="redirect">/login</result>
+<!-- 			<result name="error" type="redirect">/login</result> -->
+			<result name="error">/view/events.jsp</result>
 			<result name="success">/view/events.jsp</result>
 		</action>
 	</package>

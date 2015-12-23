@@ -12,7 +12,7 @@ public class GameDAOImpl implements GameDAO {
 	/**
 	 * La variable sessionFactory est injectee par Spring
 	 */
-private SessionFactory sessionFactory;
+	private SessionFactory sessionFactory;
 	
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;

@@ -24,8 +24,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@SuppressWarnings("unchecked")
 	public List<User> getAllUsers() {
-		return this.sessionFactory.getCurrentSession()
-				.createQuery("from User").list();
+		return this.sessionFactory.getCurrentSession().createQuery("from User").list();
 	}
 
 	@SuppressWarnings("unchecked")
@@ -37,8 +36,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public User getUserByLogin(String login) {
-		return (User) this.sessionFactory.getCurrentSession()
-				.createQuery("from User u where u.login= :login ")
+		return (User) this.sessionFactory.getCurrentSession().createQuery("from User u where u.login= :login ")
 				.setString("login", login).uniqueResult();
 	}
 

@@ -11,5 +11,6 @@
 	<a href='<c:url value="/home"/>'><s:text name="left.home"></s:text></a><br/>
 	<a href='<c:url value="/listGames"/>'><s:text name="left.listGames"></s:text></a><br/>
 	<a href='<c:url value="/listEvents"/>'><s:text name="left.listEvents"></s:text></a><br/>
+	<br/><br/>
 </body>
 </html>
