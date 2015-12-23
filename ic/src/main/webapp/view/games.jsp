@@ -10,6 +10,7 @@
 	rel="stylesheet">
 <link href='<s:url value="/ressources/css/background.css"/>'
 	rel="stylesheet">
+<script src='<s:url value="/ressources/js/turnUpDown.js"/>'></script>
 <title>E-sport</title>
 
 </head>
@@ -51,14 +52,16 @@
 					<label><u><s:text name="label.games"></s:text> :</u></label><br/><br/>
 					<c:forEach items="${listGames}" var="game">
 						<label>${game.name}</label><br/>
-						<a href="listGames">
+						<a onclick="javascript:turnUpDownInformations()">
 							<img src='<c:url value="/ressources/assets/Ban_${game.name}.jpg"/>' alt="" class="img-responsive"/>
+						</a>
+						<div id="informationsEvent" style="DISPLAY:none">
 							<c:forEach items="${game.events}" var="event">
 								<label><s:text name="label.description"></s:text> : ${event.description}</label><br/>
 								<label><s:text name="label.date"></s:text> : ${event.date}</label><br/>
 								<label><s:text name="label.players"></s:text> : ${event.nbPlayers}/${event.nbMaxPlayers}</label><br/>
 							</c:forEach>
-						</a>
+						</div>
 						<br/><br/><br/>
 					</c:forEach>
 				</div>

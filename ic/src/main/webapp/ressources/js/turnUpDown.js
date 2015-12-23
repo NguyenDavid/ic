@@ -8,3 +8,13 @@ function turnUpDown(){
     		document.getElementById('newEvent').style.display = 'block';
 		}
 }
+
+function turnUpDownInformations(){
+	if(document.getElementById('informationsEvent').style.display == 'none'){
+		document.getElementById('informationsEvent').style.display = 'block';
+	}
+	else {
+		document.getElementById('informationsEvent').style.display = 'none';
+	}
+	
+}
