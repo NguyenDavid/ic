@@ -18,30 +18,39 @@
 			</div>
 			<div class="col-md-4 col-centered margin-top-xl">
 				<div class="row">
-					<h2>Login</h2>
-<!--     				<div class="col-md-2 col-md-offset-5"> -->
-<!--     					<button type = "button" class = "btn btn-default">mon bouton</button> -->
-<!--     				</div> -->
+					<div class="col-md-6">
+						<h2><s:text name="title.login"></s:text></h2>
+					</div>
+					<div class="col-md-4">
+					</div>
+					<div class="col-md-2">
+						<a href="languageLogin.action?request_locale=en">
+							<img src='<c:url value="/ressources/assets/en.gif"/>' alt="En"/> 
+						</a> | 
+						<a href="languageLogin.action?request_locale=fr">
+							<img src='<c:url value="/ressources/assets/fr.gif"/>' alt="Fr"/> 
+						</a>
+					</div>
     			</div>
 			
 				<div class="panel panel-back noti-box">
 					<s:form method="post" action="connexion" acceptcharset="UTF-8" cssClass="well">
 						<div class="form-group">
-							<label for="login">Login</label>
+							<label for="login"><s:text name="label.login"></s:text></label>
 							<s:textfield type="text" name="login"
 								cssClass="form-control" />
 						</div>
 						<div class="form-group">
-							<label for="url">Mot de passe</label>
+							<label for="url"><s:text name="label.password"></s:text></label>
 							<s:textfield type="password" name="password"
 								cssClass="form-control" />
 						</div>
 						<s:actionerror />
 						<br/>
 						<br/>
-						<s:submit cssClass="btn btn-success" value="S'authentifier"></s:submit>
+						<s:submit cssClass="btn btn-success" value="%{getText('button.login')}"></s:submit>
 						<br/><br/>
-						<a href='<c:url value="/register"/>'>Register</a>
+						<a href='<c:url value="/register"/>'><s:text name="a.register"></s:text></a>
 					</s:form>
 				</div>
 			</div>

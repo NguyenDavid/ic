@@ -34,6 +34,14 @@ public class LoginAction extends ActionSupport implements SessionAware, ModelDri
 		return SUCCESS;
 	}
 	
+	public String languageRegister(){
+		return SUCCESS;
+	}
+	
+	public String languageLogin(){
+		return SUCCESS;
+	}
+	
 	@Override
 	public String execute() {
 		System.out.println("A l'interieur de l'action LoginAction");

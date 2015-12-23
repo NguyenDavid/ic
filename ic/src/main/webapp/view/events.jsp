@@ -30,6 +30,12 @@
 				</div>
 				<div class="row">
    					<s:form method="post" action="deconnexion">
+   						<a href="languageEvent.action?request_locale=en">
+							<img src='<c:url value="/ressources/assets/en.gif"/>' alt="En"/> 
+						</a> | 
+						<a href="languageEvent.action?request_locale=fr">
+							<img src='<c:url value="/ressources/assets/fr.gif"/>' alt="Fr"/> 
+						</a>
 						<s:url namespace="/" var="linkDeconnexion" action="deconnexion"></s:url>
 						<a class="btn btn-alert btn-default" href="${linkDeconnexion}">
 							<span class="glyphicon glyphicon-log-out"></span>
@@ -37,8 +43,6 @@
 						</a>
    					</s:form>
    					<br/>
-   					<a href="languageEvent.action?request_locale=en">En</a> |  
-     				<a href="languageEvent.action?request_locale=fr">Fr</a>
 	    		</div>
 <!-- 			</div> -->
 				

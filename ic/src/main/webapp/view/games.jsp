@@ -30,6 +30,12 @@
 				</div>
 				<div class="row">
    					<s:form method="post" action="deconnexion">
+   						<a href="languageGame.action?request_locale=en">
+							<img src='<c:url value="/ressources/assets/en.gif"/>' alt="En"/> 
+						</a> | 
+						<a href="languageGame.action?request_locale=fr">
+							<img src='<c:url value="/ressources/assets/fr.gif"/>' alt="Fr"/> 
+						</a>
 						<s:url namespace="/" var="linkDeconnexion" action="deconnexion"></s:url>
 						<a class="btn btn-alert btn-default" href="${linkDeconnexion}">
 							<span class="glyphicon glyphicon-log-out"></span>
@@ -37,8 +43,6 @@
 						</a>
    					</s:form>
    					<br/>
-   					<a href="languageGame.action?request_locale=en">En</a> |  
-     				<a href="languageGame.action?request_locale=fr">Fr</a>
 	    		</div>
 <!-- 			</div> -->
 				
@@ -46,7 +50,9 @@
 					<label><u><s:text name="label.games"></s:text> :</u></label><br/><br/>
 					<c:forEach items="${listGames}" var="game">
 						<label>${game.name}</label><br/>
-						<img src='<c:url value="/ressources/assets/Ban_${game.name}.jpg"/>' class="img-responsive"/>
+						<a href="listGames">
+							<img src='<c:url value="/ressources/assets/Ban_${game.name}.jpg"/>' alt="" class="img-responsive"/> 
+						</a>
 						<br/><br/><br/>
 					</c:forEach>
 				</div>

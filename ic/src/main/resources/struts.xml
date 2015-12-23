@@ -108,6 +108,12 @@
 			<result name="login">/view/home.jsp</result>
 			<result name="success">/view/home.jsp</result>
 		</action>
+		<action name="languageRegister" class="loginAction" method="languageRegister">
+			<result name="success" type="redirect">/register</result>
+		</action>
+		<action name="languageLogin" class="loginAction" method="languageLogin">
+			<result name="success" type="redirect">/login</result>
+		</action>
 		
 
 		<!-- les actions de la connexion et la deconnexion -->
@@ -132,7 +138,7 @@
 		
 		
 		<!-- l'action liee au changement de langues -->
-		<action name="language" class="userAction">
+		<action name="languageHome" class="userAction" method="languageHome">
 			<result name="success" type="redirect">/home</result>
 		</action>
 
