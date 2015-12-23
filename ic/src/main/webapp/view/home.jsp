@@ -34,7 +34,7 @@
 			<div id="page-inner">
 <!-- 			<div class="col-md-4 col-centered margin-top-xl"> -->
 				<div class="col-md-9">
-					<h2><s:text name="title.home"></s:text></h2>
+					<h1><s:text name="title.home"></s:text></h1>
 					<br/>
 					<br/>
 				</div>

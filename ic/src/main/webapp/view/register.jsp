@@ -19,7 +19,7 @@
 			<div class="col-md-4 col-centered margin-top-xl">
 				<div class="row">
 					<div class="col-md-6">
-						<h2><s:text name="title.register"></s:text></h2>
+						<h1><s:text name="title.register"></s:text></h1>
 					</div>
 					<div class="col-md-4">
 					</div>
