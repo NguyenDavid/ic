@@ -49,6 +49,8 @@ public class EventAction extends ActionSupport implements Preparable {
 	}
 	
 	public String saveEvent(){
+		if(event.getDescription().equals(""))
+			event.setDescription("-");
 //		eventService.addEvent(event);
 		System.out.println("EventAction : saveEvent");
 		return SUCCESS;

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,7 +22,7 @@ public class Game {
 	private String name;
 	@Column(name = "NBPLAYERSPERMATCH", nullable = false)
 	private int nbPlayersPerMatch;
-	@OneToMany(mappedBy="game")
+	@OneToMany(mappedBy="game", fetch = FetchType.EAGER)
 	@Column(nullable = true)
 	private List<Event> events;
 	

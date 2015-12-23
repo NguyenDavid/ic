@@ -52,7 +52,12 @@
 					<c:forEach items="${listGames}" var="game">
 						<label>${game.name}</label><br/>
 						<a href="listGames">
-							<img src='<c:url value="/ressources/assets/Ban_${game.name}.jpg"/>' alt="" class="img-responsive"/> 
+							<img src='<c:url value="/ressources/assets/Ban_${game.name}.jpg"/>' alt="" class="img-responsive"/>
+							<c:forEach items="${game.events}" var="event">
+								<label><s:text name="label.description"></s:text> : ${event.description}</label><br/>
+								<label><s:text name="label.date"></s:text> : ${event.date}</label><br/>
+								<label><s:text name="label.players"></s:text> : ${event.nbPlayers}/${event.nbMaxPlayers}</label><br/>
+							</c:forEach>
 						</a>
 						<br/><br/><br/>
 					</c:forEach>
