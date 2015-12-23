@@ -31,7 +31,10 @@
 				<div class="row">
    					<s:form method="post" action="deconnexion">
 						<s:url namespace="/" var="linkDeconnexion" action="deconnexion"></s:url>
-						<a class="btn btn-alert btn-default" href="${linkDeconnexion}"><s:text name="button.logout"></s:text></a>
+						<a class="btn btn-alert btn-default" href="${linkDeconnexion}">
+							<span class="glyphicon glyphicon-log-out"></span>
+							<s:text name="button.logout"></s:text>
+						</a>
    					</s:form>
    					<br/>
    					<a href="languageEvent.action?request_locale=en">En</a> |  
