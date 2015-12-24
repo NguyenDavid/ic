@@ -14,16 +14,18 @@
 	rel="stylesheet">
 <link href='<s:url value="/ressources/css/bootstrap-datepicker.min.css"/>'
 	rel="stylesheet">
+<link href='<s:url value="/ressources/css/jquery-ui.min.css"/>'
+	rel="stylesheet">
+	
+<!-- datepicker, jquery a charger en premier avant le reste -->
+<script type="text/javascript" src='<s:url value="/ressources/js/jquery-1.11.3.min.js"/>'></script>
+<script type="text/javascript" src='<s:url value="/ressources/js/jquery-ui.min.js"/>'></script>
+	
 <script src='<s:url value="/ressources/js/turnUpDown.js"/>'></script>
 <script src='<s:url value="/ressources/js/bootstrap-datepicker.js"/>'></script>
 <script src='<s:url value="/ressources/js/bootstrap-datepicker.min.js"/>'></script>
-<script src='<s:url value="/ressources/js/jquery-1.7.1.min.js"/>'></script>
 <script src='<s:url value="/ressources/js/bootstrap.js"/>'></script>
-
-<!-- datepicker -->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
-<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/jquery-ui.css" />
+<script src='<s:url value="/ressources/js/datepicker.js"/>'></script>
 
 <title>E-sport</title>
 </head>
@@ -71,7 +73,6 @@
 					Créer la liste de Game, de Location, la date, le nombre de joueurs possibles et une description éventuelle
 					<s:form method="post" action="saveEvent" acceptcharset="UTF-8">
 						<br/>
-						<div class="col-md-4">
 						<label><u><s:text name="label.game"></s:text> :</u></label><br/>
 						<select class="form-control">
 						<c:forEach items="${listGames}" var="game">
@@ -80,10 +81,9 @@
 							<br/>
 						</c:forEach>
 						</select>
-						</div>
-						<br/><br/><br/>
+						<br/>
 						<hr>
-						<div class="col-md-4">
+						
 						<label><u><s:text name="label.location"></s:text> :</u></label><br/>
 						<select class="form-control">
 						<c:forEach items="${listLocations}" var="location">
@@ -93,37 +93,14 @@
 							<br/>
 						</c:forEach>
 						</select>
-						</div>
-						<br/><br/><br/>
+						<br/>
 						<hr>
-//////////////////////////////
+						
 						<label><u><s:text name="label.date"></s:text> :</u></label><br/>
-						<div class="container">
-						    <div class="row">
-						        <div class='col-sm-6'>
-						            <div class="form-group">
-						                <div class='input-group date' id='datetimepicker2'>
-						                    <input type='text' class="form-control" />
-						                    <span class="input-group-addon">
-						                        <span class="glyphicon glyphicon-calendar"></span>
-						                    </span>
-						                </div>
-						            </div>
-						        </div>
-						        <script type="text/javascript">
-						            $(function () {
-						                $('#datetimepicker2').datetimepicker({
-						                    locale: 'ru'
-						                });
-						            });
-						        </script>
-						    </div>
-						</div>
-						
-
-						
-//////////////////////////////
+						<input type="text" id="datepicker"/>
+						<br/>
 						<hr>
+						
 						<label><u><s:text name="label.nbMaxPlayers"></s:text> :</u></label><br/>
 						
 						<!-- game.nbPlayersPerMatch == 2 -->
@@ -141,10 +118,14 @@
 						<!-- game.nbPlayersPerMatch == 10 -->
 						<label><input type="radio" name="event.nbPlayers"> 10</label><br/>
 						<label><input type="radio" name="event.nbPlayers"> 100</label><br/>
+						<br/>
 						<hr>
+						
 						<label><u><s:text name="label.description"></s:text> (<s:text name="label.optional"></s:text>) :</u></label><br/>
 						<textarea class="form-control" rows="5" name="event.description"></textarea>
+						<br/>
 						<hr>
+						
  						<s:submit type="button" cssClass="btn btn-default btn-primary " onclick="turnUpDown()"><s:text name="button.createEvent"></s:text></s:submit>
 					</s:form>
 				</div>
