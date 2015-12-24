@@ -16,3 +16,19 @@ body {
 	padding:1.3rem 2rem;
 	margin-left:250px;
 }
+
+#content-ban {
+	margin-left: 250px;
+}
+
+#content-title {
+	position: absolute;
+	left: 300px;
+	top: 10px;
+}
+
+#content-logout {
+	position: absolute;
+	left: 1050px;
+	top: 120px;
+}

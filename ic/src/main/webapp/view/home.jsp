@@ -33,21 +33,49 @@
 
 <body>
 	<div id="content-wrapper">
-		<div id="content-left" class="hidden-xs">
+		<div id="content-left" class="hidden-xs"><!-- id="content-left" -->
 			<ul id="left-navigation">
 				<jsp:include page="left_navigation.jsp"></jsp:include>
 			</ul>
 		</div>
-	
+		
+		<div id="content-ban">
+	    	<img src='<c:url value="/ressources/assets/ban.jpg"/>' alt=""/>
+	    </div>
+	    <div id="content-title">
+	    	<h1><s:text name="title.home"></s:text></h1>
+	    </div>
+<!-- 	    <div id="content-logout"> -->
+<!-- 	    	Test -->
+<!-- 	    </div> -->
+		
 		<div id="content-right">
+			
 			<div id="page-inner">
-				<div class="col-md-9">
-					<h1><s:text name="title.home"></s:text></h1>
-					<br/>
-					<br/>
-				</div>
-				<div class="row">
-   					<s:form method="post" action="deconnexion">
+<!-- 				<div class="col-md-9"> -->
+<%-- 					<h1><s:text name="title.home"></s:text></h1> --%>
+<!-- 					<br/> -->
+<!-- 					<br/> -->
+<!-- 				</div> -->
+<!-- 				<div class="row"> -->
+<%--    					<s:form method="post" action="deconnexion"> --%>
+<!--    						<a href="languageHome.action?request_locale=en"> -->
+<%-- 							<img src='<c:url value="/ressources/assets/en.gif"/>' alt="En"/>  --%>
+<!-- 						</a> |  -->
+<!-- 						<a href="languageHome.action?request_locale=fr"> -->
+<%-- 							<img src='<c:url value="/ressources/assets/fr.gif"/>' alt="Fr"/>  --%>
+<!-- 						</a> -->
+<%-- 						<s:url namespace="/" var="linkDeconnexion" action="deconnexion"></s:url> --%>
+<%-- 						<a class="btn btn-alert btn-default" href="${linkDeconnexion}"> --%>
+<%-- 							<span class="glyphicon glyphicon-log-out"></span> --%>
+<%-- 							<s:text name="button.logout"></s:text> --%>
+<!-- 						</a> -->
+<%--    					</s:form> --%>
+<!--      				<br/> -->
+<!-- 	    		</div> -->
+	    		<br/>
+	    		<div id="content-logout">
+	    			<s:form method="post" action="deconnexion">
    						<a href="languageHome.action?request_locale=en">
 							<img src='<c:url value="/ressources/assets/en.gif"/>' alt="En"/> 
 						</a> | 
@@ -62,6 +90,7 @@
    					</s:form>
      				<br/>
 	    		</div>
+	    		<br/><br/>
 				<div id=createEvent>
 					<a class="btn btn-alert btn-default" onclick="javascript:turnUpDown()"><s:text name="button.createEvent"></s:text></a><br/><br/>
 					<div class="col-md-12">
@@ -75,7 +104,7 @@
 					<s:form method="post" action="saveEvent" acceptcharset="UTF-8">
 						<br/>
 						<label><u><s:text name="label.game"></s:text> :</u></label><br/>
-						<select class="form-control" onchange="updateNbMaxPlayers(this.selectedIndex)">
+						<select class="form-control" onchange="updateNbMaxPlayers(this.selectedIndex);updateLocation(this.selectedIndex)">
 						<c:forEach items="${listGames}" var="game">
 							<% cpt = cpt + 1; %>
 <%-- 							<label><input type="radio" name="event.game"> ${game.name}</label> --%>
