@@ -14,6 +14,7 @@
 <title>E-sport</title>
 </head>
 <% int cpt=0; %>
+
 <body>
 	<div id="content-wrapper">
 		<div id="content-left" class="hidden-xs">

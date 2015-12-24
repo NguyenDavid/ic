@@ -29,6 +29,7 @@
 
 <title>E-sport</title>
 </head>
+<% int cpt=0; %>
 
 <body>
 	<div id="content-wrapper">
@@ -74,14 +75,15 @@
 					<s:form method="post" action="saveEvent" acceptcharset="UTF-8">
 						<br/>
 						<label><u><s:text name="label.game"></s:text> :</u></label><br/>
-						<select class="form-control">
+						<select class="form-control" onchange="updateNbMaxPlayers(this.selectedIndex)">
 						<c:forEach items="${listGames}" var="game">
+							<% cpt = cpt + 1; %>
 <%-- 							<label><input type="radio" name="event.game"> ${game.name}</label> --%>
-							<option value="event.game"> ${game.name}</option>
+							<option id='<%=cpt%>' value="event.game"> ${game.name}</option>
+							
 							<br/>
 						</c:forEach>
 						</select>
-						<br/>
 						<hr>
 						
 						<label><u><s:text name="label.location"></s:text> :</u></label><br/>
@@ -93,7 +95,6 @@
 							<br/>
 						</c:forEach>
 						</select>
-						<br/>
 						<hr>
 						
 						<label><u><s:text name="label.date"></s:text> :</u></label><br/>
@@ -104,26 +105,30 @@
 						<label><u><s:text name="label.nbMaxPlayers"></s:text> :</u></label><br/>
 						
 						<!-- game.nbPlayersPerMatch == 2 -->
-						<label><input type="radio" name="event.nbPlayers"> 2</label><br/>
-						<label><input type="radio" name="event.nbPlayers"> 4</label><br/>
-						<label><input type="radio" name="event.nbPlayers"> 8</label><br/>
-						<label><input type="radio" name="event.nbPlayers"> 16</label><br/>
-						<label><input type="radio" name="event.nbPlayers"> 32</label><br/>
-						<label><input type="radio" name="event.nbPlayers"> 64</label><br/>
+						<div id='twoPlayers' style="DISPLAY:none">
+							<label><input type="radio" name="event.nbPlayers"> 2</label><br/>
+							<label><input type="radio" name="event.nbPlayers"> 4</label><br/>
+							<label><input type="radio" name="event.nbPlayers"> 8</label><br/>
+							<label><input type="radio" name="event.nbPlayers"> 16</label><br/>
+							<label><input type="radio" name="event.nbPlayers"> 32</label><br/>
+							<label><input type="radio" name="event.nbPlayers"> 64</label><br/>
+						</div>
 						
 						<!-- game.nbPlayersPerMatch == 6 -->
-						<label><input type="radio" name="event.nbPlayers"> 6</label><br/>
-						<label><input type="radio" name="event.nbPlayers"> 36</label><br/>
+						<div id='sixPlayers'>
+							<label><input type="radio" name="event.nbPlayers"> 6</label><br/>
+							<label><input type="radio" name="event.nbPlayers"> 36</label><br/>
+						</div>
 						
 						<!-- game.nbPlayersPerMatch == 10 -->
-						<label><input type="radio" name="event.nbPlayers"> 10</label><br/>
-						<label><input type="radio" name="event.nbPlayers"> 100</label><br/>
-						<br/>
+						<div id='tenPlayers' style="DISPLAY:none">
+							<label><input type="radio" name="event.nbPlayers"> 10</label><br/>
+							<label><input type="radio" name="event.nbPlayers"> 100</label><br/>
+						</div>
 						<hr>
 						
 						<label><u><s:text name="label.description"></s:text> (<s:text name="label.optional"></s:text>) :</u></label><br/>
 						<textarea class="form-control" rows="5" name="event.description"></textarea>
-						<br/>
 						<hr>
 						
  						<s:submit type="button" cssClass="btn btn-default btn-primary " onclick="turnUpDown()"><s:text name="button.createEvent"></s:text></s:submit>
