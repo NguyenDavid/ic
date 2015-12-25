@@ -14,10 +14,12 @@
 	<br/><br/>
 	<div class="col-md-10">
 		<hr>
+		 <font color="white">
 		<label><u><s:text name="label.members"></s:text> :</u></label><br/>
 		<c:forEach items="${listUsers}" var="user">
 			<label>${user.login}</label><br/>
 		</c:forEach>
+		</font>
 	</div>
 </body>
 </html>

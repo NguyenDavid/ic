@@ -40,7 +40,7 @@
 		</div>
 		
 		<div id="content-ban">
-	    	<img src='<c:url value="/ressources/assets/ban.jpg"/>' alt=""/>
+	    	<img src='<c:url value="/ressources/assets/Banniere 3.jpg"/>' alt=""/>
 	    </div>
 	    <div id="content-title">
 	    	<h1><s:text name="title.home"></s:text></h1>
