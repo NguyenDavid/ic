@@ -49,10 +49,18 @@ public class EventAction extends ActionSupport implements Preparable {
 	}
 	
 	public String saveEvent(){
+		System.out.println("saveEvent");
+		System.out.println("desc : "+event.getDescription());
+		System.out.println("nbPlayers : "+event.getNbPlayers());
+		System.out.println("nbMaxPlayers : "+event.getNbMaxPlayers());
+		System.out.println("date : "+event.getDate());
+		System.out.println("game : "+event.getGame().getName());
+		System.out.println("lieu : "+event.getLocation().getName());
 		if(event.getDescription().equals(""))
 			event.setDescription("-");
-//		eventService.addEvent(event);
-		System.out.println("EventAction : saveEvent");
+		System.out.println(event.getDescription());
+		eventService.addEvent(event);
+		System.out.println("fin saveEvent");
 		return SUCCESS;
 	}
 	

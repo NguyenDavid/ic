@@ -127,7 +127,7 @@
 						<hr>
 						
 						<label><u><s:text name="label.date"></s:text> :</u></label><br/>
-						<input type="text" id="datepicker"/>
+						<input type="text" id="datepicker" name="event.date"/>
 						<br/>
 						<hr>
 						
@@ -135,24 +135,24 @@
 						
 						<!-- game.nbPlayersPerMatch == 2 -->
 						<div id='twoPlayers' style="DISPLAY:none">
-							<label><input type="radio" name="event.nbPlayers"> 2</label><br/>
-							<label><input type="radio" name="event.nbPlayers"> 4</label><br/>
-							<label><input type="radio" name="event.nbPlayers"> 8</label><br/>
-							<label><input type="radio" name="event.nbPlayers"> 16</label><br/>
-							<label><input type="radio" name="event.nbPlayers"> 32</label><br/>
-							<label><input type="radio" name="event.nbPlayers"> 64</label><br/>
+							<label><input type="radio" name="event.nbMaxPlayers" value="2"> 2</label><br/>
+							<label><input type="radio" name="event.nbMaxPlayers" value="4"> 4</label><br/>
+							<label><input type="radio" name="event.nbMaxPlayers" value="8"> 8</label><br/>
+							<label><input type="radio" name="event.nbMaxPlayers" value="16"> 16</label><br/>
+							<label><input type="radio" name="event.nbMaxPlayers" value="32"> 32</label><br/>
+							<label><input type="radio" name="event.nbMaxPlayers" value="64"> 64</label><br/>
 						</div>
 						
 						<!-- game.nbPlayersPerMatch == 6 -->
 						<div id='sixPlayers'>
-							<label><input type="radio" name="event.nbPlayers"> 6</label><br/>
-							<label><input type="radio" name="event.nbPlayers"> 36</label><br/>
+							<label><input type="radio" name="event.nbMaxPlayers" value="6"> 6</label><br/>
+							<label><input type="radio" name="event.nbMaxPlayers" value="36"> 36</label><br/>
 						</div>
 						
 						<!-- game.nbPlayersPerMatch == 10 -->
 						<div id='tenPlayers' style="DISPLAY:none">
-							<label><input type="radio" name="event.nbPlayers"> 10</label><br/>
-							<label><input type="radio" name="event.nbPlayers"> 100</label><br/>
+							<label><input type="radio" name="event.nbMaxPlayers" value="10"> 10</label><br/>
+							<label><input type="radio" name="event.nbMaxPlayers" value="100"> 100</label><br/>
 						</div>
 						<hr>
 						
