@@ -1,6 +1,8 @@
 package com.projetidoine.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -112,6 +114,11 @@ public class EventAction extends ActionSupport implements Preparable {
 	public String listEvents(){
 		listEvents = eventService.getAllEvents();
 		listUsers = userService.getAllUsers();
+		Collections.sort(listEvents, new Comparator<Event>() {
+		    public int compare(Event e1, Event e2) {		    	
+		        return e1.getDate().compareTo(e2.getDate());
+		    }
+		});
 		return SUCCESS;
 	}
 	
