@@ -87,20 +87,20 @@ public class Event {
 	public void setUsers(List<User> users){
 		this.users = users;
 	}
-	
-	public Game getGame(){
-		return this.game;
+
+	public Game getGame() {
+		return game;
 	}
-	
-	public void setGame(Game game){
+
+	public void setGame(Game game) {
 		this.game = game;
 	}
-	
-	public Location getLocation(){
-		return this.location;
+
+	public Location getLocation() {
+		return location;
 	}
-	
-	public void setLocation(Location location){
+
+	public void setLocation(Location location) {
 		this.location = location;
 	}
 }

@@ -1,6 +1,7 @@
 package com.projetidoine.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -18,7 +19,34 @@ public class EventAction extends ActionSupport implements Preparable {
 	private UserService userService;
 	private List<Event> listEvents = new ArrayList<Event>();
 	private List<User> listUsers = new ArrayList<User>();
-	
+	private int year;
+	private int month;
+	private int day;
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
+	}
+
+	public int getMonth() {
+		return month;
+	}
+
+	public void setMonth(int month) {
+		this.month = month;
+	}
+
+	public int getDay() {
+		return day;
+	}
+
+	public void setDay(int day) {
+		this.day = day;
+	}
+
 	public void prepare() throws Exception {
 		this.event = null;
 		this.idEvent = null;
@@ -49,6 +77,15 @@ public class EventAction extends ActionSupport implements Preparable {
 	}
 	
 	public String saveEvent(){
+		System.out.println("debut saveEvent");
+		if(event.getGame() == null)
+			System.out.println("jeu null");
+		if(event.getLocation() == null)
+			System.out.println("lieu null");
+		@SuppressWarnings("deprecation")
+		Date d = new Date(year, month, day);
+		event.setDate(d);
+		System.out.println(d.toString());
 		System.out.println("saveEvent");
 		System.out.println("desc : "+event.getDescription());
 		System.out.println("nbPlayers : "+event.getNbPlayers());

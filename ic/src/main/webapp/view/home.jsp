@@ -104,11 +104,11 @@
 					<s:form method="post" action="saveEvent" acceptcharset="UTF-8">
 						<br/>
 						<label><u><s:text name="label.game"></s:text> :</u></label><br/>
-						<select class="form-control" onchange="updateNbMaxPlayers(this.selectedIndex);updateLocation(this.selectedIndex)">
+						<select class="form-control" name="event.game" onchange="updateNbMaxPlayers(this.selectedIndex);updateLocation(this.selectedIndex)">
 						<c:forEach items="${listGames}" var="game">
 							<% cpt = cpt + 1; %>
 <%-- 							<label><input type="radio" name="event.game"> ${game.name}</label> --%>
-							<option id='<%=cpt%>' value="event.game"> ${game.name}</option>
+							<option id='<%=cpt%>' value="${game.name}"> ${game.name}</option>
 							
 							<br/>
 						</c:forEach>
@@ -116,18 +116,23 @@
 						<hr>
 						
 						<label><u><s:text name="label.location"></s:text> :</u></label><br/>
-						<select class="form-control">
+						<select class="form-control" name="event.location">
 						<c:forEach items="${listLocations}" var="location">
-<%-- 							<label><input type="radio" name="event.location"> ${location.name} ${location.address}</label> --%>
-							<option value="event.location"> ${location.name}</option>
-							<label>${location.address}</label>
+							<option value="${location.name}"> ${location.name}</option>
+<%-- 							<label>${location.address}</label> --%>
 							<br/>
 						</c:forEach>
 						</select>
 						<hr>
 						
 						<label><u><s:text name="label.date"></s:text> :</u></label><br/>
-						<input type="text" id="datepicker" name="event.date"/>
+<!-- 						<input type="text" id="datepicker" name="event.date"/> -->
+						<label><s:text name="label.year"></s:text> :</label>
+						<input type="text" name="year"/><br/>
+						<label><s:text name="label.month"></s:text> :</label>
+						<input type="text" name="month"/><br/>
+						<label><s:text name="label.day"></s:text> :</label>
+						<input type="text" name="day"/><br/>
 						<br/>
 						<hr>
 						
