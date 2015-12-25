@@ -103,4 +103,12 @@ public class Event {
 	public void setLocation(Location location) {
 		this.location = location;
 	}
+	
+	public Long getIdEvent(){
+		return this.idEvent;
+	}
+	
+	public void setIdEvent(Long idEvent){
+		this.idEvent = idEvent;
+	}
 }

@@ -3,6 +3,7 @@ package com.projetidoine.dao;
 import java.util.List;
 
 import com.projetidoine.entity.Event;
+import com.projetidoine.entity.User;
 
 /**
  * 
@@ -49,4 +50,12 @@ public interface EventDAO {
 	 *            id de l'evenement
 	 */
 	public void deleteEvent(Long idEvent);
+	
+	/**
+	 * permet d'ajouter un joueur a un evenement
+	 * 
+	 * @param event
+	 *            id de l'evenement
+	 */
+	public void addPlayerInEvent(User user, Long idEvent);
 }

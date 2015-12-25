@@ -188,6 +188,9 @@
  			<result name="error" type="redirect">/login</result>
 			<result name="success">/view/events.jsp</result>
 		</action>
+		<action name="updatePlayers" class="eventAction" method="updatePlayers">
+			<result name="success" type="redirect">/listEvents</result>
+		</action>
 	</package>
 
 </struts>

@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.projetidoine.dao.EventDAO;
 import com.projetidoine.entity.Event;
+import com.projetidoine.entity.User;
 
 public class EventServiceImpl implements EventService {
 	private EventDAO eventDAO;
@@ -37,5 +38,10 @@ public class EventServiceImpl implements EventService {
 	
 	public void setEventDAO(EventDAO eventDAO){
 		this.eventDAO = eventDAO;
+	}
+	
+	@Transactional
+	public void addPlayerInEvent(User user, Long idEvent){
+		this.eventDAO.addPlayerInEvent(user, idEvent);
 	}
 }

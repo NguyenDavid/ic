@@ -5,10 +5,14 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 import com.projetidoine.entity.Event;
+import com.projetidoine.entity.Game;
+import com.projetidoine.entity.Location;
 import com.projetidoine.entity.User;
 import com.projetidoine.service.EventService;
 import com.projetidoine.service.UserService;
@@ -24,6 +28,34 @@ public class EventAction extends ActionSupport implements Preparable {
 	private int year;
 	private int month;
 	private int day;
+	private Game game;
+	private Location location;
+	private User user = new User();
+	private Map<String, Object> sessionAttributes = null;
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Game getGame() {
+		return game;
+	}
+
+	public void setGame(Game game) {
+		this.game = game;
+	}
+
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
 
 	public int getYear() {
 		return year;
@@ -52,6 +84,8 @@ public class EventAction extends ActionSupport implements Preparable {
 	public void prepare() throws Exception {
 		this.event = null;
 		this.idEvent = null;
+		this.game = null;
+		this.location = null;
 	}
 	
 	public String languageEvent(){
@@ -119,6 +153,8 @@ public class EventAction extends ActionSupport implements Preparable {
 		        return e1.getDate().compareTo(e2.getDate());
 		    }
 		});
+		sessionAttributes = ActionContext.getContext().getSession();
+		user = (User) sessionAttributes.get("user");
 		return SUCCESS;
 	}
 	
@@ -132,5 +168,14 @@ public class EventAction extends ActionSupport implements Preparable {
 	
 	public void setListUsers(List<User> listUsers){
 		this.listUsers = listUsers;
+	}
+	
+	public String updatePlayers(){
+		eventService.addPlayerInEvent(user, idEvent);
+		return SUCCESS;
+	}
+	
+	public void setSession(Map<String, Object> sessionAttributes) {
+		this.sessionAttributes = sessionAttributes;
 	}
 }
