@@ -61,7 +61,7 @@
 									<label><s:text name="label.date"></s:text> : ${event.date}</label><br/>
 									<label><s:text name="label.nbPlayers"></s:text> : ${event.nbPlayers}/${event.nbMaxPlayers}</label><br/>
 									<label><s:text name="label.location"></s:text> : ${event.location.name} (${event.location.address})</label><br/><br/>
-									<input type="checkbox" name="event.idEvent" value="${event.idEvent}" onclick="this.form.submit();"> <label><s:text name="label.join"></s:text></label> 
+									<input type="checkbox" name="idEvent" value="${event.idEvent}" onclick="this.form.submit();"> <label><s:text name="label.join"></s:text></label> 
 								</s:form>
 							</div>
 						</div>

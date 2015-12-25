@@ -49,16 +49,18 @@ public class EventDAOImpl implements EventDAO {
 		Query query = this.sessionFactory.getCurrentSession().createQuery("from Event e where e.idEvent = :idEvent");
 		query.setParameter("idEvent", idEvent);
 		listEvents = query.list();
-		System.out.println("eventDaoImpl mid : il faut changer l'user pour verifier avec le createur");
 		if(listEvents.size() > 0){
-			System.out.println("eventDaoImpl in");
 			Event e = listEvents.get(0);
 			List<User> listUsers = e.getUsers();
+			System.out.println("Ancien event : "+e.getUsers().size()+" "+e.getNbPlayers());
 			if(!listUsers.contains(user)){
 				listUsers.add(user);
 				e.setUsers(listUsers);
 				e.setNbPlayers(listUsers.size());
-				this.sessionFactory.getCurrentSession().merge(e);
+				
+				System.out.println("New event : "+e.getUsers().size()+" "+e.getNbPlayers());
+				System.out.println("il y a un probleme dans le saveOrUpdate d'Hibernate");
+				this.sessionFactory.getCurrentSession().saveOrUpdate(e);
 				System.out.println("eventDaoImpl fin");
 			}
 		}
