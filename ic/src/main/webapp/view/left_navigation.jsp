@@ -8,16 +8,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-	<a href='<c:url value="/home"/>'><s:text name="left.home"></s:text></a><br/>
-	<a href='<c:url value="/listGames"/>'><s:text name="left.listGames"></s:text></a><br/>
-	<a href='<c:url value="/listEvents"/>'><s:text name="left.listEvents"></s:text></a><br/>
+	<a class="left_navigation" href='<c:url value="/home"/>'><s:text name="left.home"></s:text></a><br/>
+	<a class="left_navigation" href='<c:url value="/listGames"/>'><s:text name="left.listGames"></s:text></a><br/>
+	<a class="left_navigation" href='<c:url value="/listEvents"/>'><s:text name="left.listEvents"></s:text></a><br/>
 	<br/><br/>
-	<div class="col-md-10">
+	<div class="col-md-12">
 		<hr>
-		 <font color="white">
+		<font color="white">
 		<label><u><s:text name="label.members"></s:text> :</u></label><br/>
 		<c:forEach items="${listUsers}" var="user">
-			<label>${user.login}</label><br/>
+			<label class="left_label">${user.login}</label><br/>
 		</c:forEach>
 		</font>
 	</div>

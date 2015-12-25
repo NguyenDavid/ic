@@ -34,9 +34,9 @@
 <body>
 	<div id="content-wrapper">
 		<div id="content-left" class="hidden-xs"><!-- id="content-left" -->
-			<ul id="left-navigation">
+			<div id="left-navigation">
 				<jsp:include page="left_navigation.jsp"></jsp:include>
-			</ul>
+			</div>
 		</div>
 		
 		<div id="content-ban">
@@ -45,34 +45,9 @@
 	    <div id="content-title">
 	    	<h1><s:text name="title.home"></s:text></h1>
 	    </div>
-<!-- 	    <div id="content-logout"> -->
-<!-- 	    	Test -->
-<!-- 	    </div> -->
 		
 		<div id="content-right">
-			
 			<div id="page-inner">
-<!-- 				<div class="col-md-9"> -->
-<%-- 					<h1><s:text name="title.home"></s:text></h1> --%>
-<!-- 					<br/> -->
-<!-- 					<br/> -->
-<!-- 				</div> -->
-<!-- 				<div class="row"> -->
-<%--    					<s:form method="post" action="deconnexion"> --%>
-<!--    						<a href="languageHome.action?request_locale=en"> -->
-<%-- 							<img src='<c:url value="/ressources/assets/en.gif"/>' alt="En"/>  --%>
-<!-- 						</a> |  -->
-<!-- 						<a href="languageHome.action?request_locale=fr"> -->
-<%-- 							<img src='<c:url value="/ressources/assets/fr.gif"/>' alt="Fr"/>  --%>
-<!-- 						</a> -->
-<%-- 						<s:url namespace="/" var="linkDeconnexion" action="deconnexion"></s:url> --%>
-<%-- 						<a class="btn btn-alert btn-default" href="${linkDeconnexion}"> --%>
-<%-- 							<span class="glyphicon glyphicon-log-out"></span> --%>
-<%-- 							<s:text name="button.logout"></s:text> --%>
-<!-- 						</a> -->
-<%--    					</s:form> --%>
-<!--      				<br/> -->
-<!-- 	    		</div> -->
 	    		<br/>
 	    		<div id="content-logout">
 	    			<s:form method="post" action="deconnexion">
@@ -90,7 +65,7 @@
    					</s:form>
      				<br/>
 	    		</div>
-	    		<br/><br/>
+	    		
 				<div id=createEvent>
 					<a class="btn btn-alert btn-default" onclick="javascript:turnUpDown()"><s:text name="button.createEvent"></s:text></a><br/><br/>
 					<div class="col-md-12">
@@ -99,8 +74,6 @@
 					</div>
 				</div>
 				<div id=newEvent style="DISPLAY:none">
-					Insérer ici les champs du nouvel event	
-					Créer la liste de Game, de Location, la date, le nombre de joueurs possibles et une description éventuelle
 					<s:form method="post" action="saveEvent" acceptcharset="UTF-8">
 						<br/>
 						<label><u><s:text name="label.game"></s:text> :</u></label><br/>

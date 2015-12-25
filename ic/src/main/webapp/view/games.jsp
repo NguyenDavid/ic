@@ -18,21 +18,23 @@
 <body>
 	<div id="content-wrapper">
 		<div id="content-left" class="hidden-xs">
-			<ul id="left-navigation">
+			<div id="left-navigation">
 				<jsp:include page="left_navigation.jsp"></jsp:include>
-			</ul>
+			</div>
 		</div>
+	
+		<div id="content-ban">
+	    	<img src='<c:url value="/ressources/assets/Banniere 3.jpg"/>' alt=""/>
+	    </div>
+	    <div id="content-title">
+	    	<h1><s:text name="title.games"></s:text></h1>
+	    </div>
 	
 		<div id="content-right">
 			<div id="page-inner">
-<!-- 			<div class="col-md-4 col-centered margin-top-xl"> -->
-				<div class="col-md-9">
-					<h1><s:text name="title.games"></s:text></h1>
-					<br/>
-					<br/>
-				</div>
-				<div class="row">
-   					<s:form method="post" action="deconnexion">
+				<br/>
+				<div id="content-logout">
+	    			<s:form method="post" action="deconnexion">
    						<a href="languageGame.action?request_locale=en">
 							<img src='<c:url value="/ressources/assets/en.gif"/>' alt="En"/> 
 						</a> | 
@@ -45,9 +47,8 @@
 							<s:text name="button.logout"></s:text>
 						</a>
    					</s:form>
-   					<br/>
+     				<br/>
 	    		</div>
-<!-- 			</div> -->
 				
 				<div class="col-md-12">
 					<h4><label><u><s:text name="label.games"></s:text> :</u></label></h4><br/><br/>
@@ -62,6 +63,7 @@
 								<label><s:text name="label.description"></s:text> : ${event.description}</label><br/>
 								<label><s:text name="label.date"></s:text> : ${event.date}</label><br/>
 								<label><s:text name="label.players"></s:text> : ${event.nbPlayers}/${event.nbMaxPlayers}</label><br/>
+								<br/>
 							</c:forEach>
 						</div>
 						<br/><br/><br/>
