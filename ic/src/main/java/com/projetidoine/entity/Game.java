@@ -1,5 +1,6 @@
 package com.projetidoine.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -35,6 +36,23 @@ public class Game {
 		this.nbPlayersPerMatch = nbPlayersPerMatch;
 	}
 	
+	public Game clone(){
+		Game g = new Game();
+		g.setIdGame(this.getIdGame());
+		g.setName(new String(this.getName()));
+		g.setNbPlayersPerMatch(this.getNbPlayersPerMatch());
+		g.setEvents(new ArrayList<Event>(this.getEvents()));
+		return g;
+	}
+	
+	public Long getIdGame() {
+		return idGame;
+	}
+
+	public void setIdGame(Long idGame) {
+		this.idGame = idGame;
+	}
+
 	public String getName(){
 		return this.name;
 	}

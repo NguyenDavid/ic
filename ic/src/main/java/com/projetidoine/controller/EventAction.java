@@ -172,6 +172,7 @@ public class EventAction extends ActionSupport implements Preparable {
 	
 	public String updatePlayers(){
 		eventService.addPlayerInEvent(user, idEvent);
+		System.out.println("eventAction fin");
 		return SUCCESS;
 	}
 	

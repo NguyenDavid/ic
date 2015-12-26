@@ -1,5 +1,6 @@
 package com.projetidoine.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -32,6 +33,23 @@ public class Location {
 		super();
 		this.name = name;
 		this.address = address;
+	}
+	
+	public Location clone(){
+		Location l = new Location();
+		l.setIdLocation(this.idLocation);
+		l.setName(this.name);
+		l.setAddress(this.address);
+		l.setEvents(new ArrayList<Event>(this.events));
+		return l;
+	}
+	
+	public Long getIdLocation() {
+		return idLocation;
+	}
+
+	public void setIdLocation(Long idLocation) {
+		this.idLocation = idLocation;
 	}
 	
 	public String getName(){
