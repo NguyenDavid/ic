@@ -54,7 +54,7 @@ public interface EventDAO {
 	/**
 	 * permet d'ajouter un joueur a un evenement
 	 * 
-	 * @param event
+	 * @param idEvent
 	 *            id de l'evenement
 	 */
 	public void addPlayerInEvent(User user, Long idEvent);
