@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<!-- le mode developpeur est active. Il sert a faciliter le debogage lors 
+		de l'execution -->
+	<constant name="struts.devMode" value="true" />
+
+
+	<!-- Global message resource; Otherwise you will have seperate message resource 
+		for each Action -->
+	<constant name="struts.custom.i18n.resources" value="messages" />
+
+
+	<!-- Pour introduire des / dans les url des actions Struts -->
+	<constant name="struts.enable.SlashesInActionNames" value="true" />
+
+
+	<!-- pour que les tags struts genere un code tres simple sans aucune template -->
+	<constant name="struts.ui.theme" value="simple" />
+
+
+	<!-- le package qui regroupe les differentes actions de l'application -->
+	<package name="com.projetidoine.controller" namespace="/" extends="struts-default">
+
+		<!-- la declaration des differents intercepteur que nous utiliserons dans 
+			notre application -->
+		<interceptors>
+			<interceptor name="authentication"
+				class="com.projetidoine.interceptors.AuthenticationInterceptor"></interceptor>
+			<interceptor-stack name="authStack">
+				<interceptor-ref name="authentication"></interceptor-ref>
+				<interceptor-ref name="defaultStack">
+					<param name="exception.logEnabled">true</param>
+					<param name="exception.logLevel">ERROR</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<!-- -->
+		<default-action-ref name="/login" />
+		<!-- <global-results> -->
+		<!-- <result name="error">/view/error.jsp</result> -->
+		<!-- </global-results> -->
+
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<exception-mapping exception="java.lang.ArithmeticException"
+				result="error" />
+			<exception-mapping exception="java.lang.ArrayIndexOutOfBoundsException"
+				result="error" />
+			<exception-mapping exception="java.lang.ArrayStoreException"
+				result="error" />
+			<exception-mapping exception="java.lang.ClassCastException"
+				result="error" />
+			<exception-mapping exception="java.lang.IllegalArgumentException"
+				result="error" />
+			<exception-mapping exception="java.lang.IllegalMonitorStateException"
+				result="error" />
+			<exception-mapping exception="java.lang.IllegalStateException"
+				result="error" />
+			<exception-mapping exception="java.lang.IllegalThreadStateException"
+				result="error" />
+			<exception-mapping exception="java.lang.IndexOutOfBoundsException"
+				result="error" />
+			<exception-mapping exception="java.lang.NegativeArraySizeException"
+				result="error" />
+			<exception-mapping exception="java.lang.NullPointerException"
+				result="error" />
+			<exception-mapping exception="java.lang.NumberFormatException"
+				result="error" />
+			<exception-mapping exception="java.lang.SecurityException"
+				result="error" />
+			<exception-mapping exception="java.lang.StringIndexOutOfBounds"
+				result="error" />
+			<exception-mapping exception="java.lang.UnsupportedOperationException"
+				result="error" />
+			<exception-mapping exception="java.lang.ClassNotFoundException"
+				result="error" />
+			<exception-mapping exception="java.lang.CloneNotSupportedException"
+				result="error" />
+			<exception-mapping exception="java.lang.IllegalAccessException"
+				result="error" />
+			<exception-mapping exception="java.lang.InstantiationException"
+				result="error" />
+			<exception-mapping exception="java.lang.InterruptedException"
+				result="error" />
+			<exception-mapping exception="java.lang.NoSuchFieldException"
+				result="error" />
+			<exception-mapping exception="java.lang.NoSuchMethodException"
+				result="error" />
+		</global-exception-mappings>
+		
+		
+		<action name="home" class="loginAction" method="home">
+			<interceptor-ref name="authStack" />
+			<result name="input" type="redirect">/login</result>
+			<result name="error">/view/login.jsp</result>
+			<result name="success">/view/home.jsp</result>
+		</action>
+		<action name="addUser" class="userAction" method="addUser">
+			<interceptor-ref name="authStack" />
+			<result name="login">/view/home.jsp</result>
+			<result name="success">/view/home.jsp</result>
+		</action>
+		<action name="languageRegister" class="loginAction" method="languageRegister">
+			<result name="success" type="redirect">/register</result>
+		</action>
+		<action name="languageLogin" class="loginAction" method="languageLogin">
+			<result name="success" type="redirect">/login</result>
+		</action>
+		
+
+		<!-- les actions de la connexion et la deconnexion -->
+		<action name="register" class="userAction" method="displayRegister">
+			<result name="input">/view/register.jsp</result>
+			<result name="error">/view/register.jsp</result>
+			<result name="success">/view/register.jsp</result>
+		</action>
+		<action name="login" class="userAction" method="displayLogin">
+			<result name="input" type="redirect">/login</result>
+			<result name="error" type="redirect">/login</result>
+			<result name="success">/view/login.jsp</result>
+		</action>
+		<action name="connexion" class="loginAction">
+			<result name="input" type="redirect">/login</result>
+			<result name="error" type="redirect">/login</result>
+			<result name="success" type="redirect">/home</result>
+		</action>
+		<action name="deconnexion" class="loginAction" method="deleteSession">
+			<result name="success" type="redirect">/login</result>
+		</action>
+		
+		
+		<!-- l'action liee au changement de langues -->
+		<action name="languageHome" class="userAction" method="languageHome">
+			<result name="success" type="redirect">/home</result>
+		</action>
+
+		<!-- les actions pour ajouter, modifier ou supprimer un utilisateur -->
+		<action name="saveUser" class="userAction" method="saveUser">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="input">/view/login.jsp</result>
+			<result name="login">/view/login.jsp</result>
+			<result name="success" type="redirect">/home</result>
+		</action>
+		
+		
+		<!-- les actions pour ajouter, modifier ou supprimer une lieu -->
+		<action name="firstLocations" class="locationAction" method="firstLocations">
+			<result name="error" type="redirect">/login</result>
+			<result name="success" type="redirect">/login</result>
+		</action>
+		<action name="listLocations" class="locationAction" method="listLocations">
+			<result name="error" type="redirect">/login</result>
+			<result name="success">/view/home.jsp</result><!-- a enleverrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr car pas utilise !!!! -->
+		</action>
+		
+		
+		<!-- les actions pour ajouter, modifier ou supprimer un jeu -->
+		<action name="languageGame" class="gameAction" method="languageGame">
+			<result name="success" type="redirect">/listGames</result>
+		</action>
+		<action name="firstGames" class="gameAction" method="firstGames">
+			<result name="error" type="redirect">/login</result>
+			<result name="success" type="redirect">/login</result>
+		</action>
+		<action name="listGames" class="gameAction" method="listGames">
+			<result name="error" type="redirect">/login</result>
+			<result name="success">/view/games.jsp</result>
+		</action>
+		
+		
+		<!-- les actions pour ajouter, modifier ou supprimer un evenement -->
+		<action name="languageEvent" class="eventAction" method="languageEvent">
+			<result name="success" type="redirect">/listEvents</result>
+		</action>
+		<action name="saveEvent" class="eventAction" method="saveEvent">
+			<result name="error" type="redirect">/login</result>
+			<result name="success" type="redirect">/home</result>
+		</action>
+		<action name="listEvents" class="eventAction" method="listEvents">
+ 			<result name="error" type="redirect">/login</result>
+			<result name="success">/view/events.jsp</result>
+		</action>
+		<action name="updatePlayers" class="eventAction" method="updatePlayers">
+			<result name="success" type="redirect">/listEvents</result>
+		</action>
+	</package>
+
+</struts>
