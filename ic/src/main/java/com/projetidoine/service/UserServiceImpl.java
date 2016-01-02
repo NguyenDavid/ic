@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.projetidoine.dao.UserDAO;
+import com.projetidoine.entity.Event;
 import com.projetidoine.entity.User;
 
 public class UserServiceImpl implements UserService {
@@ -47,5 +48,10 @@ public class UserServiceImpl implements UserService {
 	@Transactional
 	public List<User> getOtherUsers(String nom) {
 		return userDAO.getOtherUsers(nom);
+	}
+	
+	@Transactional
+	public List<Event> getEventsByUserId(Long id){
+		return userDAO.getEventsByUserId(id);
 	}
 }

@@ -31,7 +31,6 @@ public class AuthenticationInterceptor implements Interceptor {
 		System.out.println("A l'intérieur de l'intercepteur");
 		Map<String, Object> sessionAttributes = actionInvocation
 				.getInvocationContext().getSession();
-
 		User user = (User) sessionAttributes.get("user");
 		if (sessionAttributes == null || user == null) {
 			System.out.println("user : "+user);
@@ -43,6 +42,7 @@ public class AuthenticationInterceptor implements Interceptor {
 				if (action instanceof UserAware) {
 					((UserAware) action).setUser(user);
 				}
+				System.out.println("intercepteur : invoke()");
 				return actionInvocation.invoke();
 			} else {
 				System.out.println("AuthentificationInterceptor input2");

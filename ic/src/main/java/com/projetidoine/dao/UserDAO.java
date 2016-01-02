@@ -2,6 +2,7 @@ package com.projetidoine.dao;
 
 import java.util.List;
 
+import com.projetidoine.entity.Event;
 import com.projetidoine.entity.User;
 
 /**
@@ -67,4 +68,12 @@ public interface UserDAO {
 	 *            id de l'utilisateur
 	 */
 	public void deleteUser(Long idUser);
+	
+	/**
+	 * permet de recuperer les evenements d'un utilisateur
+	 * 
+	 * @param id
+	 *            id de l'utilisateur
+	 */
+	public List<Event> getEventsByUserId(Long id);
 }

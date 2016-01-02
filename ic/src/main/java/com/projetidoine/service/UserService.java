@@ -2,6 +2,7 @@ package com.projetidoine.service;
 
 import java.util.List;
 
+import com.projetidoine.entity.Event;
 import com.projetidoine.entity.User;
 
 public interface UserService {
@@ -18,4 +19,6 @@ public interface UserService {
 	public void updateUser(User user);
 
 	public void deleteUser(Long idUser);
+	
+	public List<Event> getEventsByUserId(Long id);
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
+import com.projetidoine.entity.Event;
 import com.projetidoine.entity.User;
 
 @Repository
@@ -51,5 +52,14 @@ public class UserDAOImpl implements UserDAO {
 
 	public void deleteUser(Long idUser) {
 		this.sessionFactory.getCurrentSession().delete(getUserById(idUser));
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Event> getEventsByUserId(Long id){
+		List<Event> listEvents = (List<Event>) this.sessionFactory.getCurrentSession().createQuery("select u.events from User u where u.id= :id")
+				.setLong("id", id);
+		if(listEvents.size() > 0)
+			return listEvents;
+		return null;
 	}
 }

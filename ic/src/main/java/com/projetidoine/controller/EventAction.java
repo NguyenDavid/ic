@@ -32,7 +32,25 @@ public class EventAction extends ActionSupport implements Preparable {
 	private Location location;
 	private User user = new User();
 	private Map<String, Object> sessionAttributes = null;
+	private List<Game> games = new ArrayList<Game>();
+	private List<Location> locations = new ArrayList<Location>();
 	
+	public List<Game> getGames() {
+		return games;
+	}
+
+	public void setGames(List<Game> games) {
+		this.games = games;
+	}
+
+	public List<Location> getLocations() {
+		return locations;
+	}
+
+	public void setLocations(List<Location> locations) {
+		this.locations = locations;
+	}
+
 	public User getUser() {
 		return user;
 	}
@@ -113,34 +131,35 @@ public class EventAction extends ActionSupport implements Preparable {
 	}
 	
 	public String saveEvent(){
-		System.out.println("debut saveEvent");
-		if(event.getGame() == null)
-			System.out.println("jeu null");
-		if(event.getLocation() == null)
-			System.out.println("lieu null");
-		@SuppressWarnings("deprecation")
-		Date d = new Date(year, month, day);
-		event.setDate(d);
-		System.out.println(d.toString());
-		System.out.println("saveEvent");
-		System.out.println("desc : "+event.getDescription());
-		System.out.println("nbPlayers : "+event.getNbPlayers());
-		System.out.println("nbMaxPlayers : "+event.getNbMaxPlayers());
-		System.out.println("date : "+event.getDate());
-		System.out.println("game : "+event.getGame().getName());
-		System.out.println("lieu : "+event.getLocation().getName());
-		if(event.getDescription().equals(""))
-			event.setDescription("-");
-		System.out.println(event.getDescription());
-		
-		//ajout du createur
-		sessionAttributes = ActionContext.getContext().getSession();
-		user = (User) sessionAttributes.get("user");
-		List<User> users = new ArrayList<User>();
-		users.add(user);
-		event.setUsers(users);
-		eventService.addEvent(event);
-		System.out.println("fin saveEvent");
+		System.out.println("dans saveEvent");
+//		System.out.println("debut saveEvent");
+//		if(event.getGame() == null)
+//			System.out.println("jeu null");
+//		if(event.getLocation() == null)
+//			System.out.println("lieu null");
+//		@SuppressWarnings("deprecation")
+//		Date d = new Date(year, month, day);
+//		event.setDate(d);
+//		System.out.println(d.toString());
+//		System.out.println("saveEvent");
+//		System.out.println("desc : "+event.getDescription());
+//		System.out.println("nbPlayers : "+event.getNbPlayers());
+//		System.out.println("nbMaxPlayers : "+event.getNbMaxPlayers());
+//		System.out.println("date : "+event.getDate());
+//		System.out.println("game : "+event.getGame().getName());
+//		System.out.println("lieu : "+event.getLocation().getName());
+//		if(event.getDescription().equals(""))
+//			event.setDescription("-");
+//		System.out.println(event.getDescription());
+//		
+//		//ajout du createur
+//		sessionAttributes = ActionContext.getContext().getSession();
+//		user = (User) sessionAttributes.get("user");
+//		List<User> users = new ArrayList<User>();
+//		users.add(user);
+//		event.setUsers(users);
+//		eventService.addEvent(event);
+//		System.out.println("fin saveEvent");
 		return SUCCESS;
 	}
 	

@@ -29,7 +29,6 @@
 
 <title>E-sport</title>
 </head>
-<% int cpt=0; %>
 
 <body>
 	<div id="content-wrapper">
@@ -70,18 +69,23 @@
 					<a class="btn btn-alert btn-default" onclick="javascript:turnUpDown()"><s:text name="button.createEvent"></s:text></a><br/><br/>
 					<div class="col-md-12">
 						<h4><label><u><s:text name="label.myEvents"></s:text> :</u></label></h4><br/><br/>
-						A remplir...
+						A remplir...<br/><br/>
+						<c:forEach items="${listEvents}" var="event">
+							<label><s:text name="label.game"></s:text> : ${event.game.name}</label><br/>
+							<label><s:text name="label.date"></s:text> : ${event.date}</label><br/>
+							<label><s:text name="label.nbPlayers"></s:text> : ${event.nbPlayers}/${event.nbMaxPlayers}</label><br/>
+							<label><s:text name="label.location"></s:text> : ${event.location.name} (${event.location.address})</label><br/><br/>
+						</c:forEach>
 					</div>
 				</div>
 				<div id=newEvent style="DISPLAY:none">
 					<s:form method="post" action="saveEvent" acceptcharset="UTF-8">
 						<br/>
 						<label><u><s:text name="label.game"></s:text> :</u></label><br/>
-						<select class="form-control" name="event.game" onchange="updateNbMaxPlayers(this.selectedIndex);updateLocation(this.selectedIndex)">
-						<c:forEach items="${listGames}" var="game">
-							<% cpt = cpt + 1; %>
+						<select class="form-control" name="event.game" onchange="updateNbMaxPlayers(this.selectedIndex)">
+						<c:forEach items="${listGames}" var="game" varStatus="theCountGame">
 <%-- 							<label><input type="radio" name="event.game"> ${game.name}</label> --%>
-							<option id='<%=cpt%>' value="${game.name}"> ${game.name}</option>
+							<option id="idGame${theCountGame.index}" value="${game.name}"> ${game.name}</option>
 							
 							<br/>
 						</c:forEach>
@@ -89,16 +93,19 @@
 						<hr>
 						
 						<label><u><s:text name="label.location"></s:text> :</u></label><br/>
-<%-- 						<select class="form-control" name="location"> --%>
-<%-- 						<c:forEach items="${listLocations}" var="location"> --%>
-<%-- 							<option value="${location.name}"> ${location.name}</option> --%>
+						<select class="form-control" name="event.location">
+						<c:forEach items="${listLocations}" var="location" varStatus="theCountLocation">
+							<option id="idLocation${theCountLocation.index}" value="${location.name}"> ${location.name}</option>
 <%-- 							<label>${location.address}</label> --%>
-<!-- 							<br/> -->
-<%-- 						</c:forEach> --%>
+							<br/>
+						</c:forEach>
+						</select>
+
+<%-- 						<select class="form-control" name="locations"> --%>
+<!-- 							<option value="Insalan"> Insalan</option> -->
 <%-- 						</select> --%>
 
-						<s:select list="listLocations" name="event.location" listKey="idLocation" listValue="name"/>
-<%-- 							<option value="${location.name}"> ${location.name}</option> --%>
+<%-- 						<s:select list="listLocations" name="event.location" listKey="idLocation" listValue="name"/> --%>
 						<hr>
 						
 						<label><u><s:text name="label.date"></s:text> :</u></label><br/>
@@ -140,6 +147,8 @@
 						<label><u><s:text name="label.description"></s:text> (<s:text name="label.optional"></s:text>) :</u></label><br/>
 						<textarea class="form-control" rows="5" name="event.description"></textarea>
 						<hr>
+						
+						<input type="hidden" name="event.nbPlayers" value="0"/>
 						
  						<s:submit type="button" cssClass="btn btn-default btn-primary " onclick="turnUpDown()"><s:text name="button.createEvent"></s:text></s:submit>
 					</s:form>

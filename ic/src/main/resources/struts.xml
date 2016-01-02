@@ -181,6 +181,7 @@
 			<result name="success" type="redirect">/listEvents</result>
 		</action>
 		<action name="saveEvent" class="eventAction" method="saveEvent">
+<!-- 			<result name="input" type="redirect">/home</result>probleme ca ne doit pas rentrer ici..................... -->
 			<result name="error" type="redirect">/login</result>
 			<result name="success" type="redirect">/home</result>
 		</action>

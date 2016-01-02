@@ -5,6 +5,9 @@ $(document).ready(function () {
 });
 
 function updateNbMaxPlayers(cpt){
+//	var game = document.getElementById("idGame0");
+//	alert(game.value);
+	
 	//Hearthstone, Starcraft 2, Fifa 15, Dota 2
 	if(cpt == '2' || cpt == '3' || cpt == '5' || cpt == '6'){
 		document.getElementById('twoPlayers').style.display = 'block';
