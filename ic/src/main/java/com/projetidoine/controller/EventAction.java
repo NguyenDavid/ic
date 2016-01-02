@@ -132,6 +132,13 @@ public class EventAction extends ActionSupport implements Preparable {
 		if(event.getDescription().equals(""))
 			event.setDescription("-");
 		System.out.println(event.getDescription());
+		
+		//ajout du createur
+		sessionAttributes = ActionContext.getContext().getSession();
+		user = (User) sessionAttributes.get("user");
+		List<User> users = new ArrayList<User>();
+		users.add(user);
+		event.setUsers(users);
 		eventService.addEvent(event);
 		System.out.println("fin saveEvent");
 		return SUCCESS;

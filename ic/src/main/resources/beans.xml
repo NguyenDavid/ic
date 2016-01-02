@@ -55,6 +55,12 @@
 		<property name="eventService">
 			<ref bean="eventService" />
 		</property>
+		<property name="game">
+			<ref bean="game" />
+		</property>
+		<property name="location">
+			<ref bean="location" />
+		</property>
 	</bean>
 
 	<!-- L'injection des dépendances entre les différentes couches de l'application 
@@ -82,6 +88,10 @@
 		</bean>
 		<bean id="locationService" class="com.projetidoine.service.LocationServiceImpl">
 			<property name="locationDAO" ref="locationDAO" />
+		</bean>
+		<bean id="game" class="com.projetidoine.entity.Game">
+		</bean>
+		<bean id="location" class="com.projetidoine.entity.Location">
 		</bean>
 
 	<!-- jdbc.properties -->

@@ -89,13 +89,16 @@
 						<hr>
 						
 						<label><u><s:text name="label.location"></s:text> :</u></label><br/>
-						<select class="form-control" name="event.location">
-						<c:forEach items="${listLocations}" var="location">
-							<option value="${location.name}"> ${location.name}</option>
+<%-- 						<select class="form-control" name="location"> --%>
+<%-- 						<c:forEach items="${listLocations}" var="location"> --%>
+<%-- 							<option value="${location.name}"> ${location.name}</option> --%>
 <%-- 							<label>${location.address}</label> --%>
-							<br/>
-						</c:forEach>
-						</select>
+<!-- 							<br/> -->
+<%-- 						</c:forEach> --%>
+<%-- 						</select> --%>
+
+						<s:select list="listLocations" name="event.location" listKey="idLocation" listValue="name"/>
+<%-- 							<option value="${location.name}"> ${location.name}</option> --%>
 						<hr>
 						
 						<label><u><s:text name="label.date"></s:text> :</u></label><br/>

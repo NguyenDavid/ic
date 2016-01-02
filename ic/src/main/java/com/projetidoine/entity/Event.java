@@ -87,7 +87,7 @@ public class Event {
 	public void setUsers(List<User> users){
 		this.users = users;
 	}
-
+	
 	public Game getGame() {
 		return game;
 	}
@@ -103,7 +103,7 @@ public class Event {
 	public void setLocation(Location location) {
 		this.location = location;
 	}
-	
+
 	public Long getIdEvent(){
 		return this.idEvent;
 	}
