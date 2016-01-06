@@ -28,4 +28,12 @@ function updateNbMaxPlayers(cpt){
 		document.getElementById('sixPlayers').style.display = 'none';
 		document.getElementById('tenPlayers').style.display = 'block';
 	}
-}
+};
+
+function updateEventGame(){
+	var select = document.getElementById('selectGame');
+	var gameName = select.options[select.selectedIndex].value;
+	var hidden = document.getElementById('hiddenGameName');
+	hidden.value = gameName;
+	alert(hidden.value);
+};

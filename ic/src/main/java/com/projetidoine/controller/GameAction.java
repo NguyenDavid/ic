@@ -81,19 +81,19 @@ public class GameAction extends ActionSupport implements Preparable {
 	
 	//initialise la BD en jeux
 	public String firstGames(){
-		Game g = new Game("League of Legends (3vs3)", 6);
+		Game g = new Game("League_of_Legends_(3vs3)", 6);
 		gameService.updateGame(g);
-		g = new Game("League of Legends (5vs5)", 10);
+		g = new Game("League_of_Legends_(5vs5)", 10);
 		gameService.updateGame(g);
 		g = new Game("Hearthstone", 2);
 		gameService.updateGame(g);
-		g = new Game("Starcraft 2", 2);
+		g = new Game("Starcraft_2", 2);
 		gameService.updateGame(g);
-		g = new Game("Counter Strike", 10);
+		g = new Game("Counter_Strike", 10);
 		gameService.updateGame(g);
-		g = new Game("Fifa 15", 2);
+		g = new Game("Fifa_15", 2);
 		gameService.updateGame(g);
-		g = new Game("Dota 2", 2);
+		g = new Game("Dota_2", 2);
 		gameService.updateGame(g);
 		return SUCCESS;
 	}

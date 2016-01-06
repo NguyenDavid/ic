@@ -82,26 +82,32 @@
 					<s:form method="post" action="saveEvent" acceptcharset="UTF-8">
 						<br/>
 						<label><u><s:text name="label.game"></s:text> :</u></label><br/>
+<!-- 						<input type="hidden" id="hiddenGameName" name="listGames" value="League_of_Legends_(3vs3)"/> -->
 						<select class="form-control" name="event.game" onchange="updateNbMaxPlayers(this.selectedIndex)">
+<%-- 						<select id="selectGame" class="form-control" onchange="updateNbMaxPlayers(this.selectedIndex);updateEventGame();"> --%>
 						<c:forEach items="${listGames}" var="game" varStatus="theCountGame">
 <%-- 							<label><input type="radio" name="event.game"> ${game.name}</label> --%>
 							<option id="idGame${theCountGame.index}" value="${game.name}"> ${game.name}</option>
-							
 							<br/>
 						</c:forEach>
+						
 						</select>
+						
+<%-- 						<select class="form-control" name="event.game" onchange="updateNbMaxPlayers(this.selectedIndex)"> --%>
+<!-- 							<option value="Hearthstone"> Hearthstone</option> -->
+<%-- 						</select> --%>
 						<hr>
 						
 						<label><u><s:text name="label.location"></s:text> :</u></label><br/>
 						<select class="form-control" name="event.location">
 						<c:forEach items="${listLocations}" var="location" varStatus="theCountLocation">
 							<option id="idLocation${theCountLocation.index}" value="${location.name}"> ${location.name}</option>
-<%-- 							<label>${location.address}</label> --%>
-							<br/>
+<%--  							<label>${location.address}</label> --%>
+ 							<br/>
 						</c:forEach>
 						</select>
-
-<%-- 						<select class="form-control" name="locations"> --%>
+						
+<%-- 						<select class="form-control" name="event.location"> --%>
 <!-- 							<option value="Insalan"> Insalan</option> -->
 <%-- 						</select> --%>
 
