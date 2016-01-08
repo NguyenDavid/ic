@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,7 +30,8 @@ public class Event {
 	private int nbPlayers;
 	@Column(name = "NBMAXPLAYERS", nullable = false)
 	private int nbMaxPlayers;
-	@ManyToMany(cascade=CascadeType.ALL, mappedBy="events")
+	//@ManyToMany(cascade=CascadeType.ALL, mappedBy="events")
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "events" )
 	private List<User> users;
 	@ManyToOne
 	@JoinColumn(name = "id_game")

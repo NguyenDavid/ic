@@ -3,8 +3,10 @@ package com.projetidoine.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,7 +24,8 @@ public class Location {
 	private String name;
 	@Column(name = "ADDRESS", nullable = false)
 	private String address;
-	@OneToMany(mappedBy="location")
+	//@OneToMany(mappedBy="location")
+	@OneToMany(mappedBy = "location", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	@Column(nullable = true)
 	private List<Event> events;
 	
