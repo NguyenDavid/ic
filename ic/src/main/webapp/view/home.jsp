@@ -1,7 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -39,7 +38,7 @@
 		</div>
 		
 		<div id="content-ban">
-	    	<img src='<c:url value="/ressources/assets/Banniere 3.jpg"/>' alt=""/>
+	    	<img src='<s:url value="/ressources/assets/Banniere 3.jpg"/>' alt=""/>
 	    </div>
 	    <div id="content-title">
 	    	<h1><s:text name="title.home"></s:text></h1>
@@ -51,10 +50,10 @@
 	    		<div id="content-logout">
 	    			<s:form method="post" action="deconnexion">
    						<a href="languageHome.action?request_locale=en">
-							<img src='<c:url value="/ressources/assets/en.gif"/>' alt="En"/> 
+							<img src='<s:url value="/ressources/assets/en.gif"/>' alt="En"/> 
 						</a> | 
 						<a href="languageHome.action?request_locale=fr">
-							<img src='<c:url value="/ressources/assets/fr.gif"/>' alt="Fr"/> 
+							<img src='<s:url value="/ressources/assets/fr.gif"/>' alt="Fr"/> 
 						</a>
 						<s:url namespace="/" var="linkDeconnexion" action="deconnexion"></s:url>
 						<a class="btn btn-alert btn-default" href="${linkDeconnexion}">
@@ -69,29 +68,30 @@
 					<a class="btn btn-alert btn-default" onclick="javascript:turnUpDown()"><s:text name="button.createEvent"></s:text></a><br/><br/>
 					<div class="col-md-12">
 						<h4><label><u><s:text name="label.myEvents"></s:text> :</u></label></h4><br/><br/>
-						<c:forEach items="${listEvents}" var="event">
+						<%-- <c:forEach items="${listEvents}" var="event">
 							<label><s:text name="label.game"></s:text> : ${event.game.name}</label><br/>
 							<label><s:text name="label.date"></s:text> : ${event.date}</label><br/>
 							<label><s:text name="label.nbPlayers"></s:text> : ${event.nbPlayers}/${event.nbMaxPlayers}</label><br/>
 							<label><s:text name="label.location"></s:text> : ${event.location.name} (${event.location.address})</label><br/><br/>
-						</c:forEach>
+						</c:forEach> --%>
+						
+						<s:if test="%{listEvents.size() <= 0}">
+						<label>Pas d'événement</label>
+						</s:if>
+						<s:else>
+							<s:iterator value="listEvents">
+								<label><s:text name="label.game"></s:text> : <s:property value="game.name"/></label><br/>
+								<label><s:text name="label.date"></s:text> : <s:property value="date"/></label><br/>
+								<label><s:text name="label.nbPlayers"></s:text> : <s:property value="nbPlayers"/>/<s:property value="nbMaxPlayers"/></label><br/>
+								<label><s:text name="label.location"></s:text> : <s:property value="location.name"/> (<s:property value="location.address"/>)</label><br/><br/>
+							</s:iterator>
+						</s:else>
 					</div>
 				</div>
 				<div id=newEvent style="DISPLAY:none">
 					<s:form method="post" action="saveEvent" acceptcharset="UTF-8">
 						<br/>
 						<label><u><s:text name="label.game"></s:text> :</u></label><br/>
-<!-- 						<input type="hidden" id="hiddenGameName" name="listGames" value="League_of_Legends_(3vs3)"/> -->
-<%-- 						<select class="form-control" name="event.game" onchange="updateNbMaxPlayers(this.selectedIndex)"> --%>
-<%-- <%-- 						<select id="selectGame" class="form-control" onchange="updateNbMaxPlayers(this.selectedIndex);updateEventGame();"> --%> --%>
-<%-- 						<c:forEach items="${listGames}" var="game" varStatus="theCountGame"> --%>
-<%-- <%-- 							<label><input type="radio" name="event.game"> ${game.name}</label> --%> --%>
-<%-- 							<option id="idGame${theCountGame.index}" value="${game.name}"> ${game.name}</option> --%>
-<!-- 							<input type="hidden" value=""/> -->
-<!-- 							<br/> -->
-<%-- 						</c:forEach> --%>
-						
-<%-- 						</select> --%>
 
 						<s:select list="listGames" 
 						onchange="updateNbMaxPlayers(this.selectedIndex);updateEventGame();"
@@ -100,19 +100,9 @@
 						>
 						</s:select>
 						
-<%-- 						<select class="form-control" name="event.game" onchange="updateNbMaxPlayers(this.selectedIndex)"> --%>
-<!-- 							<option value="Hearthstone"> Hearthstone</option> -->
-<%-- 						</select> --%>
 						<hr>
 						
 						<label><u><s:text name="label.location"></s:text> :</u></label><br/>
-<%-- 						<select class="form-control" name="event.location"> --%>
-<%-- 						<c:forEach items="${listLocations}" var="location" varStatus="theCountLocation"> --%>
-<%-- 							<option id="idLocation${theCountLocation.index}" value="${location.name}"> ${location.name}</option> --%>
-<%-- <%--  							<label>${location.address}</label> --%> --%>
-<!--  							<br/> -->
-<%-- 						</c:forEach> --%>
-<%-- 						</select> --%>
 
 						<s:select list="listLocations" 
 						listKey="idLocation"
@@ -121,11 +111,6 @@
 						>
 						</s:select>
 						
-<%-- 						<select class="form-control" name="event.location"> --%>
-<!-- 							<option value="Insalan"> Insalan</option> -->
-<%-- 						</select> --%>
-
-<%-- 						<s:select list="listLocations" name="event.location" listKey="idLocation" listValue="name"/> --%>
 						<hr>
 						
 						<label><u><s:text name="label.date"></s:text> :</u></label><br/>

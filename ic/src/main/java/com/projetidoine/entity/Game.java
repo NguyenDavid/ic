@@ -26,8 +26,8 @@ public class Game {
 	private int nbPlayersPerMatch;
 	//@OneToMany(mappedBy="game", fetch = FetchType.EAGER)
 	//@Column(nullable = true)
+	@OneToMany(mappedBy = "game", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	@Column(nullable = true)
-	@OneToMany(mappedBy = "game", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Event> events;
 	
 	public Game(){

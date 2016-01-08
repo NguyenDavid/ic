@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -200,9 +201,20 @@ public class EventAction extends ActionSupport implements Preparable {
 		//ajout du createur
 		sessionAttributes = ActionContext.getContext().getSession();
 		user = (User) sessionAttributes.get("user");
-		List<User> users = new ArrayList<User>();
-		users.add(user);
-		event.setUsers(users);
+//		List<User> users = new ArrayList<User>();
+//		users.add(user);
+//		event.setUsers(users);
+		
+		
+		event.setUsers(new HashSet<User>());
+		event.getUsers().add(user);
+		event.setNbPlayers(event.getUsers().size());
+//		event.setUsers(new ArrayList<User>());
+//		event.getUsers().add(user);
+//		user.set
+		
+//		System.out.println(event.getUsers().size());
+		
 		eventService.addEvent(event);
 		System.out.println("fin saveEvent");
 		return SUCCESS;
@@ -243,7 +255,6 @@ public class EventAction extends ActionSupport implements Preparable {
 	
 	public String updatePlayers(){
 		eventService.addPlayerInEvent(user, idEvent);
-		System.out.println("eventAction fin");
 		return SUCCESS;
 	}
 	

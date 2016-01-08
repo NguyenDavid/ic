@@ -24,7 +24,7 @@
 		</div>
 	
 		<div id="content-ban">
-	    	<img src='<c:url value="/ressources/assets/Banniere 3.jpg"/>' alt=""/>
+	    	<img src='<s:url value="/ressources/assets/Banniere 3.jpg"/>' alt=""/>
 	    </div>
 	    <div id="content-title">
 	    	<h1><s:text name="title.games"></s:text></h1>
@@ -36,10 +36,10 @@
 				<div id="content-logout">
 	    			<s:form method="post" action="deconnexion">
    						<a href="languageGame.action?request_locale=en">
-							<img src='<c:url value="/ressources/assets/en.gif"/>' alt="En"/> 
+							<img src='<s:url value="/ressources/assets/en.gif"/>' alt="En"/> 
 						</a> | 
 						<a href="languageGame.action?request_locale=fr">
-							<img src='<c:url value="/ressources/assets/fr.gif"/>' alt="Fr"/> 
+							<img src='<s:url value="/ressources/assets/fr.gif"/>' alt="Fr"/> 
 						</a>
 						<s:url namespace="/" var="linkDeconnexion" action="deconnexion"></s:url>
 						<a class="btn btn-alert btn-default" href="${linkDeconnexion}">
@@ -67,8 +67,8 @@
 							</c:forEach>
 						</div>
 						<br/><br/><br/>
-						
 					</c:forEach>
+					
 				</div>
 				<br/><br/><br/>
 			</div>

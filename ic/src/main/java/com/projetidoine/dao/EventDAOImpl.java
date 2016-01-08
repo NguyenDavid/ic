@@ -51,32 +51,35 @@ public class EventDAOImpl implements EventDAO {
 		
 		Event e = (Event) this.sessionFactory.getCurrentSession().createQuery("from Event e where e.idEvent = "+idEvent).uniqueResult();
 		
-		//AVANT
-		System.out.println("Date : "+e.getDate());
-		System.out.println("Description : "+e.getDescription());
-		System.out.println("Game : "+e.getGame().getName());
-		System.out.println("Location : "+e.getLocation().getName());
-		System.out.println("NbMaxPlayers : "+e.getNbMaxPlayers());
-		System.out.println("NbPlayers : "+e.getNbPlayers());
-		System.out.println("size : "+e.getUsers().size());
-		
-		List<User> users = e.getUsers();
-		users.add(user);
-		e.setUsers(users);
-		e.setNbPlayers(users.size());
-		
-		//APRES
-		System.out.println("Date : "+e.getDate());
-		System.out.println("Description : "+e.getDescription());
-		System.out.println("Game : "+e.getGame().getName());
-		System.out.println("Location : "+e.getLocation().getName());
-		System.out.println("NbMaxPlayers : "+e.getNbMaxPlayers());
-		System.out.println("NbPlayers : "+e.getNbPlayers());
-		System.out.println("size : "+e.getUsers().size());
-		
-		System.out.println("eventDaoImpl : avant merge");
-//		this.sessionFactory.getCurrentSession().merge(e);
-		System.out.println("eventDaoImpl : apres merge");
+		if(!e.getUsers().contains(user)){
+			System.out.println("-----AVANT-----");
+			System.out.println("Date : "+e.getDate());
+			System.out.println("Description : "+e.getDescription());
+			System.out.println("Game : "+e.getGame().getName());
+			System.out.println("Location : "+e.getLocation().getName());
+			System.out.println("NbMaxPlayers : "+e.getNbMaxPlayers());
+			System.out.println("NbPlayers : "+e.getNbPlayers());
+			System.out.println("size : "+e.getUsers().size());
+			
+//			List<User> users = e.getUsers();
+//			users.add(user);
+//			e.setUsers(users);
+			e.getUsers().add(user);
+			e.setNbPlayers(e.getUsers().size());
+			
+			System.out.println("-----APRES-----");
+			System.out.println("Date : "+e.getDate());
+			System.out.println("Description : "+e.getDescription());
+			System.out.println("Game : "+e.getGame().getName());
+			System.out.println("Location : "+e.getLocation().getName());
+			System.out.println("NbMaxPlayers : "+e.getNbMaxPlayers());
+			System.out.println("NbPlayers : "+e.getNbPlayers());
+			System.out.println("size : "+e.getUsers().size());
+			
+			System.out.println("eventDaoImpl : avant merge");
+			this.sessionFactory.getCurrentSession().merge(e);
+			System.out.println("eventDaoImpl : apres merge");
+		}
 		
 //		if(e != null){
 //			//prendre les autres entites liees a cet event
