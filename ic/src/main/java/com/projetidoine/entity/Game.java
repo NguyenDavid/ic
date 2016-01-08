@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.projetidoine.service.GameService;
+
 @Entity
 @Table(name = "game")
 public class Game {

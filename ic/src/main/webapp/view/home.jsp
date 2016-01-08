@@ -69,7 +69,6 @@
 					<a class="btn btn-alert btn-default" onclick="javascript:turnUpDown()"><s:text name="button.createEvent"></s:text></a><br/><br/>
 					<div class="col-md-12">
 						<h4><label><u><s:text name="label.myEvents"></s:text> :</u></label></h4><br/><br/>
-						A remplir...<br/><br/>
 						<c:forEach items="${listEvents}" var="event">
 							<label><s:text name="label.game"></s:text> : ${event.game.name}</label><br/>
 							<label><s:text name="label.date"></s:text> : ${event.date}</label><br/>
@@ -83,15 +82,23 @@
 						<br/>
 						<label><u><s:text name="label.game"></s:text> :</u></label><br/>
 <!-- 						<input type="hidden" id="hiddenGameName" name="listGames" value="League_of_Legends_(3vs3)"/> -->
-						<select class="form-control" name="event.game" onchange="updateNbMaxPlayers(this.selectedIndex)">
-<%-- 						<select id="selectGame" class="form-control" onchange="updateNbMaxPlayers(this.selectedIndex);updateEventGame();"> --%>
-						<c:forEach items="${listGames}" var="game" varStatus="theCountGame">
-<%-- 							<label><input type="radio" name="event.game"> ${game.name}</label> --%>
-							<option id="idGame${theCountGame.index}" value="${game.name}"> ${game.name}</option>
-							<br/>
-						</c:forEach>
+<%-- 						<select class="form-control" name="event.game" onchange="updateNbMaxPlayers(this.selectedIndex)"> --%>
+<%-- <%-- 						<select id="selectGame" class="form-control" onchange="updateNbMaxPlayers(this.selectedIndex);updateEventGame();"> --%> --%>
+<%-- 						<c:forEach items="${listGames}" var="game" varStatus="theCountGame"> --%>
+<%-- <%-- 							<label><input type="radio" name="event.game"> ${game.name}</label> --%> --%>
+<%-- 							<option id="idGame${theCountGame.index}" value="${game.name}"> ${game.name}</option> --%>
+<!-- 							<input type="hidden" value=""/> -->
+<!-- 							<br/> -->
+<%-- 						</c:forEach> --%>
 						
-						</select>
+<%-- 						</select> --%>
+
+						<s:select list="listGames" 
+						onchange="updateNbMaxPlayers(this.selectedIndex);updateEventGame();"
+						listKey="idGame"
+						listValue="name" name="idGame"
+						>
+						</s:select>
 						
 <%-- 						<select class="form-control" name="event.game" onchange="updateNbMaxPlayers(this.selectedIndex)"> --%>
 <!-- 							<option value="Hearthstone"> Hearthstone</option> -->
@@ -99,13 +106,20 @@
 						<hr>
 						
 						<label><u><s:text name="label.location"></s:text> :</u></label><br/>
-						<select class="form-control" name="event.location">
-						<c:forEach items="${listLocations}" var="location" varStatus="theCountLocation">
-							<option id="idLocation${theCountLocation.index}" value="${location.name}"> ${location.name}</option>
-<%--  							<label>${location.address}</label> --%>
- 							<br/>
-						</c:forEach>
-						</select>
+<%-- 						<select class="form-control" name="event.location"> --%>
+<%-- 						<c:forEach items="${listLocations}" var="location" varStatus="theCountLocation"> --%>
+<%-- 							<option id="idLocation${theCountLocation.index}" value="${location.name}"> ${location.name}</option> --%>
+<%-- <%--  							<label>${location.address}</label> --%> --%>
+<!--  							<br/> -->
+<%-- 						</c:forEach> --%>
+<%-- 						</select> --%>
+
+						<s:select list="listLocations" 
+						listKey="idLocation"
+						listValue="name"
+						name="idLocation"
+						>
+						</s:select>
 						
 <%-- 						<select class="form-control" name="event.location"> --%>
 <!-- 							<option value="Insalan"> Insalan</option> -->
@@ -154,7 +168,7 @@
 						<textarea class="form-control" rows="5" name="event.description"></textarea>
 						<hr>
 						
-						<input type="hidden" name="event.nbPlayers" value="0"/>
+						<input type="hidden" name="event.nbPlayers" value="1"/>
 						
  						<s:submit type="button" cssClass="btn btn-default btn-primary " onclick="turnUpDown()"><s:text name="button.createEvent"></s:text></s:submit>
 					</s:form>

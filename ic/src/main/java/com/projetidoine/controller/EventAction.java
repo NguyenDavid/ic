@@ -15,6 +15,8 @@ import com.projetidoine.entity.Game;
 import com.projetidoine.entity.Location;
 import com.projetidoine.entity.User;
 import com.projetidoine.service.EventService;
+import com.projetidoine.service.GameService;
+import com.projetidoine.service.LocationService;
 import com.projetidoine.service.UserService;
 
 public class EventAction extends ActionSupport implements Preparable {
@@ -34,6 +36,42 @@ public class EventAction extends ActionSupport implements Preparable {
 	private Map<String, Object> sessionAttributes = null;
 	private List<Game> games = new ArrayList<Game>();
 	private List<Location> locations = new ArrayList<Location>();
+	private Long idLocation;
+	private Long idGame;
+	private GameService gameService;
+	private LocationService locationService;
+	
+	public GameService getGameService() {
+		return gameService;
+	}
+
+	public void setGameService(GameService gameService) {
+		this.gameService = gameService;
+	}
+
+	public LocationService getLocationService() {
+		return locationService;
+	}
+
+	public void setLocationService(LocationService locationService) {
+		this.locationService = locationService;
+	}
+
+	public Long getIdLocation() {
+		return idLocation;
+	}
+
+	public void setIdLocation(Long idLocation) {
+		this.idLocation = idLocation;
+	}
+
+	public Long getIdGame() {
+		return idGame;
+	}
+
+	public void setIdGame(Long idGame) {
+		this.idGame = idGame;
+	}
 	
 	public List<Game> getGames() {
 		return games;
@@ -104,6 +142,8 @@ public class EventAction extends ActionSupport implements Preparable {
 		this.idEvent = null;
 		this.game = null;
 		this.location = null;
+		this.idGame = null;
+		this.idLocation = null;
 	}
 	
 	public String languageEvent(){
@@ -131,35 +171,40 @@ public class EventAction extends ActionSupport implements Preparable {
 	}
 	
 	public String saveEvent(){
-		System.out.println("dans saveEvent");
-//		System.out.println("debut saveEvent");
-//		if(event.getGame() == null)
-//			System.out.println("jeu null");
-//		if(event.getLocation() == null)
-//			System.out.println("lieu null");
-//		@SuppressWarnings("deprecation")
-//		Date d = new Date(year, month, day);
-//		event.setDate(d);
-//		System.out.println(d.toString());
-//		System.out.println("saveEvent");
-//		System.out.println("desc : "+event.getDescription());
-//		System.out.println("nbPlayers : "+event.getNbPlayers());
-//		System.out.println("nbMaxPlayers : "+event.getNbMaxPlayers());
-//		System.out.println("date : "+event.getDate());
-//		System.out.println("game : "+event.getGame().getName());
-//		System.out.println("lieu : "+event.getLocation().getName());
-//		if(event.getDescription().equals(""))
-//			event.setDescription("-");
-//		System.out.println(event.getDescription());
-//		
-//		//ajout du createur
-//		sessionAttributes = ActionContext.getContext().getSession();
-//		user = (User) sessionAttributes.get("user");
-//		List<User> users = new ArrayList<User>();
-//		users.add(user);
-//		event.setUsers(users);
-//		eventService.addEvent(event);
-//		System.out.println("fin saveEvent");
+		System.out.println("debut saveEvent");
+		
+		@SuppressWarnings("deprecation")
+		Date d = new Date(year, month, day);
+		event.setDate(d);
+		System.out.println(d.toString());
+		System.out.println("saveEvent");
+		System.out.println("desc : "+event.getDescription());
+		System.out.println("nbPlayers : "+event.getNbPlayers());
+		System.out.println("nbMaxPlayers : "+event.getNbMaxPlayers());
+		System.out.println("date : "+event.getDate());
+		System.out.println("game : "+idGame);
+		System.out.println("lieu : "+idLocation);
+		System.out.println(event.getDescription());
+		
+		if(event.getDescription().equals(""))
+			event.setDescription("-");
+		
+		Game game = gameService.getGameById(idGame);
+		Location location = locationService.getLocationById(idLocation);
+		event.setGame(game);
+		event.setLocation(location);
+		
+		System.out.println(event.getGame().getName());
+		System.out.println(event.getLocation().getName());
+		
+		//ajout du createur
+		sessionAttributes = ActionContext.getContext().getSession();
+		user = (User) sessionAttributes.get("user");
+		List<User> users = new ArrayList<User>();
+		users.add(user);
+		event.setUsers(users);
+		eventService.addEvent(event);
+		System.out.println("fin saveEvent");
 		return SUCCESS;
 	}
 	

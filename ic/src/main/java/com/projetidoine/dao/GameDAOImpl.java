@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
+import com.projetidoine.entity.Event;
 import com.projetidoine.entity.Game;
 
 @Repository
@@ -37,5 +38,14 @@ public class GameDAOImpl implements GameDAO {
 
 	public void deleteGame(Long idGame) {
 		this.sessionFactory.getCurrentSession().delete(getGameById(idGame));
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Event> getEventsByGameId(Long idGame){
+		List<Event> listEvents = (List<Event>) this.sessionFactory.getCurrentSession().createQuery("select g.events from Game g where g.idGame= :idGame")
+				.setLong("idGame", idGame);
+		if(listEvents.size() > 0)
+			return listEvents;
+		return null;
 	}
 }

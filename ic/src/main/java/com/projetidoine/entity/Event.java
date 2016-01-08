@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -31,8 +32,10 @@ public class Event {
 	@ManyToMany(cascade=CascadeType.ALL, mappedBy="events")
 	private List<User> users;
 	@ManyToOne
+	@JoinColumn(name = "id_game")
 	private Game game;
 	@ManyToOne
+	@JoinColumn(name = "id_location")
 	private Location location;
 
 	public Event(){

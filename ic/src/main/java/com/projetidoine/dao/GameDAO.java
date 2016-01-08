@@ -2,6 +2,9 @@ package com.projetidoine.dao;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
+import com.projetidoine.entity.Event;
 import com.projetidoine.entity.Game;
 
 /**
@@ -49,4 +52,12 @@ public interface GameDAO {
 	 *            id du jeu
 	 */
 	public void deleteGame(Long idGame);
+	
+	/**
+	 * permet de recuperer la liste d'evenements d'un jeu
+	 * 
+	 * @param idGame
+	 *            id du jeu
+	 */
+	public List<Event> getEventsByGameId(Long idGame);
 }

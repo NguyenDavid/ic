@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.projetidoine.dao.GameDAO;
+import com.projetidoine.entity.Event;
 import com.projetidoine.entity.Game;
 
 public class GameServiceImpl implements GameService {
@@ -37,5 +38,10 @@ public class GameServiceImpl implements GameService {
 	
 	public void setGameDAO(GameDAO gameDAO){
 		this.gameDAO = gameDAO;
+	}
+	
+	@Transactional
+	public List<Event> getEventsByGameId(Long idGame){
+		return this.gameDAO.getEventsByGameId(idGame);
 	}
 }

@@ -45,79 +45,105 @@ public class EventDAOImpl implements EventDAO {
 		this.sessionFactory.getCurrentSession().delete(getEventById(idEvent));
 	}
 	
-	@SuppressWarnings("unchecked")
+//	@SuppressWarnings("unchecked")
 	public void addPlayerInEvent(User user, Long idEvent){
 		System.out.println("EventDaoImpl");
 		
 		Event e = (Event) this.sessionFactory.getCurrentSession().createQuery("from Event e where e.idEvent = "+idEvent).uniqueResult();
-		System.out.println("Ancien event : "+e.getUsers().size()+" "+e.getNbPlayers());
 		
-		if(e != null){
-			//prendre les autres entites liees a cet event
-			//mettre l'event a null vis-a-vis d'eux
-			//save du cote de l'entite
-			//save du cote de l'event
-			//add event
-			//changer du cote de chaque entite
-			
-			Event newEvent = new Event();
-			newEvent.setDate((Date)e.getDate().clone());
-			newEvent.setDescription(new String(e.getDescription()));
-			newEvent.setGame(e.getGame().clone());
-			newEvent.setIdEvent(idEvent);
-			newEvent.setLocation(e.getLocation().clone());
-			newEvent.setNbMaxPlayers(e.getNbMaxPlayers());
-			
-			List<User> users = new ArrayList<User>(e.getUsers());
-			users.add(user);
-			newEvent.setUsers(users);
-			newEvent.setNbPlayers(users.size());
-			
-			System.out.println("New event : "+newEvent.getDate()+" "+newEvent.getDescription()+" "+newEvent.getGame()+" "+newEvent.getIdEvent()+" "+newEvent.getLocation()+" "+newEvent.getNbMaxPlayers());
-			System.out.println("New event : "+newEvent.getUsers().size()+" "+newEvent.getNbPlayers());
-			
-			List<Game> listGames = new ArrayList<Game>();
-			Query queryGame = this.sessionFactory.getCurrentSession().createQuery("from Game g where g.name = :name");
-			queryGame.setParameter("name", e.getGame().getName());
-			listGames = queryGame.list();
-			for (Game game : listGames) {
-				List<Event> listEventsGame = game.getEvents();
-				listEventsGame.remove(e);
-				listEventsGame.add(newEvent);
-				game.setEvents(listEventsGame);
-				this.sessionFactory.getCurrentSession().save(game);
-			}
-			
-			List<Location> listLocations = new ArrayList<Location>();
-			Query queryLocation = this.sessionFactory.getCurrentSession().createQuery("from Location l where l.name = :name");
-			queryLocation.setParameter("name", e.getLocation().getName());
-			listLocations = queryLocation.list();
-			for (Location location : listLocations) {
-				List<Event> listEventsLocation = location.getEvents();
-				listEventsLocation.remove(e);
-				listEventsLocation.add(newEvent);
-				location.setEvents(listEventsLocation);
-				this.sessionFactory.getCurrentSession().save(location);
-			}
-			
-			List<User> listUsers = new ArrayList<User>();
-			Query queryUser = this.sessionFactory.getCurrentSession().createQuery("from User u where :e in elements(u.events)");
-			queryUser.setParameter("e", e);
-			listUsers = queryUser.list();
-			for (User u : listUsers) {
-				List<Event> listEventsUser = u.getEvents();
-				listEventsUser.remove(e);
-				listEventsUser.add(newEvent);
-				u.setEvents(listEventsUser);
-				System.out.println("eventDAOImpl i");
-				this.sessionFactory.getCurrentSession().save(u);
-			}
-			
-			System.out.println("quasi fin eventDAOImpl");
-			
-			this.sessionFactory.getCurrentSession().merge(newEvent);
-			
-			System.out.println("fin eventDAOImpl");
-		}
+		//AVANT
+		System.out.println("Date : "+e.getDate());
+		System.out.println("Description : "+e.getDescription());
+		System.out.println("Game : "+e.getGame().getName());
+		System.out.println("Location : "+e.getLocation().getName());
+		System.out.println("NbMaxPlayers : "+e.getNbMaxPlayers());
+		System.out.println("NbPlayers : "+e.getNbPlayers());
+		System.out.println("size : "+e.getUsers().size());
+		
+		List<User> users = e.getUsers();
+		users.add(user);
+		e.setUsers(users);
+		e.setNbPlayers(users.size());
+		
+		//APRES
+		System.out.println("Date : "+e.getDate());
+		System.out.println("Description : "+e.getDescription());
+		System.out.println("Game : "+e.getGame().getName());
+		System.out.println("Location : "+e.getLocation().getName());
+		System.out.println("NbMaxPlayers : "+e.getNbMaxPlayers());
+		System.out.println("NbPlayers : "+e.getNbPlayers());
+		System.out.println("size : "+e.getUsers().size());
+		
+		System.out.println("eventDaoImpl : avant merge");
+//		this.sessionFactory.getCurrentSession().merge(e);
+		System.out.println("eventDaoImpl : apres merge");
+		
+//		if(e != null){
+//			//prendre les autres entites liees a cet event
+//			//mettre l'event a null vis-a-vis d'eux
+//			//save du cote de l'entite
+//			//save du cote de l'event
+//			//add event
+//			//changer du cote de chaque entite
+//			
+//			Event newEvent = new Event();
+//			newEvent.setDate((Date)e.getDate().clone());
+//			newEvent.setDescription(new String(e.getDescription()));
+//			newEvent.setGame(e.getGame().clone());
+//			newEvent.setIdEvent(idEvent);
+//			newEvent.setLocation(e.getLocation().clone());
+//			newEvent.setNbMaxPlayers(e.getNbMaxPlayers());
+//			
+//			List<User> users = new ArrayList<User>(e.getUsers());
+//			users.add(user);
+//			newEvent.setUsers(users);
+//			newEvent.setNbPlayers(users.size());
+//			
+//			System.out.println("New event : "+newEvent.getDate()+" "+newEvent.getDescription()+" "+newEvent.getGame()+" "+newEvent.getIdEvent()+" "+newEvent.getLocation()+" "+newEvent.getNbMaxPlayers());
+//			System.out.println("New event : "+newEvent.getUsers().size()+" "+newEvent.getNbPlayers());
+//			
+//			List<Game> listGames = new ArrayList<Game>();
+//			Query queryGame = this.sessionFactory.getCurrentSession().createQuery("from Game g where g.name = :name");
+//			queryGame.setParameter("name", e.getGame().getName());
+//			listGames = queryGame.list();
+//			for (Game game : listGames) {
+//				List<Event> listEventsGame = game.getEvents();
+//				listEventsGame.remove(e);
+//				listEventsGame.add(newEvent);
+//				game.setEvents(listEventsGame);
+//				this.sessionFactory.getCurrentSession().save(game);
+//			}
+//			
+//			List<Location> listLocations = new ArrayList<Location>();
+//			Query queryLocation = this.sessionFactory.getCurrentSession().createQuery("from Location l where l.name = :name");
+//			queryLocation.setParameter("name", e.getLocation().getName());
+//			listLocations = queryLocation.list();
+//			for (Location location : listLocations) {
+//				List<Event> listEventsLocation = location.getEvents();
+//				listEventsLocation.remove(e);
+//				listEventsLocation.add(newEvent);
+//				location.setEvents(listEventsLocation);
+//				this.sessionFactory.getCurrentSession().save(location);
+//			}
+//			
+//			List<User> listUsers = new ArrayList<User>();
+//			Query queryUser = this.sessionFactory.getCurrentSession().createQuery("from User u where :e in elements(u.events)");
+//			queryUser.setParameter("e", e);
+//			listUsers = queryUser.list();
+//			for (User u : listUsers) {
+//				List<Event> listEventsUser = u.getEvents();
+//				listEventsUser.remove(e);
+//				listEventsUser.add(newEvent);
+//				u.setEvents(listEventsUser);
+//				System.out.println("eventDAOImpl i");
+//				this.sessionFactory.getCurrentSession().save(u);
+//			}
+//			
+//			System.out.println("quasi fin eventDAOImpl");
+//			
+//			this.sessionFactory.getCurrentSession().merge(newEvent);
+//			
+//			System.out.println("fin eventDAOImpl");
+//		}
 	}
 }

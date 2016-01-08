@@ -58,6 +58,12 @@
 		<property name="eventService">
 			<ref bean="eventService" />
 		</property>
+		<property name="gameService">
+			<ref bean="gameService" />
+		</property>
+		<property name="locationService">
+			<ref bean="locationService" />
+		</property>
 	</bean>
 
 	<!-- L'injection des dépendances entre les différentes couches de l'application 
