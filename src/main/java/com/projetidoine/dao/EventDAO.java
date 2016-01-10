@@ -58,4 +58,12 @@ public interface EventDAO {
 	 *            id de l'evenement
 	 */
 	public void addPlayerInEvent(User user, Long idEvent);
+	
+	/**
+	 * permet de recuperer une liste d'evenement d'un utilisateur
+	 * 
+	 * @param idUser
+	 *            id de l'utilisateur
+	 */
+	public List<Event> getEventByIdUser(Long idUser);
 }

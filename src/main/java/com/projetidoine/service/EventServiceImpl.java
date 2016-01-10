@@ -45,4 +45,9 @@ public class EventServiceImpl implements EventService {
 		this.eventDAO.addPlayerInEvent(user, idEvent);
 		System.out.println("EventServiceImpl fin");
 	}
+	
+	@Transactional
+	public List<Event> getEventByIdUser(Long idUser){
+		return this.eventDAO.getEventByIdUser(idUser);
+	}
 }

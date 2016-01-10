@@ -2,7 +2,9 @@ package com.projetidoine.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 import com.projetidoine.entity.Game;
@@ -18,6 +20,8 @@ public class GameAction extends ActionSupport implements Preparable {
 	private GameService gameService;
 	private List<Game> listGames = new ArrayList<Game>();
 	private List<User> listUsers = new ArrayList<User>();
+	private Map<String, Object> sessionAttributes = null;
+	private User user = new User();
 	
 	public void prepare() throws Exception {
 		this.game = null;
@@ -74,6 +78,8 @@ public class GameAction extends ActionSupport implements Preparable {
 	}
 	
 	public String listGames(){
+		sessionAttributes = ActionContext.getContext().getSession();
+		user = (User) sessionAttributes.get("user");
 		listUsers = userService.getAllUsers();
 		listGames = gameService.getAllGames();
 		return SUCCESS;
@@ -96,5 +102,13 @@ public class GameAction extends ActionSupport implements Preparable {
 		g = new Game("Dota_2", 2);
 		gameService.updateGame(g);
 		return SUCCESS;
+	}
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 }

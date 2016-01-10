@@ -33,15 +33,12 @@ public class LoginAction extends ActionSupport implements SessionAware, ModelDri
 	private EventService eventService;
 
 	public String home(){
-		System.out.println("Dans home");
+		sessionAttributes = ActionContext.getContext().getSession();
+		user = (User) sessionAttributes.get("user");
 		listGames = gameService.getAllGames();
 		listLocations = locationService.getAllLocations();
 		listUsers = userService.getAllUsers();
-		listEvents = eventService.getAllEvents();//a changer avec ceux ou on participe
-//		listEvents = userService.getEventsByUserId(user.getIdUser());//bug
-//		for (Event event : listEvents) {
-//			System.out.println(event.getGame().getName());
-//		}
+		listEvents = eventService.getEventByIdUser(user.getIdUser());
 		return SUCCESS;
 	}
 	
@@ -58,8 +55,6 @@ public class LoginAction extends ActionSupport implements SessionAware, ModelDri
 	public String execute() {
 		System.out.println("A l'interieur de l'action LoginAction");
 		User a = userService.getUserByLogin(user.getLogin());
-		System.out.println("id : "+a.getIdUser());
-		System.out.println("mail : "+a.getEmail());
 		if (a != null) {
 			if (a.getPassword().equals(
 					CryptWithMD5.cryptWithMD5(user.getPassword()))) {
@@ -81,11 +76,11 @@ public class LoginAction extends ActionSupport implements SessionAware, ModelDri
 
 	}
 	
+	//deconnexion
 	public String deleteSession(){
 		sessionAttributes = ActionContext.getContext().getSession();
 		sessionAttributes.remove("user");
 		sessionAttributes.clear();
-		System.out.println("Login Action fin deleteSession");
 		return SUCCESS;
 	}
 	

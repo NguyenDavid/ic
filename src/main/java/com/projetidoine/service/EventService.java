@@ -17,4 +17,6 @@ public interface EventService {
 	public void deleteEvent(Long idEvent);
 	
 	public void addPlayerInEvent(User user, Long idEvent);
+	
+	public List<Event> getEventByIdUser(Long idUser);
 }

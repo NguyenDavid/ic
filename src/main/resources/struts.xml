@@ -157,8 +157,10 @@
 			<result name="success" type="redirect">/login</result>
 		</action>
 		<action name="listLocations" class="locationAction" method="listLocations">
+			<interceptor-ref name="authStack" />
+			<result name="input" type="redirect">/login</result>
 			<result name="error" type="redirect">/login</result>
-			<result name="success">/view/home.jsp</result><!-- a enleverrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr car pas utilise !!!! -->
+			<result name="success">/view/home.jsp</result>
 		</action>
 		
 		
@@ -171,6 +173,8 @@
 			<result name="success" type="redirect">/login</result>
 		</action>
 		<action name="listGames" class="gameAction" method="listGames">
+			<interceptor-ref name="authStack" />
+			<result name="input" type="redirect">/login</result>
 			<result name="error" type="redirect">/login</result>
 			<result name="success">/view/games.jsp</result>
 		</action>
@@ -186,6 +190,8 @@
 			<result name="success" type="redirect">/home</result>
 		</action>
 		<action name="listEvents" class="eventAction" method="listEvents">
+			<interceptor-ref name="authStack" />
+			<result name="input" type="redirect">/login</result>
  			<result name="error" type="redirect">/login</result>
 			<result name="success">/view/events.jsp</result>
 		</action>
