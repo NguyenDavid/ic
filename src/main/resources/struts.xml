@@ -185,7 +185,8 @@
 			<result name="success" type="redirect">/listEvents</result>
 		</action>
 		<action name="saveEvent" class="eventAction" method="saveEvent">
-<!-- 			<result name="input" type="redirect">/home</result>probleme ca ne doit pas rentrer ici..................... -->
+			<interceptor-ref name="authStack" />
+			<result name="input" type="redirect">/login</result>
 			<result name="error" type="redirect">/login</result>
 			<result name="success" type="redirect">/home</result>
 		</action>
@@ -196,6 +197,8 @@
 			<result name="success">/view/events.jsp</result>
 		</action>
 		<action name="updatePlayers" class="eventAction" method="updatePlayers">
+			<interceptor-ref name="authStack" />
+			<result name="input" type="redirect">/login</result>
 			<result name="error" type="redirect">/login</result>
 			<result name="success" type="redirect">/listEvents</result>
 		</action>
