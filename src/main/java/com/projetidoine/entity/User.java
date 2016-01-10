@@ -1,7 +1,7 @@
 package com.projetidoine.entity;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -37,8 +37,7 @@ public class User {
     //@JoinTable(name="event_user", joinColumns=@JoinColumn(name="ID_USER"), inverseJoinColumns=@JoinColumn(name="ID_EVENT"))
 	@ManyToMany(fetch = FetchType.LAZY, cascade={CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(name = "event_user", joinColumns = { @JoinColumn(name = "id_user") }, inverseJoinColumns = { @JoinColumn(name = "id_event") })
-	//private List<Event> events;
-	private Set<Event> events;
+	private List<Event> events = new ArrayList<Event>();
 	
 	public User() {
 	}
@@ -87,20 +86,12 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public Set<Event> getEvents() {
-		return events;
-	}
-
-	public void setEvents(Set<Event> events) {
-		this.events = events;
+	
+	public List<Event> getEvents(){
+		return this.events;
 	}
 	
-//	public List<Event> getEvents(){
-//		return this.events;
-//	}
-//	
-//	public void setEvents(List<Event> events){
-//		this.events = events;
-//	}
+	public void setEvents(List<Event> events){
+		this.events = events;
+	}
 }

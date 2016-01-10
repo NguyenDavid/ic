@@ -29,7 +29,7 @@ public class Game {
 	//@OneToMany(mappedBy = "game", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	@OneToMany(mappedBy = "game", fetch = FetchType.EAGER, cascade={CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true)
 	@Column(nullable = true)
-	private List<Event> events;
+	private List<Event> events = new ArrayList<Event>();
 	
 	public Game(){
 	}

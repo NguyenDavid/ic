@@ -62,13 +62,10 @@ public class UserAction extends ActionSupport implements Preparable {
 	}
 	
 	public String saveUser() {
-		System.out.println("dans saveUser");
 		user.setPassword(CryptWithMD5.cryptWithMD5(user.getPassword()));
 		userService.addUser(user);
 		sessionAttributes = ActionContext.getContext().getSession();
-		System.out.println(sessionAttributes == null);
 		sessionAttributes.put("user", user);
-		System.out.println("fin saveUser");
 		return SUCCESS;
 	}
 }

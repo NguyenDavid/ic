@@ -1,8 +1,8 @@
 package com.projetidoine.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -33,8 +33,7 @@ public class Event {
 	private int nbMaxPlayers;
 	//@ManyToMany(cascade=CascadeType.ALL, mappedBy="events")
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "events", cascade={CascadeType.PERSIST, CascadeType.MERGE})
-	//private List<User> users;
-	private Set<User> users;
+	private List<User> users = new ArrayList<User>();
 	@ManyToOne
 	@JoinColumn(name = "id_game")
 	private Game game;
@@ -87,24 +86,16 @@ public class Event {
 		this.nbMaxPlayers = nbMaxPlayers;
 	}
 	
-//	public List<User> getUsers(){
-//		return this.users;
-//	}
-//	
-//	public void setUsers(List<User> users){
-//		this.users = users;
-//	}
+	public List<User> getUsers(){
+		return this.users;
+	}
+	
+	public void setUsers(List<User> users){
+		this.users = users;
+	}
 	
 	public Game getGame() {
 		return game;
-	}
-
-	public Set<User> getUsers() {
-		return users;
-	}
-
-	public void setUsers(Set<User> users) {
-		this.users = users;
 	}
 
 	public void setGame(Game game) {

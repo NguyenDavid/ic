@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -206,7 +205,7 @@ public class EventAction extends ActionSupport implements Preparable {
 //		event.setUsers(users);
 		
 		
-		event.setUsers(new HashSet<User>());
+		//event.setUsers(new HashSet<User>());
 		event.getUsers().add(user);
 		event.setNbPlayers(event.getUsers().size());
 //		event.setUsers(new ArrayList<User>());
