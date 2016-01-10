@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -31,7 +32,7 @@ public class Event {
 	@Column(name = "NBMAXPLAYERS", nullable = false)
 	private int nbMaxPlayers;
 	//@ManyToMany(cascade=CascadeType.ALL, mappedBy="events")
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "events" )
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "events", cascade={CascadeType.PERSIST, CascadeType.MERGE})
 	//private List<User> users;
 	private Set<User> users;
 	@ManyToOne

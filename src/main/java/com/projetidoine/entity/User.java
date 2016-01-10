@@ -35,7 +35,7 @@ public class User {
 	private String password;
 	//@ManyToMany(cascade=CascadeType.ALL) 
     //@JoinTable(name="event_user", joinColumns=@JoinColumn(name="ID_USER"), inverseJoinColumns=@JoinColumn(name="ID_EVENT"))
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.LAZY, cascade={CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(name = "event_user", joinColumns = { @JoinColumn(name = "id_user") }, inverseJoinColumns = { @JoinColumn(name = "id_event") })
 	//private List<Event> events;
 	private Set<Event> events;

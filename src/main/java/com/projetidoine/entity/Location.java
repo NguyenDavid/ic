@@ -25,7 +25,8 @@ public class Location {
 	@Column(name = "ADDRESS", nullable = false)
 	private String address;
 	//@OneToMany(mappedBy="location")
-	@OneToMany(mappedBy = "location", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	//@OneToMany(mappedBy = "location", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "location", fetch = FetchType.LAZY, cascade={CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true)
 	@Column(nullable = true)
 	private List<Event> events;
 	
