@@ -53,13 +53,18 @@ public class LoginAction extends ActionSupport implements SessionAware, ModelDri
 		return SUCCESS;
 	}
 	
+	//connexion
 	@Override
 	public String execute() {
 		System.out.println("A l'interieur de l'action LoginAction");
 		User a = userService.getUserByLogin(user.getLogin());
+		System.out.println("id : "+a.getIdUser());
+		System.out.println("mail : "+a.getEmail());
 		if (a != null) {
 			if (a.getPassword().equals(
 					CryptWithMD5.cryptWithMD5(user.getPassword()))) {
+				user.setIdUser(a.getIdUser());
+				user.setEmail(a.getEmail());
 				sessionAttributes.put("user", user);
 				return SUCCESS;
 			} else {

@@ -10,8 +10,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -33,10 +31,9 @@ public class User {
 	private String email;
 	@Column(name = "PASSWORD", nullable = false)
 	private String password;
-	//@ManyToMany(cascade=CascadeType.ALL) 
-    //@JoinTable(name="event_user", joinColumns=@JoinColumn(name="ID_USER"), inverseJoinColumns=@JoinColumn(name="ID_EVENT"))
-	@ManyToMany(fetch = FetchType.LAZY, cascade={CascadeType.PERSIST, CascadeType.MERGE})
-	@JoinTable(name = "event_user", joinColumns = { @JoinColumn(name = "id_user") }, inverseJoinColumns = { @JoinColumn(name = "id_event") })
+	//@ManyToMany(cascade=CascadeType.ALL, mappedBy="users")
+	//@ManyToMany(fetch = FetchType.LAZY, mappedBy = "users", cascade={CascadeType.PERSIST, CascadeType.MERGE})
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "users", cascade=CascadeType.ALL)
 	private List<Event> events = new ArrayList<Event>();
 	
 	public User() {

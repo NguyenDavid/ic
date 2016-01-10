@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -31,8 +32,10 @@ public class Event {
 	private int nbPlayers;
 	@Column(name = "NBMAXPLAYERS", nullable = false)
 	private int nbMaxPlayers;
-	//@ManyToMany(cascade=CascadeType.ALL, mappedBy="events")
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "events", cascade={CascadeType.PERSIST, CascadeType.MERGE})
+	//@ManyToMany(cascade=CascadeType.ALL) 
+    //@JoinTable(name="event_user", joinColumns=@JoinColumn(name="ID_EVENT"), inverseJoinColumns=@JoinColumn(name="ID_USER"))
+	@ManyToMany(fetch = FetchType.LAZY, cascade={CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinTable(name = "event_user", joinColumns = { @JoinColumn(name = "id_event") }, inverseJoinColumns = { @JoinColumn(name = "id_user") })
 	private List<User> users = new ArrayList<User>();
 	@ManyToOne
 	@JoinColumn(name = "id_game")

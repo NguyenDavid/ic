@@ -171,8 +171,6 @@ public class EventAction extends ActionSupport implements Preparable {
 	}
 	
 	public String saveEvent(){
-		System.out.println("debut saveEvent");
-		
 		@SuppressWarnings("deprecation")
 		Date d = new Date(year, month, day);
 		event.setDate(d);
@@ -200,22 +198,11 @@ public class EventAction extends ActionSupport implements Preparable {
 		//ajout du createur
 		sessionAttributes = ActionContext.getContext().getSession();
 		user = (User) sessionAttributes.get("user");
-//		List<User> users = new ArrayList<User>();
-//		users.add(user);
-//		event.setUsers(users);
 		
-		
-		//event.setUsers(new HashSet<User>());
 		event.getUsers().add(user);
 		event.setNbPlayers(event.getUsers().size());
-//		event.setUsers(new ArrayList<User>());
-//		event.getUsers().add(user);
-//		user.set
-		
-//		System.out.println(event.getUsers().size());
 		
 		eventService.addEvent(event);
-		System.out.println("fin saveEvent");
 		return SUCCESS;
 	}
 	
@@ -253,7 +240,10 @@ public class EventAction extends ActionSupport implements Preparable {
 	}
 	
 	public String updatePlayers(){
+		sessionAttributes = ActionContext.getContext().getSession();
+		user = (User) sessionAttributes.get("user");
 		eventService.addPlayerInEvent(user, idEvent);
+		System.out.println("EventAction fin");
 		return SUCCESS;
 	}
 	

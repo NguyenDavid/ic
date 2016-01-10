@@ -51,7 +51,15 @@ public class EventDAOImpl implements EventDAO {
 		
 		Event e = (Event) this.sessionFactory.getCurrentSession().createQuery("from Event e where e.idEvent = "+idEvent).uniqueResult();
 		
-		if(!e.getUsers().contains(user)){
+		boolean containsUser = false;
+		for (User u : e.getUsers()) {
+			if(u.getIdUser().equals(user.getIdUser())){
+				containsUser = true;
+				break;
+			}
+		}
+		
+		if(!containsUser && e.getNbPlayers()<e.getNbMaxPlayers()){
 			System.out.println("-----AVANT-----");
 			System.out.println("Date : "+e.getDate());
 			System.out.println("Description : "+e.getDescription());
@@ -61,9 +69,6 @@ public class EventDAOImpl implements EventDAO {
 			System.out.println("NbPlayers : "+e.getNbPlayers());
 			System.out.println("size : "+e.getUsers().size());
 			
-//			List<User> users = e.getUsers();
-//			users.add(user);
-//			e.setUsers(users);
 			e.getUsers().add(user);
 			e.setNbPlayers(e.getUsers().size());
 			
@@ -77,10 +82,10 @@ public class EventDAOImpl implements EventDAO {
 			System.out.println("size : "+e.getUsers().size());
 			
 			System.out.println("eventDaoImpl : avant merge");
-			this.sessionFactory.getCurrentSession().merge(e);
+			//this.sessionFactory.getCurrentSession().merge(e);
 			System.out.println("eventDaoImpl : apres merge");
 		}
-		
+
 //		if(e != null){
 //			//prendre les autres entites liees a cet event
 //			//mettre l'event a null vis-a-vis d'eux
