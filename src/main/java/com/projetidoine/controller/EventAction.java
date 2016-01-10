@@ -30,6 +30,8 @@ public class EventAction extends ActionSupport implements Preparable {
 	private int year;
 	private int month;
 	private int day;
+	private int hour;
+	private int minute;
 	private Game game;
 	private Location location;
 	private User user = new User();
@@ -137,6 +139,22 @@ public class EventAction extends ActionSupport implements Preparable {
 		this.day = day;
 	}
 
+	public int getHour() {
+		return hour;
+	}
+
+	public void setHour(int hour) {
+		this.hour = hour;
+	}
+
+	public int getMinute() {
+		return minute;
+	}
+
+	public void setMinute(int minute) {
+		this.minute = minute;
+	}
+
 	public void prepare() throws Exception {
 		this.event = null;
 		this.idEvent = null;
@@ -170,9 +188,11 @@ public class EventAction extends ActionSupport implements Preparable {
 		this.eventService = eventService;
 	}
 	
+	@SuppressWarnings("deprecation")
 	public String saveEvent(){
-		@SuppressWarnings("deprecation")
 		Date d = new Date(year, month, day);
+		d.setHours(hour);
+		d.setMinutes(minute);
 		
 		event.setDate(d);
 		System.out.println(d.toString());

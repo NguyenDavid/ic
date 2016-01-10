@@ -68,12 +68,6 @@
 					<a class="btn btn-alert btn-default" onclick="javascript:turnUpDown()"><s:text name="button.createEvent"></s:text></a><br/><br/>
 					<div class="col-md-12">
 						<h4><label><u><s:text name="label.myEvents"></s:text> :</u></label></h4><br/><br/>
-						<%-- <c:forEach items="${listEvents}" var="event">
-							<label><s:text name="label.game"></s:text> : ${event.game.name}</label><br/>
-							<label><s:text name="label.date"></s:text> : ${event.date}</label><br/>
-							<label><s:text name="label.nbPlayers"></s:text> : ${event.nbPlayers}/${event.nbMaxPlayers}</label><br/>
-							<label><s:text name="label.location"></s:text> : ${event.location.name} (${event.location.address})</label><br/><br/>
-						</c:forEach> --%>
 						
 						<s:if test="%{listEvents.size() <= 0}">
 						<label>Pas d'événement</label>
@@ -121,6 +115,10 @@
 						<input type="text" name="month"/><br/>
 						<label><s:text name="label.day"></s:text> :</label>
 						<input type="text" name="day"/><br/>
+						<label><s:text name="label.hour"></s:text> :</label>
+						<input type="text" name="hour"/><br/>
+						<label><s:text name="label.minute"></s:text> :</label>
+						<input type="text" name="minute"/><br/>
 						<br/>
 						<hr>
 						
