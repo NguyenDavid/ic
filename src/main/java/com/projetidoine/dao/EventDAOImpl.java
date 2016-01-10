@@ -1,16 +1,11 @@
 package com.projetidoine.dao;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import com.projetidoine.entity.Event;
-import com.projetidoine.entity.Game;
-import com.projetidoine.entity.Location;
 import com.projetidoine.entity.User;
 
 @Repository
