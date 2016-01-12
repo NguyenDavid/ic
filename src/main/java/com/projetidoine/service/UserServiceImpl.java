@@ -16,17 +16,17 @@ public class UserServiceImpl implements UserService {
 		userDAO.addUser(user);
 	}
 
-	@Transactional
+	@Transactional(readOnly = true)
 	public List<User> getAllUsers() {
 		return userDAO.getAllUsers();
 	}
 
-	@Transactional
+	@Transactional(readOnly = true)
 	public User getUserByLogin(String login) {
 		return userDAO.getUserByLogin(login);
 	}
 
-	@Transactional
+	@Transactional(readOnly = true)
 	public User getUserById(Long idUser) {
 		return userDAO.getUserById(idUser);
 	}
@@ -45,12 +45,12 @@ public class UserServiceImpl implements UserService {
 		this.userDAO = userDAO;
 	}
 
-	@Transactional
+	@Transactional(readOnly = true)
 	public List<User> getOtherUsers(String nom) {
 		return userDAO.getOtherUsers(nom);
 	}
 	
-	@Transactional
+	@Transactional(readOnly = true)
 	public List<Event> getEventsByUserId(Long id){
 		return userDAO.getEventsByUserId(id);
 	}

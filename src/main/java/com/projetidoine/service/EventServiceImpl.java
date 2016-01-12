@@ -16,12 +16,12 @@ public class EventServiceImpl implements EventService {
 		eventDAO.addEvent(event);
 	}
 	
-	@Transactional
+	@Transactional(readOnly = true)
 	public List<Event> getAllEvents(){
 		return eventDAO.getAllEvents();
 	}
 	
-	@Transactional
+	@Transactional(readOnly = true)
 	public Event getEventById(Long idEvent){
 		return eventDAO.getEventById(idEvent);
 	}
@@ -45,7 +45,7 @@ public class EventServiceImpl implements EventService {
 		this.eventDAO.addPlayerInEvent(user, idEvent);
 	}
 	
-	@Transactional
+	@Transactional(readOnly = true)
 	public List<Event> getEventByIdUser(Long idUser){
 		return this.eventDAO.getEventByIdUser(idUser);
 	}

@@ -15,12 +15,12 @@ public class LocationServiceImpl implements LocationService {
 		locationDAO.addLocation(location);
 	}
 
-	@Transactional
+	@Transactional(readOnly = true)
 	public List<Location> getAllLocations() {
 		return locationDAO.getAllLocations();
 	}
 
-	@Transactional
+	@Transactional(readOnly = true)
 	public Location getLocationById(Long idLocation) {
 		return locationDAO.getLocationById(idLocation);
 	}

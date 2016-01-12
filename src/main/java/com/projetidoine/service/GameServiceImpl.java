@@ -16,12 +16,12 @@ public class GameServiceImpl implements GameService {
 		gameDAO.addGame(game);
 	}
 
-	@Transactional
+	@Transactional(readOnly = true)
 	public List<Game> getAllGames() {
 		return gameDAO.getAllGames();
 	}
 
-	@Transactional
+	@Transactional(readOnly = true)
 	public Game getGameById(Long idGame) {
 		return gameDAO.getGameById(idGame);
 	}
@@ -40,7 +40,7 @@ public class GameServiceImpl implements GameService {
 		this.gameDAO = gameDAO;
 	}
 	
-	@Transactional
+	@Transactional(readOnly = true)
 	public List<Event> getEventsByGameId(Long idGame){
 		return this.gameDAO.getEventsByGameId(idGame);
 	}
