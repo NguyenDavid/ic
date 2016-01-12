@@ -70,7 +70,7 @@
 						<h4><label><u><s:text name="label.myEvents"></s:text> :</u></label></h4><br/><br/>
 						
 						<s:if test="%{listEvents.size() <= 0}">
-						<label>Pas d'événement</label>
+						<label><s:text name="label.notEvent"></s:text></label>
 						</s:if>
 						<s:else>
 							<s:iterator value="listEvents">
