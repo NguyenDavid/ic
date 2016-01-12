@@ -74,10 +74,14 @@
 						</s:if>
 						<s:else>
 							<s:iterator value="listEvents">
-								<label><s:text name="label.game"></s:text> : <s:property value="game.name"/></label><br/>
-								<label><s:text name="label.date"></s:text> : <s:property value="date"/></label><br/>
-								<label><s:text name="label.nbPlayers"></s:text> : <s:property value="nbPlayers"/>/<s:property value="nbMaxPlayers"/></label><br/>
-								<label><s:text name="label.location"></s:text> : <s:property value="location.name"/> (<s:property value="location.address"/>)</label><br/><br/>
+								<s:form method="post" action="deleteEvent">
+									<label><s:text name="label.game"></s:text> : <s:property value="game.name"/></label><br/>
+									<label><s:text name="label.date"></s:text> : <s:property value="date"/></label><br/>
+									<label><s:text name="label.nbPlayers"></s:text> : <s:property value="nbPlayers"/>/<s:property value="nbMaxPlayers"/></label><br/>
+									<label><s:text name="label.location"></s:text> : <s:property value="location.name"/> (<s:property value="location.address"/>)</label><br/><br/>
+									<input type="checkbox" name="idEvent" value="<s:property value="idEvent"/>" onclick="this.form.submit();"> <label><s:text name="label.delete"></s:text></label>
+								</s:form>
+								<br/><br/><br/>
 							</s:iterator>
 						</s:else>
 					</div>

@@ -1,7 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,10 +24,10 @@
 					</div>
 					<div class="col-md-2">
 						<a href="languageLogin.action?request_locale=en">
-							<img src='<c:url value="/ressources/assets/en.gif"/>' alt="En"/> 
+							<img src='<s:url value="/ressources/assets/en.gif"/>' alt="En"/> 
 						</a> | 
 						<a href="languageLogin.action?request_locale=fr">
-							<img src='<c:url value="/ressources/assets/fr.gif"/>' alt="Fr"/> 
+							<img src='<s:url value="/ressources/assets/fr.gif"/>' alt="Fr"/> 
 						</a>
 					</div>
     			</div>
@@ -50,7 +49,7 @@
 						<br/>
 						<s:submit cssClass="btn btn-success" value="%{getText('button.login')}"></s:submit>
 						<br/><br/>
-						<a href='<c:url value="/register"/>'><s:text name="a.register"></s:text></a>
+						<a href='<s:url value="/register"/>'><s:text name="a.register"></s:text></a>
 					</s:form>
 				</div>
 			</div>

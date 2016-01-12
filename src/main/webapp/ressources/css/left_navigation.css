@@ -1,0 +1,7 @@
+div {
+	display: block;
+}
+
+.left_label:hover + div {
+	display: block;
+}

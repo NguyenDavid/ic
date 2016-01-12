@@ -202,6 +202,12 @@
 			<result name="error" type="redirect">/login</result>
 			<result name="success" type="redirect">/listEvents</result>
 		</action>
+		<action name="deleteEvent" class="eventAction" method="deleteEvent">
+			<interceptor-ref name="authStack" />
+			<result name="input" type="redirect">/login</result>
+			<result name="error" type="redirect">/login</result>
+			<result name="success" type="redirect">/listEvents</result>
+		</action>
 	</package>
 
 </struts>

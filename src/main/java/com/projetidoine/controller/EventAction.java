@@ -270,4 +270,11 @@ public class EventAction extends ActionSupport implements Preparable {
 	public void setSession(Map<String, Object> sessionAttributes) {
 		this.sessionAttributes = sessionAttributes;
 	}
+	
+	public String deleteEvent(){
+		System.out.println("EventAction : deleteEvent");
+		eventService.deleteEvent(idEvent);
+		System.out.println("EventAction fin");
+		return SUCCESS;
+	}
 }
