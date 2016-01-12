@@ -14,13 +14,13 @@
 	<div class="col-md-12">
 		<hr>
 		<font color="white">
-		<label><u><s:text name="label.members"></s:text> :</u></label><br/>
-		<%-- <c:forEach items="${listUsers}" var="user">
-			<label class="left_label">${user.login}</label><br/>
-		</c:forEach> --%>
-		
+		<label><u><s:text name="label.members"></s:text> :</u></label><br/>		
 		<s:iterator value="listUsers">
-			<label class="left_label"><s:property value="login"/></label><br/>
+			<label class="left_label"><s:property value="login"/></label>
+			<s:if test="idUser == user.IdUser">
+				<label>✔</label>
+			</s:if>
+			<br/>
 		</s:iterator>
 		</font>
 	</div>

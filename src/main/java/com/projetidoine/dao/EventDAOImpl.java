@@ -74,10 +74,6 @@ public class EventDAOImpl implements EventDAO {
 			System.out.println("NbMaxPlayers : "+e.getNbMaxPlayers());
 			System.out.println("NbPlayers : "+e.getNbPlayers());
 			System.out.println("size : "+e.getUsers().size());
-			
-			System.out.println("eventDaoImpl : avant merge");
-			//this.sessionFactory.getCurrentSession().merge(e);
-			System.out.println("eventDaoImpl : apres merge");
 		}
 	}
 	
@@ -93,7 +89,7 @@ public class EventDAOImpl implements EventDAO {
 	@SuppressWarnings("unchecked")
 	public List<Event> getOtherEventsByIdUser(Long idUser){
 		List<Event> listEvents = new ArrayList<Event>();
-		Query query = this.sessionFactory.getCurrentSession().createQuery("select e from User u, Event e where u.idUser = :idUser and e not in elements(u.events) and e.nbPlayers <> e.nbMaxPlayers");
+		Query query = this.sessionFactory.getCurrentSession().createQuery("select e from User u, Event e where u.idUser = :idUser and e not in elements(u.events)");
 		query.setParameter("idUser", idUser);
 		listEvents = query.list();
 		return listEvents;

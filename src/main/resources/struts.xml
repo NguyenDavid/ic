@@ -206,7 +206,7 @@
 			<interceptor-ref name="authStack" />
 			<result name="input" type="redirect">/login</result>
 			<result name="error" type="redirect">/login</result>
-			<result name="success" type="redirect">/listEvents</result>
+			<result name="success" type="redirect">/home</result>
 		</action>
 	</package>
 

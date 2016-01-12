@@ -48,24 +48,6 @@
 				
 				<div class="col-md-12">
 					<h4><label><u><s:text name="label.events"></s:text> :</u></label></h4><br/><br/>
-					<%-- <c:forEach items="${listEvents}" var="event">
-						<div class="panel panel-back noti-box">
-						<br/>
-						<div class="row">
-							<div class="col-md-1">
-							</div>
-							<div class="col-md-11">
-								<s:form method="post" action="updatePlayers">
-									<label><s:text name="label.game"></s:text> : ${event.game.name}</label><br/>
-									<label><s:text name="label.date"></s:text> : ${event.date}</label><br/>
-									<label><s:text name="label.nbPlayers"></s:text> : ${event.nbPlayers}/${event.nbMaxPlayers}</label><br/>
-									<label><s:text name="label.location"></s:text> : ${event.location.name} (${event.location.address})</label><br/><br/>
-									<input type="checkbox" name="idEvent" value="${event.idEvent}" onclick="this.form.submit();"> <label><s:text name="label.join"></s:text></label> 
-								</s:form>
-							</div>
-						</div>
-						</div>
-					</c:forEach> --%>
 					
 					<s:if test="%{listEvents.size() <= 0}">
 						<label><s:text name="label.notEvent"></s:text></label>
@@ -83,7 +65,12 @@
 										<label><s:text name="label.date"></s:text> : <s:property value="date"/></label><br/>
 										<label><s:text name="label.nbPlayers"></s:text> : <s:property value="nbPlayers"/>/<s:property value="nbMaxPlayers"/></label><br/>
 										<label><s:text name="label.location"></s:text> : <s:property value="location.name"/> (<s:property value="location.address"/>)</label><br/><br/>
-										<input type="checkbox" name="idEvent" value="<s:property value="idEvent"/>" onclick="this.form.submit();"> <label><s:text name="label.join"></s:text></label> 
+										<s:if test="nbPlayers == nbMaxPlayers">
+											<input disabled type="checkbox" name="idEvent" value="<s:property value="idEvent"/>" onclick="this.form.submit();"> <label><s:text name="label.join"></s:text></label>
+										</s:if>
+										<s:else>
+											<input type="checkbox" name="idEvent" value="<s:property value="idEvent"/>" onclick="this.form.submit();"> <label><s:text name="label.join"></s:text></label>
+										</s:else> 
 									</s:form>
 								</div>
 							</div>
