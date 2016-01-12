@@ -238,7 +238,7 @@ public class EventAction extends ActionSupport implements Preparable {
 	public String listEvents(){
 		sessionAttributes = ActionContext.getContext().getSession();
 		user = (User) sessionAttributes.get("user");
-		listEvents = eventService.getAllEvents();
+		listEvents = eventService.getOtherEventsByIdUser(user.getIdUser());
 		listUsers = userService.getAllUsers();
 		Collections.sort(listEvents, new Comparator<Event>() {
 		    public int compare(Event e1, Event e2) {		    	

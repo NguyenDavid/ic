@@ -89,4 +89,13 @@ public class EventDAOImpl implements EventDAO {
 		listEvents = query.list();
 		return listEvents;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Event> getOtherEventsByIdUser(Long idUser){
+		List<Event> listEvents = new ArrayList<Event>();
+		Query query = this.sessionFactory.getCurrentSession().createQuery("select e from User u, Event e where u.idUser = :idUser and e not in elements(u.events)");
+		query.setParameter("idUser", idUser);
+		listEvents = query.list();
+		return listEvents;
+	}
 }

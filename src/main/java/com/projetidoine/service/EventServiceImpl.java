@@ -49,4 +49,9 @@ public class EventServiceImpl implements EventService {
 	public List<Event> getEventByIdUser(Long idUser){
 		return this.eventDAO.getEventByIdUser(idUser);
 	}
+	
+	@Transactional(readOnly = true)
+	public List<Event> getOtherEventsByIdUser(Long idUser){
+		return this.eventDAO.getOtherEventsByIdUser(idUser);
+	}
 }
